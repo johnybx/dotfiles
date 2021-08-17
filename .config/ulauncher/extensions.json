@@ -1,0 +1,79 @@
+{
+    "com.github.ulauncher.ulauncher-timer": {
+        "id": "com.github.ulauncher.ulauncher-timer",
+        "url": "https://github.com/ulauncher/ulauncher-timer",
+        "updated_at": "2020-05-15T17:56:16.800388",
+        "last_commit": "1267b5997ca797b85136cf325bcf4a51e2f7adf7",
+        "last_commit_time": "2019-09-25T06:44:20"
+    },
+    "com.github.yegorf1.ulauncher-translator": {
+        "url": "https://github.com/yegorf1/ulauncher-translator",
+        "last_commit_time": "2018-08-26T23:21:25Z",
+        "id": "com.github.yegorf1.ulauncher-translator",
+        "updated_at": "2019-04-30T21:11:05.867100",
+        "last_commit": "c80a4bc3ecdbd559f79b08c3b7c118663610f5b0"
+    },
+    "com.github.rolfkoenders.ulauncher-myip": {
+        "url": "https://github.com/RolfKoenders/ulauncher-myip",
+        "last_commit_time": "2017-12-06T23:01:27Z",
+        "last_commit": "f40929056c53d7bd866e3825b9b98b4955f82121",
+        "id": "com.github.rolfkoenders.ulauncher-myip",
+        "updated_at": "2019-04-30T21:37:32.120191"
+    },
+    "com.github.brpaz.ulauncher-decode": {
+        "url": "https://github.com/brpaz/ulauncher-decode",
+        "last_commit_time": "2018-09-20T18:50:39Z",
+        "last_commit": "94c6eee64e7de8913c5251e6c50739265a32923a",
+        "id": "com.github.brpaz.ulauncher-decode",
+        "updated_at": "2019-04-30T22:00:09.020716"
+    },
+    "com.github.safaariman.ulauncher-jira": {
+        "id": "com.github.safaariman.ulauncher-jira",
+        "url": "https://github.com/safaariman/ulauncher-jira",
+        "updated_at": "2020-05-22T12:25:21.849615",
+        "last_commit": "2c11f285a2e2f4cd9b4f83a3a212958d50b2985b",
+        "last_commit_time": "2019-08-27T07:09:06"
+    },
+    "com.github.manulaiko.ulauncher-openinbrowser": {
+        "url": "https://github.com/manulaiko/ulauncher-openInBrowser",
+        "last_commit_time": "2017-11-12T13:58:16Z",
+        "last_commit": "6c98158a341ae4264975df3a906fe897746b196f",
+        "id": "com.github.manulaiko.ulauncher-openinbrowser",
+        "updated_at": "2019-04-30T21:37:12.522388"
+    },
+    "com.github.beajeanm.ulauncher-windows-switcher": {
+        "url": "https://github.com/beajeanm/ulauncher-windows-switcher",
+        "last_commit_time": "2018-10-22T23:04:43Z",
+        "last_commit": "448b2c9fb55ae401dc955846c3449c8830c6fe9c",
+        "id": "com.github.beajeanm.ulauncher-windows-switcher",
+        "updated_at": "2019-05-01T19:40:44.669097"
+    },
+    "com.github.seqizz.ulauncher-tmux-attach": {
+        "id": "com.github.seqizz.ulauncher-tmux-attach",
+        "url": "https://github.com/seqizz/ulauncher-tmux-attach",
+        "updated_at": "2020-05-15T17:56:27.974618",
+        "last_commit": "4af0a94812c8aa0c499e1d1066bc6e53beb98613",
+        "last_commit_time": "2019-07-13T20:00:03"
+    },
+    "com.github.yannishuber.pass-ulauncher": {
+        "id": "com.github.yannishuber.pass-ulauncher",
+        "url": "https://github.com/yannishuber/pass-ulauncher",
+        "updated_at": "2020-05-22T12:25:54.755190",
+        "last_commit": "25160ce85e731cf40e30ca1fe354b29c1fe6e494",
+        "last_commit_time": "2019-05-28T05:27:22"
+    },
+    "com.github.brpaz.ulauncher-pwgen": {
+        "id": "com.github.brpaz.ulauncher-pwgen",
+        "url": "https://github.com/brpaz/ulauncher-pwgen",
+        "updated_at": "2020-05-22T12:26:23.584199",
+        "last_commit": "4414d3a57901b3227164cac30f8bafc47e2194ab",
+        "last_commit_time": "2019-12-03T20:04:50"
+    },
+    "com.github.ulauncher.ulauncher-emoji": {
+        "id": "com.github.ulauncher.ulauncher-emoji",
+        "url": "https://github.com/Ulauncher/ulauncher-emoji",
+        "updated_at": "2020-05-22T12:26:57.492999",
+        "last_commit": "4734455e255a401ff7507192386ed62361cb3748",
+        "last_commit_time": "2019-05-20T18:00:00"
+    }
+}

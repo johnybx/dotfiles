@@ -1,0 +1,12 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	chp = cherry-pick
+	l = pull
+	p = push
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main

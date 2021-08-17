@@ -1,0 +1,94 @@
+# yamllint disable rule:braces rule:commas rule:colons rule:comments-indentation
+env:
+  WINIT_X11_SCALE_FACTOR: "1.0"
+  TERM: screen-256color
+
+window:
+  # Blank space added around the window in pixels
+  padding:
+    x: 0
+    y: 0
+
+  # Spread additional padding evenly around the terminal content
+  dynamic_padding: true
+
+  # Disable border and title bar
+  decorations: none
+# https://github.com/ryanoasis/nerd-fonts
+font:
+  normal:
+    family: SauceCodePro Nerd Font
+    style: Regular
+  bold:
+    family: SauceCodePro Nerd Font
+    style: Bold
+  italic:
+    family: SauceCodePro Nerd Font
+    style: Italic
+
+  # Point size of the font
+  size: 10
+
+# Colors (One Dark); if dim colors are not set, they will be calculated
+# automatically based on the `normal` colors
+colors:
+  primary:
+    background: "#24272e"
+    foreground: "#abb2bf"
+  cursor:
+    text: "#0b0b0b" # black
+    cursor: "#528bff"
+  selection:
+    text: "#abb2bf"
+    background: "#3e4452"
+  normal:
+    black: "#24272e"
+    red: "#e06c75"
+    green: "#98c379"
+    yellow: "#e5c07b"
+    blue: "#61afef"
+    magenta: "#c678dd"
+    cyan: "#56b6c2"
+    white: "#abb2bf"
+  bright:
+    black: "#3e4452"
+    red: "#be5046"
+    green: "#98c379"
+    yellow: "#d19a66"
+    blue: "#61afef"
+    magenta: "#c678dd"
+    cyan: "#56b6c2"
+    white: "#5c6370"
+
+background_opacity: 0.80
+cursor:
+  style: block
+
+mouse:
+  hide_when_typing: true
+  hints:
+    # These are the modifiers that need to be held down for opening URLs
+    # when clicking
+    modifiers: Shift
+
+live_config_reload: true
+selection:
+  # When set to `true`, selected text will be copied to the primary
+  # clipboard.
+  save_to_clipboard: true
+
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+    #  - { key: Left,     mods: Alt,           chars: "\x1bOH",   mode: AppCursor }
+    #  - { key: Right,    mods: Alt,           chars: "\x1bOF",   mode: AppCursor }
+  - { key: Return, mods: Control, chars: "\x1b[13;5u" }
+# allow shift+Middle to paste (by default only without shift) # Disabled in favor of tmux which does this by default
+# mouse_bindings:
+#   - { mouse: Middle, mods: Shift, action: Paste }
+
