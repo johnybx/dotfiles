@@ -2,13 +2,11 @@ local utils = require("utils")
 local cmd = vim.cmd
 
 utils.opt("o", "termguicolors", true)
+
 -- vim.g.onedark_style = 'warm'
-
-cmd("colorscheme onedark")
-
--- Explicitly set these for yaml and json because some themes break syntax highlighting for example nord + yaml
-cmd("autocmd FileType yaml colorscheme onedark")
-cmd("autocmd FileType json colorscheme onedark")
+vim.g.nightfox_italic_comments = true
+-- vim.g.nightfox_style = "nordfox"
+cmd("colorscheme nightfox")
 
 -- Nice undercurl
 vim.api.nvim_exec(

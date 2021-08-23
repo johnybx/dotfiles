@@ -34,7 +34,7 @@ return require("packer").startup(function()
 	use({ "pechorin/any-jump.vim" })
 	use({ "norcalli/nvim-colorizer.lua" })
 	use({ "lukas-reineke/indent-blankline.nvim" })
-	use({ "https://github.com/windwp/nvim-autopairs" })
+	use({ "windwp/nvim-autopairs" })
 	use({ "moll/vim-bbye" }) -- better delete buffer
 	use({ "alvarosevilla95/luatab.nvim", requires = "kyazdani42/nvim-web-devicons" })
 	use({
@@ -54,7 +54,7 @@ return require("packer").startup(function()
 	use({ "junegunn/vim-easy-align" })
 
 	-- Symbols Outline
-	use({ "https://github.com/simrat39/symbols-outline.nvim" })
+	use({ "simrat39/symbols-outline.nvim" })
 
 	-- Startify
 	use({ "mhinz/vim-startify" })
@@ -104,6 +104,8 @@ return require("packer").startup(function()
 	use({ "navarasu/onedark.nvim" })
 	use({ "arcticicestudio/nord-vim" })
 	use({ "folke/tokyonight.nvim" })
+	use({ "EdenEast/nightfox.nvim" })
+	-- use({ "patstockwell/vim-monokai-tasty" })
 
 	-- Icons
 	use({ "ryanoasis/vim-devicons" })
