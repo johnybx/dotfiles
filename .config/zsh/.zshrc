@@ -176,7 +176,10 @@ fi
 
 # SSH in Kitty
 if [[ $TERM = "xterm-kitty" ]]; then
-    alias ssh="kitty +kitten ssh"
+    # https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
+    # There is so many things which can go wrong with this (mainly second level ssh)
+    # alias ssh="kitty +kitten ssh"
+    alias ssh="TERM=xterm-256color ssh"
 fi
 
 # Aliases
