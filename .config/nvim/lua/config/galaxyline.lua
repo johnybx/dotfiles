@@ -203,6 +203,12 @@ local lsp_at_least_length = 60
 -- The separators are there left so that I know there is something but hidden because
 -- of width
 
+-- Set default highligh to colors.bg otherwise there will be different color between split
+-- windows
+
+vim.cmd("hi Statusline guibg=" .. colors.bg)
+vim.cmd("hi StatuslineNC guibg=" .. colors.bg)
+
 gls.left = {
 	{
 		ViModeCustom = {
@@ -489,7 +495,7 @@ gls.short_line_left = {
 				local fname, ext = vim.fn.expand("%:t"), vim.fn.expand("%:e")
 				local icon, iconhl = devicons.get_icon(fname, ext)
 				if icon == nil then
-					vim.cmd("highlight GalaxyFileIcon guifg=" .. colors.inactive .. " guibg=" .. colors.bg)
+					vim.cmd("highlight GalaxyFileIconInactive guifg=" .. colors.inactive .. " guibg=" .. colors.bg)
 					return ""
 				end
 				local fg = vim.fn.synIDattr(vim.fn.hlID(iconhl), "fg")
