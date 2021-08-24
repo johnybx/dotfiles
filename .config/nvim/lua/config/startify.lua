@@ -22,4 +22,4 @@ vim.g.startify_bookmarks = {
 	{ zs = "~/.config/zsh/.zshrc" },
 }
 
-vim.g.startify_enable_special = 0
+vim.g.startify_enable_special = 1
