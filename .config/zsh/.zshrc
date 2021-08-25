@@ -151,7 +151,10 @@ setopt   AUTO_PARAM_SLASH  # If completed parameter is a directory, add a traili
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry
 setopt   GLOB_COMPLETE     # Show completions for glob instead of expanding
 # zstyle ':completion::complete:*' gain-privileges 1
-#
+# https://github.com/docker/cli/issues/2625
+# https://github.com/docker/cli/issues/993
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # History search
 bindkey "^R" history-incremental-pattern-search-backward
@@ -168,10 +171,10 @@ bindkey "^[[B" history-beginning-search-forward-end
 if [ -f ~/.ssh/agent.env ] ; then
     . ~/.ssh/agent.env > /dev/null
     if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
-        eval `ssh-agent | tee ~/.ssh/agent.env`
+        eval `ssh-agent | tee ~/.ssh/agent.env` > /dev/null 2>&1
     fi
 else
-    eval `ssh-agent | tee ~/.ssh/agent.env`
+    eval `ssh-agent | tee ~/.ssh/agent.env` > /dev/null 2>&1
 fi
 
 # SSH in Kitty
