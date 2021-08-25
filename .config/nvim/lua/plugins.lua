@@ -103,8 +103,9 @@ return require("packer").startup(function()
 	-- Themes
 	use({ "navarasu/onedark.nvim" })
 	use({ "arcticicestudio/nord-vim" })
-	use({ "folke/tokyonight.nvim" })
 	use({ "EdenEast/nightfox.nvim" })
+	-- use({ "Pocco81/Catppuccino.nvim" })
+	-- use({ "folke/tokyonight.nvim" })
 	-- use({ "patstockwell/vim-monokai-tasty" })
 
 	-- Icons

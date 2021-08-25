@@ -1,12 +1,19 @@
 local utils = require("utils")
-local cmd = vim.cmd
 
 utils.opt("o", "termguicolors", true)
 
 -- vim.g.onedark_style = 'warm'
-vim.g.nightfox_italic_comments = true
+-- vim.g.nightfox_italic_comments = true
 -- vim.g.nightfox_style = "nordfox"
-cmd("colorscheme nightfox")
+-- cmd("colorscheme nightfox")
+local nightfox = require("nightfox")
+nightfox.setup({
+	fox = "nightfox",
+	styles = {
+		comments = "italic",
+	},
+})
+nightfox.load()
 
 -- Nice undercurl
 vim.api.nvim_exec(
