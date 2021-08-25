@@ -1,7 +1,7 @@
 require("config.colorscheme")
 require("config.compe")
 require("config.treesitter")
-require("config.saga")
+require("config.lspsaga")
 require("config.tree")
 require("config.todo")
 require("config.neoscroll")
