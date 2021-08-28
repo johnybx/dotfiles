@@ -1,5 +1,6 @@
 require("config.colorscheme")
-require("config.compe")
+-- require("config.compe")
+require("config.cmp")
 require("config.treesitter")
 require("config.lspsaga")
 require("config.tree")

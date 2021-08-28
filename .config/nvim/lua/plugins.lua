@@ -8,7 +8,17 @@ return require("packer").startup(function()
 	})
 	-- LSP and completion
 	use({ "neovim/nvim-lspconfig" })
-	use({ "hrsh7th/nvim-compe" })
+	-- use({ "hrsh7th/nvim-compe" })
+	-- CMP plugings
+	use({ "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/cmp-buffer" })
+	use({ "hrsh7th/cmp-nvim-lua" })
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-path" })
+	use({ "hrsh7th/cmp-calc" })
+	use({ "hrsh7th/cmp-vsnip" })
+	use({ "quangnguyen30192/cmp-nvim-ultisnips" })
+	--- CMP plugins
 	use({ "p00f/nvim-ts-rainbow" })
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
@@ -102,9 +112,9 @@ return require("packer").startup(function()
 
 	-- Themes
 	use({ "navarasu/onedark.nvim" })
-	use({ "arcticicestudio/nord-vim" })
 	use({ "EdenEast/nightfox.nvim" })
-	-- use({ "Pocco81/Catppuccino.nvim" })
+	use({ "Pocco81/Catppuccino.nvim" })
+	-- use({ "arcticicestudio/nord-vim" })
 	-- use({ "folke/tokyonight.nvim" })
 	-- use({ "patstockwell/vim-monokai-tasty" })
 
@@ -117,7 +127,7 @@ return require("packer").startup(function()
 	use({ "kristijanhusak/vim-dadbod-completion" })
 
 	-- TODO:
-	-- https://github.com/easymotion/vim-easymotion --> move quickly
+	-- https://github.com/ggandor/lightspeed.nvim --> move quickly
 	-- https://awesomeopensource.com/project/wellle/targets.vim --> move with f,F,t,T easier
 	--
 	--

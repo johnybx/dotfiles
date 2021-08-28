@@ -1,9 +1,15 @@
 local function get()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities.textDocument.completion.completionItem.snippetSupport = true
-	capabilities.textDocument.completion.completionItem.resolveSupport = {
-		properties = { "documentation", "detail", "additionalTextEdits" },
-	}
+
+	local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+	if status then
+		capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+	else
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
+		capabilities.textDocument.completion.completionItem.resolveSupport = {
+			properties = { "documentation", "detail", "additionalTextEdits" },
+		}
+	end
 
 	-- Code actions
 	capabilities.textDocument.codeAction = {
