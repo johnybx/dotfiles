@@ -48,7 +48,7 @@ cmp.setup({
 		["<C-q>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
+			select = false,
 		}),
 		["<Tab>"] = cmp.mapping(tab_complete, { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(s_tab_complete, { "i", "s" }),
