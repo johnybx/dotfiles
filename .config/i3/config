@@ -69,7 +69,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ #increas
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Sreen brightness controls
+# Screen brightness controls
 bindsym XF86MonBrightnessUp exec sudo /home/jan/.config/i3/scripts/brightness.py --inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec sudo /home/jan/.config/i3/scripts/brightness.py --dec 10 # decrease screen brightness
 
