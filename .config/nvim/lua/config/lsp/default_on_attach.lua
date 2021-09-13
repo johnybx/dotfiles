@@ -6,7 +6,7 @@ local formatting_setup = require("config.lsp.formatting").setup
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	signature_on_attach()
+	signature_on_attach(bufnr)
 	highlight(client)
 	set_null_ls_formatting(client, bufnr)
 	formatting_setup(client)

@@ -29,7 +29,6 @@ return require("packer").startup(function()
 	use({ "hrsh7th/vim-vsnip" })
 	use({ "SirVer/ultisnips", requires = "honza/vim-snippets" })
 	use({ "ray-x/lsp_signature.nvim" })
-	use({ "glepnir/lspsaga.nvim" })
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } })
 
 	-- Editor
@@ -59,6 +58,10 @@ return require("packer").startup(function()
 		end,
 	})
 	use({ "onsails/lspkind-nvim" })
+	use({ "kosayoda/nvim-lightbulb" })
+
+	-- Float term
+	use({ "akinsho/toggleterm.nvim" })
 
 	-- Easy align
 	use({ "junegunn/vim-easy-align" })
@@ -129,6 +132,7 @@ return require("packer").startup(function()
 	-- TODO:
 	-- https://github.com/ggandor/lightspeed.nvim --> move quickly
 	-- https://awesomeopensource.com/project/wellle/targets.vim --> move with f,F,t,T easier
+	-- https://github.com/mfussenegger/nvim-dap --> Debug Adapter Protocol
 	--
 	--
 	-- https://github.com/itchyny/calendar.vim

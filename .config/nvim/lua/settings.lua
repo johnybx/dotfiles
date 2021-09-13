@@ -26,6 +26,10 @@ utils.opt("w", "relativenumber", true)
 utils.opt("o", "clipboard", "unnamed,unnamedplus")
 utils.opt("o", "completeopt", "menuone,noselect")
 
+-- fix for SQLComplete: The debxt plugin must be loaded for dynamic SQL completion
+-- vim.g.omni_sql_default_compl_type = "syntax"
+vim.g.omni_sql_no_default_maps = 1
+
 cmd("autocmd FileType * set shortmess+=c") --- " Don't pass messages to |ins-completion-menu|
 cmd("autocmd FileType * set formatoptions-=cro") --- " Stop newline continuation of comments
 

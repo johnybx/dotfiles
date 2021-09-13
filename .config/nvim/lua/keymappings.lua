@@ -5,10 +5,6 @@ utils.map("c", "w!!", "w !sudo tee > /dev/null %")
 utils.map("n", "<A-x>", ":NvimTreeToggle<CR>")
 utils.map("n", "<A-z>", ":NvimTreeFindFile<CR>")
 
--- Floating terminal
-utils.map("n", "<A-d>", ":Lspsaga open_floaterm<CR>")
-utils.map("t", "<A-d>", "<C-\\><C-n>:Lspsaga close_floaterm<CR>")
-
 -- Better window movement
 utils.map("n", "<A-h>", "<C-w>h", { silent = true })
 utils.map("n", "<A-j>", "<C-w>j", { silent = true })
@@ -66,27 +62,72 @@ utils.map("n", "<leader>fs", "<cmd>lua require('telescope.builtin').git_status()
 utils.map("n", "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<CR>", { silent = true })
 utils.map("n", "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", { silent = true })
 
+-- ¯\_(ツ)_/¯
+utils.map("i", ",shrug", "¯\\_(ツ)_/¯", { silent = true })
+
 -- LSP
-utils.map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", { silent = true })
-utils.map("n", "gd", "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", { silent = true })
+-- Border styl - not really mapping but diagnostics need also style here anyway so at least it is
+-- in one place.
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = "rounded",
+})
+--------------------
+utils.map("n", "gD", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", { silent = true })
+utils.map(
+	"n",
+	"gd",
+	"<cmd>lua require('config.lsp.preview_definition').open('textDocument/definition', 'LSP Definitions')<CR>",
+	{ silent = true }
+)
 utils.map("n", "<leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", { silent = true })
 utils.map("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", { silent = true })
-utils.map("n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", { silent = true })
-utils.map("n", "<C-Space>", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", { silent = true })
-utils.map("n", "<leader>ca", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", { silent = true })
-utils.map("v", "<leader>ca", "<cmd>'<,'>lua require('lspsaga.codeaction').range_code_action()<CR>", { silent = true })
-utils.map("i", "<C-.>", "<Esc><cmd>lua require('lspsaga.codeaction').code_action()<CR>", { silent = true, expr = true })
-utils.map("n", "<C-.>", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", { silent = true })
-utils.map("n", "<leader>cr", "<cmd>lua require('lspsaga.rename').rename()<CR>", { silent = true })
+utils.map(
+	"n",
+	"<leader>ca",
+	"<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
+	{ silent = true }
+)
+-- TODO: using lua require current visual range as parameter.
+utils.map("v", "<leader>ca", "<cmd>Telescope lsp_range_code_actions themes=get_cursor<CR>", { silent = true })
+utils.map(
+	"i",
+	"<C-.>",
+	"<Esc><cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
+	{ silent = true, expr = true }
+)
+utils.map(
+	"n",
+	"<C-.>",
+	"<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
+	{ silent = true }
+)
+utils.map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
 utils.map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })
-utils.map("v", "<leader>cf", "<cmd>'<.'>lua vim.lsp.buf.range_formatting()<CR>", { silent = true })
-utils.map("n", "K", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", { silent = true })
-utils.map("n", "gs", "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", { silent = true })
-utils.map("n", "[d", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", { silent = true })
-utils.map("n", "]d", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", { silent = true })
-utils.map("n", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", { silent = true })
-utils.map("n", "<C-b>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", { silent = true })
-utils.map("n", "<leader>cd", "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", { silent = true })
+utils.map("v", "<leader>cf", "<cmd>'<,'>lua vim.lsp.buf.range_formatting()<CR>", { silent = true })
+utils.map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { silent = true })
+utils.map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { silent = true })
+utils.map(
+	"n",
+	"[d",
+	"<cmd>lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>",
+	{ silent = true }
+)
+utils.map(
+	"n",
+	"]d",
+	"<cmd>lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>",
+	{ silent = true }
+)
+utils.map(
+	"n",
+	"<leader>cd",
+	"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>",
+	{ silent = true }
+)
 
 -- kommentary
 vim.g.kommentary_create_default_mappings = false
@@ -95,22 +136,28 @@ utils.map("n", "gc", "<Plug>kommentary_motion_default", { noremap = false })
 utils.map("v", "<C-_>", "<Plug>kommentary_visual_default<C-c>", { noremap = false })
 
 -- Trouble
-utils.map("n", "<leader>xx", "<cmd>Trouble<cr>", { silent = true })
-utils.map("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", { silent = true })
-utils.map("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<cr>", { silent = true })
-utils.map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { silent = true })
-utils.map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { silent = true })
-utils.map("n", "gR", "<cmd>Trouble lsp_references<cr>", { silent = true })
+utils.map("n", "<leader>xx", "<cmd>Trouble<CR>", { silent = true })
+utils.map("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<CR>", { silent = true })
+utils.map("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<CR>", { silent = true })
+utils.map("n", "<leader>xl", "<cmd>Trouble loclist<CR>", { silent = true })
+utils.map("n", "<leader>xq", "<cmd>Trouble quickfix<CR>", { silent = true })
+utils.map("n", "gR", "<cmd>Trouble lsp_references<CR>", { silent = true })
 
 -- Illuminate
-utils.map("n", "<a-n>", '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>')
-utils.map("n", "<a-p>", '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>')
+utils.map("n", "<a-n>", '<cmd>lua require"illuminate".next_reference{wrap=true}<CR>')
+utils.map("n", "<a-p>", '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<CR>')
 
 -- https://github.com/kristijanhusak/vim-dadbod-ui
 -- Unmap C-k, C-j in dbui
 vim.cmd("autocmd FileType dbui nunmap <buffer> <c-j>")
 vim.cmd("autocmd FileType dbui nunmap <buffer> <c-k>")
+utils.map("n", "<leader>db", "<cmd>DBUIToggle<CR>")
 
 -- Easy Align
 utils.map("n", "ga", "<Plug>(EasyAlign)", { noremap = false })
 utils.map("x", "ga", "<Plug>(EasyAlign)", { noremap = false })
+
+-- Diffview
+utils.map("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { silent = true })
+utils.map("n", "<leader>gf", "<cmd>DiffviewFileHistory<CR>", { silent = true })
+utils.map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { silent = true })
