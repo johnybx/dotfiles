@@ -228,5 +228,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
     export VISUAL='nvim'
     export EDITOR='nvim'
+    export MANPAGER='nvim +Man!'
 fi
 
