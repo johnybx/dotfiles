@@ -1,5 +1,4 @@
 require("config.colorscheme")
--- require("config.compe")
 require("config.cmp")
 require("config.treesitter")
 require("config.tree")

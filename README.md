@@ -19,5 +19,3 @@
 ### Screenshots:
 
 #### TODO:
-
-- nvim -> remove compe after cmp testing
