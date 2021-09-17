@@ -17,6 +17,7 @@ return require("packer").startup(function()
 	use({ "hrsh7th/cmp-path" })
 	use({ "hrsh7th/cmp-calc" })
 	use({ "hrsh7th/cmp-vsnip" })
+	use({ "hrsh7th/cmp-emoji" })
 	use({ "quangnguyen30192/cmp-nvim-ultisnips" })
 	--- CMP plugins
 	use({ "p00f/nvim-ts-rainbow" })

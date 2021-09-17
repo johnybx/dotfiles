@@ -63,6 +63,7 @@ cmp.setup({
 				ultisnips = "[UltiSnips]",
 				calc = "[Calc]",
 				vsnip = "[Vsnip]",
+				emoji = "[Emoji]",
 				["vim-dadbod-completion"] = "[Dadbod]",
 			}
 			vim_item.kind = lspkind.presets.default[vim_item.kind] .. "  " .. vim_item.kind
@@ -90,6 +91,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "ultisnips" },
 		{ name = "calc" },
+		{ name = "emoji" },
 		-- { name = "vsnip" },
 	},
 })
