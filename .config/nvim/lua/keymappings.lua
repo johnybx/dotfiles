@@ -123,6 +123,7 @@ utils.map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { silent = true })
 utils.map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { silent = true })
 utils.map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>", { silent = true })
 utils.map("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", { silent = true })
+-- TODO: https://github.com/neovim/neovim/issues/15703
 utils.map(
 	"n",
 	"<leader>cd",
