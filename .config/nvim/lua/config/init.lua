@@ -25,5 +25,6 @@ require("config.symbols-outline")
 require("config.vim-visual-multi")
 require("config.toggleterm")
 require("config.lightbulb")
+require("config.any-jump")
 
 require("config.lsp")

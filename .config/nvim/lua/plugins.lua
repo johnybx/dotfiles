@@ -40,7 +40,7 @@ return require("packer").startup(function()
 		requires = "nvim-lua/plenary.nvim",
 	})
 	use({ "karb94/neoscroll.nvim" })
-	use({ "pechorin/any-jump.vim" })
+	-- use({ "pechorin/any-jump.vim" })
 	use({ "norcalli/nvim-colorizer.lua" })
 	use({ "lukas-reineke/indent-blankline.nvim" })
 	use({ "windwp/nvim-autopairs" })
