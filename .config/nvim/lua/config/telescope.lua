@@ -7,7 +7,7 @@ require("telescope").setup({
 		dynamic_preview_title = true,
 		path_display = function(opts, path)
 			if string.len(path) > 0.4 * vim.o.columns then
-				return require("plenary.path"):new(path):shorten(3)
+				path = require("plenary.path"):new(path):shorten(3)
 			end
 			return path
 		end,
@@ -22,6 +22,52 @@ require("telescope").setup({
 				i = { ["<M-q>"] = actions.delete_buffer },
 				n = { ["<M-q>"] = actions.delete_buffer },
 			},
+		},
+		jumplist = {
+			layout_strategy = "vertical",
+			layout_config = {
+				width = 0.9,
+				height = 0.95,
+				preview_height = 0.4,
+			},
+			path_display = function(opts, path)
+				path = vim.fn.fnamemodify(path, ":.")
+				if string.len(path) > 0.5 * vim.o.columns then
+					path = require("plenary.path"):new(path):shorten(3)
+				end
+				return path
+			end,
+		},
+		live_grep = {
+			layout_strategy = "vertical",
+			layout_config = {
+				width = 0.9,
+				height = 0.95,
+				preview_height = 0.4,
+			},
+		},
+		grep_string = {
+			layout_strategy = "vertical",
+			layout_config = {
+				width = 0.9,
+				height = 0.95,
+				preview_height = 0.4,
+			},
+		},
+		lsp_references = {
+			layout_strategy = "vertical",
+			layout_config = {
+				width = 0.9,
+				height = 0.95,
+				preview_height = 0.4,
+			},
+			path_display = function(opts, path)
+				path = vim.fn.fnamemodify(path, ":.")
+				if string.len(path) > 0.5 * vim.o.columns then
+					path = require("plenary.path"):new(path):shorten(3)
+				end
+				return path
+			end,
 		},
 	},
 })

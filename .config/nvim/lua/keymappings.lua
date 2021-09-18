@@ -71,7 +71,6 @@ utils.map("n", "<leader>fs", "<cmd>lua require('telescope.builtin').git_status()
 utils.map("n", "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<CR>", { silent = true })
 utils.map("n", "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", { silent = true })
 utils.map("n", "<leader>fk", "<cmd>lua require('telescope.builtin').keymaps()<CR>", { silent = true })
-utils.map("n", "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<CR>", { silent = true })
 
 -- ¯\_(ツ)_/¯
 utils.map("i", ",shrug", "¯\\_(ツ)_/¯", { silent = true })
