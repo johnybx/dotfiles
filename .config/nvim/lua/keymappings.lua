@@ -11,11 +11,19 @@ utils.map("n", "<A-j>", "<C-w>j", { silent = true })
 utils.map("n", "<A-k>", "<C-w>k", { silent = true })
 utils.map("n", "<A-l>", "<C-w>l", { silent = true })
 
+-- Move lines
+utils.map("n", "<C-j>", ":m .+1<CR>==", { silent = true })
+utils.map("n", "<C-k>", ":m .-2<CR>==", { silent = true })
+utils.map("i", "<C-j>", "<Esc>:m .+1<CR>==gi", { silent = true })
+utils.map("i", "<C-k>", "<Esc>:m .-2<CR>==gi", { silent = true })
+utils.map("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true })
+utils.map("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true })
+
 -- Resize
-utils.map("n", "<C-h>", "<C-w><", { silent = true })
-utils.map("n", "<C-l>", "<C-w>>", { silent = true })
-utils.map("n", "<C-k>", "<C-w>+", { silent = true })
-utils.map("n", "<C-j>", "<C-w>-", { silent = true })
+utils.map("n", "<leader>h", "<C-w><", { silent = true })
+utils.map("n", "<leader>l", "<C-w>>", { silent = true })
+utils.map("n", "<leader>k", "<C-w>+", { silent = true })
+utils.map("n", "<leader>j", "<C-w>-", { silent = true })
 
 -- Enter new line without breaking current one - this works only in alacritty or kitty because
 -- the correct char is sent -> - { key: Return,   mods: Control, chars: "\x1b[13;5u" }
@@ -54,6 +62,7 @@ utils.map("t", "<A-l>", "<C-\\><C-N><C-w>l", { silent = true })
 utils.map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').git_files()<CR>", { silent = true })
 utils.map("n", "<leader>fr", "<cmd>lua require('telescope.builtin').find_files()<CR>", { silent = true })
 utils.map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", { silent = true })
+utils.map("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<CR>", { silent = true })
 utils.map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>", { silent = true })
 utils.map("n", "<leader>ft", "<cmd>lua require('telescope.builtin').help_tags()<CR>", { silent = true })
 utils.map("n", "<leader>fe", "<cmd>lua require('telescope.builtin').file_browser()<CR>", { silent = true })
@@ -61,6 +70,8 @@ utils.map("n", "<leader>fc", "<cmd>lua require('telescope.builtin').git_bcommits
 utils.map("n", "<leader>fs", "<cmd>lua require('telescope.builtin').git_status()<CR>", { silent = true })
 utils.map("n", "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<CR>", { silent = true })
 utils.map("n", "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", { silent = true })
+utils.map("n", "<leader>fk", "<cmd>lua require('telescope.builtin').keymaps()<CR>", { silent = true })
+utils.map("n", "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<CR>", { silent = true })
 
 -- ¯\_(ツ)_/¯
 utils.map("i", ",shrug", "¯\\_(ツ)_/¯", { silent = true })
@@ -110,22 +121,12 @@ utils.map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent =
 utils.map("v", "<leader>cf", "<cmd>'<,'>lua vim.lsp.buf.range_formatting()<CR>", { silent = true })
 utils.map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { silent = true })
 utils.map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { silent = true })
-utils.map(
-	"n",
-	"[d",
-	"<cmd>lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>",
-	{ silent = true }
-)
-utils.map(
-	"n",
-	"]d",
-	"<cmd>lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>",
-	{ silent = true }
-)
+utils.map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>", { silent = true })
+utils.map("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", { silent = true })
 utils.map(
 	"n",
 	"<leader>cd",
-	"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>",
+	"<cmd>lua vim.diagnostic.show_line_diagnostics({ border = 'rounded' }, 0)<CR>",
 	{ silent = true }
 )
 

@@ -353,7 +353,7 @@ gls.right = {
 				if not wide_enough(diagnostic_at_least_width) then
 					return ""
 				end
-				local n = vim.lsp.diagnostic.get_count(vim.fn.bufnr("%"), "Hint")
+				local n = #vim.diagnostic.get(vim.fn.bufnr("%"), { severity = vim.diagnostic.severity.HINT })
 				if n == 0 then
 					return ""
 				end
@@ -370,7 +370,7 @@ gls.right = {
 				if not wide_enough(diagnostic_at_least_width) then
 					return ""
 				end
-				local n = vim.lsp.diagnostic.get_count(vim.fn.bufnr("%"), "Information")
+				local n = #vim.diagnostic.get(vim.fn.bufnr("%"), { severity = vim.diagnostic.severity.INFO })
 				if n == 0 then
 					return ""
 				end
@@ -385,7 +385,7 @@ gls.right = {
 				if not wide_enough(diagnostic_at_least_width) then
 					return ""
 				end
-				local n = vim.lsp.diagnostic.get_count(vim.fn.bufnr("%"), "Warning")
+				local n = #vim.diagnostic.get(vim.fn.bufnr("%"), { severity = vim.diagnostic.severity.WARN })
 				if n == 0 then
 					return ""
 				end
@@ -400,7 +400,7 @@ gls.right = {
 				if not wide_enough(diagnostic_at_least_width) then
 					return ""
 				end
-				local n = vim.lsp.diagnostic.get_count(vim.fn.bufnr("%"), "Error")
+				local n = #vim.diagnostic.get(vim.fn.bufnr("%"), { severity = vim.diagnostic.severity.ERROR })
 				if n == 0 then
 					return ""
 				end

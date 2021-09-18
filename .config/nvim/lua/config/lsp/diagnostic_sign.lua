@@ -1,8 +1,8 @@
 local function setup()
-	vim.fn.sign_define("LspDiagnosticsSignError", { text = " 🞮", numhl = "LspDiagnosticsDefaultError" })
-	vim.fn.sign_define("LspDiagnosticsSignWarning", { text = " ▲", numhl = "LspDiagnosticsDefaultWarning" })
-	vim.fn.sign_define("LspDiagnosticsSignInformation", { text = " ⁈", numhl = "LspDiagnosticsDefaultInformation" })
-	vim.fn.sign_define("LspDiagnosticsSignHint", { text = " ⯁", numhl = "LspDiagnosticsDefaultHint" })
+	vim.fn.sign_define("DiagnosticSignError", { text = " 🞮", numhl = "DiagnosticError" })
+	vim.fn.sign_define("DiagnosticSignWarn", { text = " ▲", numhl = "DiagnosticWarn" })
+	vim.fn.sign_define("DiagnosticSignInfo", { text = " ⁈", numhl = "DiagnosticInfo" })
+	vim.fn.sign_define("DiagnosticSignHint", { text = " ⯁", numhl = "DiagnosticHint" })
 end
 
 M = {
