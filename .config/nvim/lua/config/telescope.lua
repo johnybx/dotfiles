@@ -1,11 +1,16 @@
 local actions = require("telescope.actions")
 
+local function normalize_path(path)
+	return require("plenary.path"):new(path):make_relative(vim.loop.cwd())
+end
+
 require("telescope").setup({
 	defaults = {
 		layout_strategy = "horizontal",
 		layout_config = { horizontal = { width = 0.9, preview_width = 0.5 } },
 		dynamic_preview_title = true,
 		path_display = function(opts, path)
+			path = normalize_path(path)
 			if string.len(path) > 0.4 * vim.o.columns then
 				path = require("plenary.path"):new(path):shorten(3)
 			end
@@ -31,7 +36,7 @@ require("telescope").setup({
 				preview_height = 0.4,
 			},
 			path_display = function(opts, path)
-				path = vim.fn.fnamemodify(path, ":.")
+				path = normalize_path(path)
 				if string.len(path) > 0.5 * vim.o.columns then
 					path = require("plenary.path"):new(path):shorten(3)
 				end
@@ -62,7 +67,7 @@ require("telescope").setup({
 				preview_height = 0.4,
 			},
 			path_display = function(opts, path)
-				path = vim.fn.fnamemodify(path, ":.")
+				path = normalize_path(path)
 				if string.len(path) > 0.5 * vim.o.columns then
 					path = require("plenary.path"):new(path):shorten(3)
 				end

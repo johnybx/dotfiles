@@ -1,10 +1,12 @@
-vim.g.python3_host_prog = "~/.local/share/env/bin/python"
+vim.g.python3_host_prog = vim.fn.expand("~/.local/share/env/bin/python")
 local utils = require("utils")
 
 local cmd = vim.cmd
 local indent = 4
 
 vim.opt.updatetime = 500
+vim.opt.spelllang = "en,cjk"
+vim.opt.spellfile = vim.fn.expand("~/.config/nvim/spell/en.utf-8.add")
 
 cmd("syntax enable")
 cmd("filetype plugin indent on")
@@ -42,9 +44,10 @@ cmd("set sessionoptions-=blank")
 -- Highlight on yank
 cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
 
--- yaml, json should expand tab as 2 spaces
+-- yaml, json, markdown should expand tab as 2 spaces
 cmd("autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab")
 cmd("autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab")
+cmd("autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab")
 
 -- set correct file type for salt files
 cmd([[

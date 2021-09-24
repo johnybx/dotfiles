@@ -120,6 +120,7 @@ local mode_map = {
 	["n"] = { "NORMAL", colors.normal },
 	["i"] = { "INSERT", colors.insert },
 	["R"] = { "REPLACE", colors.replace },
+	["r"] = { "REPLACE", colors.replace },
 	["v"] = { "VISUAL", colors.visual },
 	["V"] = { "V-LINE", colors.visual },
 	["c"] = { "COMMAND", colors.command },

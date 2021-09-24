@@ -65,6 +65,7 @@ cmp.setup({
 				vsnip = "[Vsnip]",
 				emoji = "[Emoji]",
 				["vim-dadbod-completion"] = "[Dadbod]",
+				spell = "[Spell]",
 			}
 			vim_item.kind = lspkind.presets.default[vim_item.kind] .. "  " .. vim_item.kind
 			vim_item.menu = sources[entry.source.name] or entry.source.name
@@ -90,8 +91,9 @@ cmp.setup({
 		{ name = "vim-dadbod-completion" },
 		{ name = "buffer" },
 		{ name = "ultisnips" },
-		{ name = "calc" },
+		{ name = "spell" },
 		{ name = "emoji" },
+		{ name = "calc" },
 		-- { name = "vsnip" },
 	},
 })

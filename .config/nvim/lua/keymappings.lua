@@ -25,6 +25,12 @@ utils.map("n", "<leader>l", "<C-w>>", { silent = true })
 utils.map("n", "<leader>k", "<C-w>+", { silent = true })
 utils.map("n", "<leader>j", "<C-w>-", { silent = true })
 
+-- Tmux A-arrow mapping breaks this
+-- utils.map("n", "<A-Left>", "5<C-w><", { silent = true })
+-- utils.map("n", "<A-Right>", "5<C-w>>", { silent = true })
+-- utils.map("n", "<A-Up>", "5<C-w>+", { silent = true })
+-- utils.map("n", "<A-Down>", "5<C-w>-", { silent = true })
+
 -- Enter new line without breaking current one - this works only in alacritty or kitty because
 -- the correct char is sent -> - { key: Return,   mods: Control, chars: "\x1b[13;5u" }
 utils.map("i", "<C-Enter>", "<C-o>o", { silent = true })
@@ -55,6 +61,9 @@ utils.map("t", "<A-h>", "<C-\\><C-N><C-w>h", { silent = true })
 utils.map("t", "<A-j>", "<C-\\><C-N><C-w>j", { silent = true })
 utils.map("t", "<A-k>", "<C-\\><C-N><C-w>k", { silent = true })
 utils.map("t", "<A-l>", "<C-\\><C-N><C-w>l", { silent = true })
+
+-- Spell
+utils.map("n", "<F11>", "<cmd>lua vim.wo.spell = not vim.wo.spell<CR>")
 
 -- Plugins
 
@@ -160,5 +169,11 @@ utils.map("x", "ga", "<Plug>(EasyAlign)", { noremap = false })
 
 -- Diffview
 utils.map("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { silent = true })
+utils.map("n", "<leader>g<Space>", ":DiffviewOpen<Space>")
 utils.map("n", "<leader>gf", "<cmd>DiffviewFileHistory<CR>", { silent = true })
 utils.map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { silent = true })
+
+-- Markdown preview
+utils.map("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>")
+-- Markdown Glow
+utils.map("n", "<leader>mg", "<cmd>Glow<CR>")

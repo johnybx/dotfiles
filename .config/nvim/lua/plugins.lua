@@ -17,8 +17,9 @@ return require("packer").startup(function()
 	use({ "hrsh7th/cmp-calc" })
 	use({ "hrsh7th/cmp-vsnip" })
 	use({ "hrsh7th/cmp-emoji" })
+	use({ "f3fora/cmp-spell" })
 	use({ "quangnguyen30192/cmp-nvim-ultisnips" })
-	--- CMP plugins
+	--- CMP plugins END
 	use({ "p00f/nvim-ts-rainbow" })
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
