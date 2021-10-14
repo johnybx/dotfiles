@@ -11,7 +11,7 @@ nightfox.setup()
 
 -- Nice undercurl
 vim.api.nvim_exec(
-	[[
+    [[
 	hi DiagnosticUnderlineWarn gui=undercurl guisp=#e0af68
 	hi DiagnosticUnderlineError gui=undercurl guisp=#db4b4b
 	hi DiagnosticUnderlineHint gui=undercurl guisp=#1abc9c
@@ -21,5 +21,5 @@ vim.api.nvim_exec(
     hi SpellLocal gui=undercurl
     hi SpellRare gui=undercurl
     ]],
-	false
+    false
 )

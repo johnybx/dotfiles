@@ -1,7 +1,7 @@
 local function highlight(client)
-	if client.resolved_capabilities.document_highlight then
-		vim.api.nvim_exec(
-			[[
+    if client.resolved_capabilities.document_highlight then
+        vim.api.nvim_exec(
+            [[
             hi LspReferenceRead gui=none guibg=#393f4a
             hi LspReferenceText gui=none guibg=#393f4a
             hi LspReferenceWrite gui=none guibg=#393f4a
@@ -11,13 +11,13 @@ local function highlight(client)
             autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
             augroup END
             ]],
-			false
-		)
-		require("illuminate").on_attach(client)
-	end
+            false
+        )
+        require("illuminate").on_attach(client)
+    end
 end
 
 M = {
-	highlight = highlight,
+    highlight = highlight,
 }
 return M

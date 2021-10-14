@@ -88,41 +88,41 @@ utils.map("i", ",shrug", "¯\\_(ツ)_/¯", { silent = true })
 -- Border styl - not really mapping but diagnostics need also style here anyway so at least it is
 -- in one place.
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = "rounded",
+    border = "rounded",
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-	border = "rounded",
+    border = "rounded",
 })
 --------------------
 utils.map("n", "gD", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", { silent = true })
 utils.map(
-	"n",
-	"gd",
-	"<cmd>lua require('config.lsp.preview_definition').open('textDocument/definition', 'LSP Definitions')<CR>",
-	{ silent = true }
+    "n",
+    "gd",
+    "<cmd>lua require('config.lsp.preview_definition').open('textDocument/definition', 'LSP Definitions')<CR>",
+    { silent = true }
 )
 utils.map("n", "<leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", { silent = true })
 utils.map("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", { silent = true })
 utils.map(
-	"n",
-	"<leader>ca",
-	"<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
-	{ silent = true }
+    "n",
+    "<leader>ca",
+    "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
+    { silent = true }
 )
 -- TODO: using lua require current visual range as parameter.
 utils.map("v", "<leader>ca", "<cmd>Telescope lsp_range_code_actions themes=get_cursor<CR>", { silent = true })
 utils.map(
-	"i",
-	"<C-.>",
-	"<Esc><cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
-	{ silent = true, expr = true }
+    "i",
+    "<C-.>",
+    "<Esc><cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
+    { silent = true, expr = true }
 )
 utils.map(
-	"n",
-	"<C-.>",
-	"<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
-	{ silent = true }
+    "n",
+    "<C-.>",
+    "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
+    { silent = true }
 )
 utils.map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
 utils.map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })
@@ -133,10 +133,10 @@ utils.map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ popup_opts = { border 
 utils.map("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", { silent = true })
 -- TODO: https://github.com/neovim/neovim/issues/15703
 utils.map(
-	"n",
-	"<leader>cd",
-	"<cmd>lua vim.diagnostic.show_line_diagnostics({ border = 'rounded' }, 0)<CR>",
-	{ silent = true }
+    "n",
+    "<leader>cd",
+    "<cmd>lua vim.diagnostic.show_line_diagnostics({ border = 'rounded' }, 0)<CR>",
+    { silent = true }
 )
 
 -- kommentary

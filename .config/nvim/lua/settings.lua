@@ -34,8 +34,8 @@ utils.opt("o", "completeopt", "menuone,noselect")
 -- vim.g.omni_sql_default_compl_type = "syntax"
 vim.g.omni_sql_no_default_maps = 1
 
-cmd("autocmd FileType * set shortmess+=c") --- " Don't pass messages to |ins-completion-menu|
-cmd("autocmd FileType * set formatoptions-=cro") --- " Stop newline continuation of comments
+cmd("autocmd FileType * set shortmess+=c")
+cmd("autocmd FileType * set formatoptions-=cro")
 
 -- Startify + nvim-tree => do not save empty windows to session
 -- TODO: https://github.com/kyazdani42/nvim-tree.lua/issues/488
