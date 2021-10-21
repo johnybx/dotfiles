@@ -84,7 +84,7 @@ utils.map("n", "<leader>fk", "<cmd>lua require('telescope.builtin').keymaps()<CR
 -- ¯\_(ツ)_/¯
 utils.map("i", ",shrug", "¯\\_(ツ)_/¯", { silent = true })
 
--- LSP
+-- LSP - TODO: these should be mapped only if there is active LSP
 -- Border styl - not really mapping but diagnostics need also style here anyway so at least it is
 -- in one place.
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -103,6 +103,7 @@ utils.map(
     { silent = true }
 )
 utils.map("n", "<leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", { silent = true })
+utils.map("n", "<leader>gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", { silent = true })
 utils.map("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", { silent = true })
 utils.map(
     "n",
@@ -129,13 +130,13 @@ utils.map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent =
 utils.map("v", "<leader>cf", "<cmd>'<,'>lua vim.lsp.buf.range_formatting()<CR>", { silent = true })
 utils.map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { silent = true })
 utils.map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { silent = true })
-utils.map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>", { silent = true })
-utils.map("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", { silent = true })
+utils.map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' }})<CR>", { silent = true })
+utils.map("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded' }})<CR>", { silent = true })
 -- TODO: https://github.com/neovim/neovim/issues/15703
 utils.map(
     "n",
     "<leader>cd",
-    "<cmd>lua vim.diagnostic.show_line_diagnostics({ border = 'rounded' }, 0)<CR>",
+    "<cmd>lua vim.diagnostic.open_float(0, {scope='line', border = 'rounded'})<CR>",
     { silent = true }
 )
 
