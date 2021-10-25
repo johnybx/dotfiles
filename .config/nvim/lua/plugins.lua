@@ -26,9 +26,9 @@ return require("packer").startup(function()
     use({ "quangnguyen30192/cmp-nvim-ultisnips" })
     --- CMP plugins END
     use({ "p00f/nvim-ts-rainbow" })
+    use({ "RRethy/vim-illuminate" })
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
-    use({ "RRethy/vim-illuminate" })
     -- Visual hint for textobjects
     -- https://github.com/mfussenegger/nvim-ts-hint-textobject
     use({ "nvim-treesitter/playground" })
@@ -65,6 +65,7 @@ return require("packer").startup(function()
     })
     use({ "onsails/lspkind-nvim" })
     use({ "kosayoda/nvim-lightbulb" })
+    use({ "rcarriga/nvim-notify" })
 
     -- Float term
     use({ "akinsho/toggleterm.nvim" })
