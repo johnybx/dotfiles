@@ -47,6 +47,7 @@ if [[ ! -z $BLUETOOTH ]] && [[ $BLUETOOTH -eq 1  ]]; then
     sudo modprobe btintel
     sudo modprobe bluetooth
     sudo systemctl start bluetooth
+    sudo rfkill unblock bluetooth
 fi
 if [[ ! -z $NETWORK ]] && [[ $NETWORK -eq 1  ]]; then
     sudo ip link set dev wlp0s20f3 up
