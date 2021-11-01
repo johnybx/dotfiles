@@ -6,11 +6,18 @@ require("nvim-autopairs").setup({
     check_ts = false,
 })
 
-local status, _ = pcall(require, "cmp")
+local status, cmp = pcall(require, "cmp")
 if status then
-    require("nvim-autopairs.completion.cmp").setup({
-        map_cr = true, --  map <CR> on insert mode
-        map_complete = true, -- it will auto insert `(` after select function or method item
-        auto_select = false,
-    })
+    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    cmp.event:on(
+        "confirm_done",
+        cmp_autopairs.on_confirm_done({
+            map_char = { tex = "" },
+            kind = {
+                cmp.lsp.CompletionItemKind.Method,
+                cmp.lsp.CompletionItemKind.Function,
+                cmp.lsp.CompletionItemKind.Class,
+            },
+        })
+    )
 end

@@ -38,6 +38,7 @@ return require("packer").startup(function()
     use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } })
 
     -- Editor
+    -- https://github.com/ThePrimeagen/refactoring.nvim
     use({ "JoosepAlviste/nvim-ts-context-commentstring" })
     use({ "b3nj5m1n/kommentary" })
     use({ "mg979/vim-visual-multi" })

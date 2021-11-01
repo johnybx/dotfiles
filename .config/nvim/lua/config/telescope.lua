@@ -6,6 +6,7 @@ end
 
 require("telescope").setup({
     defaults = {
+        -- preview = { hide_on_startup = true },
         layout_strategy = "horizontal",
         layout_config = { horizontal = { width = 0.9, preview_width = 0.5 } },
         dynamic_preview_title = true,
