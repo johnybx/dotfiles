@@ -26,6 +26,7 @@ esac
 done
 
 if [[ -z $ONLY ]]; then
+    setxkbmap -option caps:escape
     #alsactl init
     i3-msg 'exec --no-startup-id  /usr/bin/thunderbird'
     i3-msg 'exec --no-startup-id  /usr/bin/slack'
