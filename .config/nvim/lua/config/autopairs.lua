@@ -16,7 +16,7 @@ if status then
             kind = {
                 cmp.lsp.CompletionItemKind.Method,
                 cmp.lsp.CompletionItemKind.Function,
-                cmp.lsp.CompletionItemKind.Class,
+                -- cmp.lsp.CompletionItemKind.Class,
             },
         })
     )

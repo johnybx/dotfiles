@@ -2,6 +2,8 @@ local tree_cb = require("nvim-tree.config").nvim_tree_callback
 local setup = require("nvim-tree").setup
 
 setup({
+    disable_netrw = false,
+    hijack_netrw = false,
     auto_close = true,
     open_on_setup = false,
     ignore_ft_on_setup = { "startify", "dashboard" },

@@ -1,4 +1,5 @@
 local actions = require("telescope.actions")
+local layout = require("telescope.actions.layout")
 
 local function normalize_path(path)
     return require("plenary.path"):new(path):make_relative(vim.loop.cwd())
@@ -20,12 +21,12 @@ require("telescope").setup({
         mappings = {
             n = {
                 ["<C-s>"] = actions.select_horizontal,
-                ["<C-h>"] = actions.toggle_preview,
+                ["<C-h>"] = layout.toggle_preview,
                 -- ["<C-j>"] = actions.toggle_results_and_prompt,
             },
             i = {
                 ["<C-s>"] = actions.select_horizontal,
-                ["<C-h>"] = actions.toggle_preview,
+                ["<C-h>"] = layout.toggle_preview,
                 -- ["<C-j>"] = actions.toggle_results_and_prompt,
             },
         },

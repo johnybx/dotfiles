@@ -2,15 +2,15 @@ return require("packer").startup(function()
     -- Packer can manage itself as an optional plugin
     use({ "wbthomason/packer.nvim", opt = true })
     -- Fuzzy finder
-    -- use({
-    -- 	"nvim-telescope/telescope.nvim",
-    -- 	requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
-    -- })
     use({
-        "johnybx/telescope.nvim",
-        branch = "hide-unhide-preview-or-results-and-prompt",
+        "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
     })
+    -- use({
+    --     "johnybx/telescope.nvim",
+    --     branch = "hide-unhide-preview-or-results-and-prompt",
+    --     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+    -- })
     -- LSP and completion
     use({ "neovim/nvim-lspconfig" })
     -- CMP plugings
