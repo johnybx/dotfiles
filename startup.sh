@@ -47,7 +47,7 @@ if [[ ! -z $BLUETOOTH ]] && [[ $BLUETOOTH -eq 1  ]]; then
     sudo modprobe btbcm
     sudo modprobe btintel
     sudo modprobe bluetooth
-    sudo systemctl start bluetooth
+    sudo systemctl start bluetooth --wait
     sudo rfkill unblock bluetooth
 fi
 if [[ ! -z $NETWORK ]] && [[ $NETWORK -eq 1  ]]; then
