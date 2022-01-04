@@ -9,6 +9,8 @@ require("config.lsp.lua-dev").setup(on_attach, capabilities)
 require("config.lsp.null-ls").setup(on_attach)
 -- Yamlls
 require("config.lsp.yamlls").setup(on_attach, capabilities)
+-- Ccls
+require("config.lsp.ccls").setup(on_attach, capabilities)
 
 -- Rust analyzer
 local status, _ = pcall(require, "rust-tools")

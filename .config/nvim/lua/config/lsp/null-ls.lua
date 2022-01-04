@@ -1,8 +1,7 @@
-local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 
 local function setup(on_attach)
-    null_ls.config({
+    null_ls.setup({
         debounce = 150,
         sources = {
             null_ls.builtins.formatting.isort,
@@ -11,9 +10,6 @@ local function setup(on_attach)
             null_ls.builtins.formatting.stylua,
             null_ls.builtins.formatting.prettier,
         },
-    })
-
-    lspconfig["null-ls"].setup({
         on_attach = function(...)
             on_attach(...)
         end,

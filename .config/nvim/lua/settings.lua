@@ -35,7 +35,7 @@ utils.opt("o", "completeopt", "menuone,noselect")
 vim.g.omni_sql_no_default_maps = 1
 
 cmd("autocmd FileType * set shortmess+=c")
-cmd("autocmd FileType * set formatoptions-=cro")
+cmd("autocmd FileType * set formatoptions-=tcro")
 
 -- Startify + nvim-tree => do not save empty windows to session
 -- TODO: https://github.com/kyazdani42/nvim-tree.lua/issues/488
