@@ -1,7 +1,10 @@
+-- ccls require compilation database https://github.com/MaskRay/ccls/wiki/Project-Setup#compile_commandsjson
+-- or ccls file https://github.com/MaskRay/ccls/wiki/Project-Setup#ccls-file
+-- in root directory
 local function setup(on_attach, capabilities)
     require("lspconfig")["ccls"].setup({
         init_options = {
-            compilationDatabaseDirectory = "build",
+            compilationDatabaseDirectory = "",
             index = {
                 threads = 0,
             },
