@@ -1,4 +1,5 @@
 local popup = require("plenary.popup")
+local window = require("plenary.window")
 local tconfig = require("telescope.config")
 local previewers = require("telescope.previewers")
 local pickers = require("telescope.pickers")
@@ -50,6 +51,7 @@ local function open_preview_window(location)
         preview_bufnr = preview_bufnr,
         location = location,
         initial_window = initial_window,
+        preview_border_win_id = preview_border_win,
     }
 
     local function callback(...)
@@ -65,7 +67,7 @@ local function open_preview_window(location)
     end
     vim.cmd(
         string.format(
-            [[ autocmd BufLeave <buffer=%s> ++nested ++once :silent lua require("%s").close(%s) ]],
+            [[ autocmd BufLeave <buffer=%s> ++once ++nested lua require("%s").close(%s) ]],
             preview_bufnr,
             module_name,
             preview_win
@@ -236,10 +238,18 @@ local function close(preview_win)
     end
 
     local bufnr = state[preview_win].preview_bufnr
+    local preview_border_win_id = state[preview_win].preview_border_win_id
     state[preview_win] = nil
 
     if vim.api.nvim_buf_is_valid(bufnr) then
         vim.cmd("bdelete " .. bufnr)
+    end
+    -- preview border win is not closed when buffer in preview win is closed ¯\_(ツ)_/¯
+    if
+        (preview_border_win_id and vim.api.nvim_win_is_valid(preview_border_win_id))
+        or vim.api.nvim_win_is_valid(preview_win)
+    then
+        window.close_related_win(preview_win, preview_border_win_id)
     end
 end
 
