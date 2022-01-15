@@ -74,7 +74,12 @@ utils.map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<
 utils.map("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<CR>", { silent = true })
 utils.map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>", { silent = true })
 utils.map("n", "<leader>ft", "<cmd>lua require('telescope.builtin').help_tags()<CR>", { silent = true })
-utils.map("n", "<leader>fe", "<cmd>lua require('telescope.builtin').file_browser()<CR>", { silent = true })
+utils.map(
+    "n",
+    "<leader>fe",
+    "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>",
+    { silent = true }
+)
 utils.map("n", "<leader>fc", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", { silent = true })
 utils.map("n", "<leader>fs", "<cmd>lua require('telescope.builtin').git_status()<CR>", { silent = true })
 utils.map("n", "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<CR>", { silent = true })

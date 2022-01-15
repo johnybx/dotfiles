@@ -6,6 +6,7 @@ return require("packer").startup(function()
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
     })
+    use({ "nvim-telescope/telescope-file-browser.nvim", requires = { { "nvim-telescope/telescope.nvim" } } })
     -- use({
     --     "johnybx/telescope.nvim",
     --     branch = "hide-unhide-preview-or-results-and-prompt",

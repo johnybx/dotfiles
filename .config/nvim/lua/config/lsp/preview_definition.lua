@@ -15,7 +15,7 @@ local module_name = "config.lsp.preview_definition"
 
 -- takes location from lsp
 local function open_preview_window(location)
-    local item = vim.lsp.util.locations_to_items({ location })[1]
+    local item = vim.lsp.util.locations_to_items({ location }, location.offset_encoding)[1]
     local border = tconfig.values["border"]
     local borderchars = tconfig.values["borderchars"]
     local max_lines = vim.o.lines - vim.o.cmdheight
@@ -167,7 +167,7 @@ local function entry_from_location(opts)
     end
 
     return function(location)
-        local entry = vim.lsp.util.locations_to_items({ location })[1]
+        local entry = vim.lsp.util.locations_to_items({ location }, location.offset_encoding)[1]
         return {
             valid = true,
 
@@ -192,21 +192,27 @@ local function open(action, title, opts)
 
     local params = vim.lsp.util.make_position_params()
     local result, err = vim.lsp.buf_request_sync(0, action, params, opts.timeout or 10000)
+
     if err then
         vim.api.nvim_err_writeln("Error when executing " .. action .. " : " .. err)
         return
     end
 
     local flattened_results = {}
-    for _, server_results in pairs(result) do
+    for client_id, server_results in pairs(result) do
         if server_results.result then
+            -- This need to be suppied to every locations_to_items call.
+            local offset_encoding = vim.lsp.get_client_by_id(client_id).offset_encoding
             -- textDocument/definition can return Location or Location[]
             if not vim.tbl_islist(server_results.result) then
-                flattened_results = { server_results.result }
-                break
+                server_results.result.offset_encoding = offset_encoding
+                vim.list_extend(flattened_results, { server_results.result })
+            else
+                for _, s_result in ipairs(server_results.result) do
+                    s_result.offset_encoding = offset_encoding
+                end
+                vim.list_extend(flattened_results, server_results.result)
             end
-
-            vim.list_extend(flattened_results, server_results.result)
         end
     end
 
@@ -216,7 +222,6 @@ local function open(action, title, opts)
     elseif #flattened_results == 1 then
         open_preview_window(flattened_results[1])
     else
-        -- local locations = vim.lsp.util.locations_to_items(flattened_results)
         pickers.new(opts, {
             prompt_title = title,
             finder = finders.new_table({
