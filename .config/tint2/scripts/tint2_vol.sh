@@ -22,8 +22,8 @@ amixer="amixer "
 master=$($amixer sget 'Master')
 mic=$($amixer sget 'Capture')
 
-mavol=$(echo $master | grep '%' | sed -r "s/$vpattern/\1/")
-mivol=$(echo $mic | grep '%' | sed -r "s/$vpattern/\1/")
+mavol=$(echo "$master" | grep '%' | head -n 1 | sed -r "s/$vpattern/\1/")
+mivol=$(echo "$mic" | grep '%' | head -n 1 | sed -r "s/$vpattern/\1/")
 mivol=0
 
 jackdev=$($amixer contents | grep -i "'headphone jack'" | cut -d"," -f1,2)
@@ -31,11 +31,10 @@ jackdev=$($amixer contents | grep -i "'headphone jack'" | cut -d"," -f1,2)
 #TODO: get rid of this ugly dependency
 THEME="/usr/share/icons/$(/usr/bin/gsettings get org.gnome.desktop.interface icon-theme | tr -d "'")"
 
-
 if grep -qi $spattern <<< $master; then
     icon="婢"
     ipath="$(find "$THEME" -name *audio*mute* | grep 24 | head -n1)"
-elif grep -qi 'values=on' <<< $($amixer cget "$jackdev"); then
+elif [[ "$jackdev" ]] && grep -qi 'values=on' <<< $($amixer cget "$jackdev"); then
     icon=" "
     ipath="$(find "$THEME" -name *headphone* | grep 24 | head -n1)"
 elif [[ $mavol -ge 0 ]] && [[ $mavol -lt 31 ]]; then
