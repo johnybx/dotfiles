@@ -118,8 +118,7 @@ bindsym $mod+Shift+Right move right
 
 ## i3lock-fancy
 # bindsym $mod+l exec i3lock-fancy-multimonitor -p
-bindsym control+Mod1+l exec i3lock-fancy-multimonitor -p
-bindsym Mod1+Shift+l exec i3lock-fancy-multimonitor -p
+bindsym Control+Mod1+l exec i3lock-fancy-multimonitor -p
 
 # split in horizontal orientation
 # bindsym $mod+s split h
