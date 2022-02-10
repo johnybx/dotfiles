@@ -66,8 +66,8 @@ require("nvim-treesitter.configs").setup({
         },
         swap = {
             enable = true,
-            swap_next = { ["<leader>z"] = "@parameter.inner" },
-            swap_previous = { ["<leader>Z"] = "@parameter.inner" },
+            swap_next = { ["<leader>z"] = "@parameter.inner", ["<leader>fu"] = "@function.outer" },
+            swap_previous = { ["<leader>Z"] = "@parameter.inner", ["<leader>Fu"] = "@function.outer" },
         },
         lsp_interop = {
             enable = true,

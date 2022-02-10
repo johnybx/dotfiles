@@ -77,7 +77,7 @@ utils.map("n", "<leader>ft", "<cmd>lua require('telescope.builtin').help_tags()<
 utils.map(
     "n",
     "<leader>fe",
-    "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>",
+    "<cmd>lua require('telescope').extensions.file_browser.file_browser({ respect_gitignore = false })<CR>",
     { silent = true }
 )
 utils.map("n", "<leader>fc", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", { silent = true })
@@ -118,12 +118,6 @@ utils.map(
 )
 -- TODO: using lua require current visual range as parameter.
 utils.map("v", "<leader>ca", "<cmd>Telescope lsp_range_code_actions themes=get_cursor<CR>", { silent = true })
-utils.map(
-    "i",
-    "<C-.>",
-    "<Esc><cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
-    { silent = true, expr = true }
-)
 utils.map(
     "n",
     "<C-.>",

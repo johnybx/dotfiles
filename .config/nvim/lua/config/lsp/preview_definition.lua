@@ -277,7 +277,7 @@ local function jump(preview_win, jump_type)
         vim.cmd("vnew")
     end
 
-    vim.lsp.util.jump_to_location(location)
+    vim.lsp.util.jump_to_location(location, location.offset_encoding)
 end
 
 local M = {
