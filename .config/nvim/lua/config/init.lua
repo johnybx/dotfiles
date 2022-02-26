@@ -27,5 +27,6 @@ require("config.toggleterm")
 require("config.lightbulb")
 require("config.any-jump")
 require("config.notify")
+require("config.gitlinker")
 
 require("config.lsp")

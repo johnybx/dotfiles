@@ -3,12 +3,18 @@ local function setup(on_attach, capabilities)
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
 
+    local function _on_attach(client, ...)
+        -- fomatting is done by null-ls with stylua
+        client.resolved_capabilities.document_formatting = false
+        on_attach(client, ...)
+    end
+
     local luadev = require("lua-dev").setup({
         -- add any options here, or leave empty to use the default settings
         lspconfig = {
             cmd = { "lua-language-server" },
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = _on_attach,
             settings = {
                 Lua = {
                     runtime = {

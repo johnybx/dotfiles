@@ -110,6 +110,7 @@ return require("packer").startup(function()
     use({ "tpope/vim-fugitive" })
     use({ "sindrets/diffview.nvim" })
     use({ "lewis6991/gitsigns.nvim" })
+    use({ "ruifm/gitlinker.nvim", requires = "nvim-lua/plenary.nvim" })
 
     -- Galaxyline
     use({

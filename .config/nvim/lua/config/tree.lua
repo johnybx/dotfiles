@@ -13,4 +13,8 @@ setup({
             list = { { key = "<C-s>", cb = tree_cb("split") } },
         },
     },
+    git = {
+        enable = true,
+        ignore = false,
+    },
 })
