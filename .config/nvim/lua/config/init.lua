@@ -28,5 +28,8 @@ require("config.lightbulb")
 require("config.any-jump")
 require("config.notify")
 require("config.gitlinker")
+require("config.dap-python")
+require("config.ultest")
+require("config.rest")
 
 require("config.lsp")

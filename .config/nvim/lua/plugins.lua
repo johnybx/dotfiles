@@ -7,11 +7,6 @@ return require("packer").startup(function()
         requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
     })
     use({ "nvim-telescope/telescope-file-browser.nvim", requires = { { "nvim-telescope/telescope.nvim" } } })
-    -- use({
-    --     "johnybx/telescope.nvim",
-    --     branch = "hide-unhide-preview-or-results-and-prompt",
-    --     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
-    -- })
     -- LSP and completion
     use({ "neovim/nvim-lspconfig" })
     -- CMP plugings
@@ -111,6 +106,8 @@ return require("packer").startup(function()
     use({ "sindrets/diffview.nvim" })
     use({ "lewis6991/gitsigns.nvim" })
     use({ "ruifm/gitlinker.nvim", requires = "nvim-lua/plenary.nvim" })
+    -- Github reviews / MR
+    -- https://github.com/pwntester/octo.nvim
 
     -- Galaxyline
     use({
@@ -138,10 +135,17 @@ return require("packer").startup(function()
     use({ "kristijanhusak/vim-dadbod-ui" })
     use({ "kristijanhusak/vim-dadbod-completion" })
 
+    -- Debug / Tests
+    use({ "rcarriga/vim-ultest", requires = { "vim-test/vim-test" }, run = ":UpdateRemotePlugins" })
+    use({ "mfussenegger/nvim-dap" })
+    use({ "mfussenegger/nvim-dap-python", requires = { "mfussenegger/nvim-dap" } })
+
+    -- HTTP requests
+    use({ "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" } })
+
     -- TODO:
     -- https://github.com/ggandor/lightspeed.nvim --> move quickly
     -- https://awesomeopensource.com/project/wellle/targets.vim --> move with f,F,t,T easier
-    -- https://github.com/mfussenegger/nvim-dap --> Debug Adapter Protocol
     --
     --
     -- https://github.com/itchyny/calendar.vim
@@ -151,11 +155,9 @@ return require("packer").startup(function()
     -- https://github.com/voldikss/vim-browser-search
     -- https://github.com/windwp/nvim-spectre - Spectre find the enemy and replace them with dark power.
     -- https://github.com/kevinhwang91/nvim-bqf - better quickfix window
-    -- https://github.com/rcarriga/vim-ultest - running tests easily
     -- https://github.com/folke/which-key.nvim - shortcut hints
     -- https://github.com/sbdchd/neoformat - if null-ls is not good enough
     -- https://github.com/kkoomen/vim-doge - Documentation generation
-    -- https://github.com/vim-test/vim-test --> running tests easily
     -- https://awesomeopensource.com/project/wellle/context.vim
     -- https://github.com/kristijanhusak/orgmode.nvim - notes
     -- https://github.com/pearofducks/ansible-vim

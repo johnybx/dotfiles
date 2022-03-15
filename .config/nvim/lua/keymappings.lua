@@ -25,15 +25,14 @@ utils.map("n", "<leader>l", "<C-w>>", { silent = true })
 utils.map("n", "<leader>k", "<C-w>+", { silent = true })
 utils.map("n", "<leader>j", "<C-w>-", { silent = true })
 
--- Tmux A-arrow mapping breaks this
--- utils.map("n", "<A-Left>", "5<C-w><", { silent = true })
--- utils.map("n", "<A-Right>", "5<C-w>>", { silent = true })
--- utils.map("n", "<A-Up>", "5<C-w>+", { silent = true })
--- utils.map("n", "<A-Down>", "5<C-w>-", { silent = true })
+utils.map("n", "<A-S-h>", "5<C-w><", { silent = true })
+utils.map("n", "<A-S-l>", "5<C-w>>", { silent = true })
+utils.map("n", "<A-S-k>", "5<C-w>+", { silent = true })
+utils.map("n", "<A-S-j>", "5<C-w>-", { silent = true })
 
 -- Enter new line without breaking current one - this works only in alacritty or kitty because
 -- the correct char is sent -> - { key: Return,   mods: Control, chars: "\x1b[13;5u" }
-utils.map("i", "<C-Enter>", "<C-o>o", { silent = true })
+-- utils.map("i", "<C-Enter>", "<C-o>o", { silent = true })
 
 -- Save file by CTRL-S
 utils.map("n", "<C-s>", ":w<CR>", { silent = true })
@@ -68,8 +67,9 @@ utils.map("n", "<F11>", "<cmd>lua vim.wo.spell = not vim.wo.spell<CR>")
 -- Plugins
 
 -- Telescope
+utils.map("n", "<leader>tr", "<cmd>lua require('telescope.builtin').resume()<CR>", { silent = true })
 utils.map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').git_files()<CR>", { silent = true })
-utils.map("n", "<leader>fr", "<cmd>lua require('telescope.builtin').find_files()<CR>", { silent = true })
+utils.map("n", "<leader>fr", "<cmd>lua require('telescope.builtin').find_files({hidden = true})<CR>", { silent = true })
 utils.map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", { silent = true })
 utils.map("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<CR>", { silent = true })
 utils.map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>", { silent = true })
@@ -177,3 +177,23 @@ utils.map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { silent = true })
 utils.map("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>")
 -- Markdown Glow
 utils.map("n", "<leader>mg", "<cmd>Glow<CR>")
+
+-- Tests / Debug
+-- Ultest
+utils.map("n", "<leader>ts", "<Plug>(ultest-summary-toggle)", { noremap = false })
+utils.map("n", "<leader>tf", "<Plug>(ultest-run-file)", { noremap = false })
+utils.map("n", "<leader>tn", "<Plug>(ultest-run-nearest)", { noremap = false })
+utils.map("n", "<leader>to", "<Plug>(ultest-output-show)", { noremap = false })
+utils.map("n", "<leader>tj", "<Plug>(ultest-output-jump)", { noremap = false })
+utils.map("n", "]t", "<Plug>(ultest-next-fail)", { noremap = false })
+utils.map("n", "[t", "<Plug>(ultest-prev-fail)", { noremap = false })
+
+-- HTTP requests
+vim.cmd([[
+     augroup HTTPRequests
+         autocmd! * <buffer>
+         autocmd FileType http nmap <buffer> <CR> <Plug>RestNvim
+         autocmd FileType http nmap <buffer> <A-CR> <Plug>RestNvimPreview
+         autocmd FileType http nnoremap <buffer> <C-S> <cmd>lua c=require("rest-nvim.config");c.set({skip_ssl_verification = not c.get("skip_ssl_verification")});print("ssl verification: "..tostring(c.get("skip_ssl_verification")))<CR>
+     augroup END
+]])
