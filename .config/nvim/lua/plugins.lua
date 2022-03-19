@@ -111,8 +111,7 @@ return require("packer").startup(function()
 
     -- Galaxyline
     use({
-        "glepnir/galaxyline.nvim",
-        branch = "main",
+        "NTBBloodbath/galaxyline.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
 
@@ -138,6 +137,7 @@ return require("packer").startup(function()
     -- Debug / Tests
     use({ "rcarriga/vim-ultest", requires = { "vim-test/vim-test" }, run = ":UpdateRemotePlugins" })
     use({ "mfussenegger/nvim-dap" })
+    use({ "mfussenegger/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
     use({ "mfussenegger/nvim-dap-python", requires = { "mfussenegger/nvim-dap" } })
 
     -- HTTP requests
@@ -164,5 +164,5 @@ return require("packer").startup(function()
     -- https://github.com/vim-ctrlspace/vim-ctrlspace
     -- https://github.com/unblevable/quick-scope - show header of current function, class, condition...
     -- https://github.com/liuchengxu/vista.vim - View and search LSP symbols, tags
-    --
+    -- https://github.com/tjdevries/sg.nvim
 end)

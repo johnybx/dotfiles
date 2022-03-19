@@ -1,12 +1,11 @@
 local function setup()
     local nightfox = require("nightfox")
     nightfox.setup({
-        fox = "nightfox",
-        styles = {
+        options = { styles = {
             comments = "italic",
-        },
+        } },
     })
-    nightfox.load()
+    vim.cmd("colorscheme nightfox")
 end
 
 local M = {

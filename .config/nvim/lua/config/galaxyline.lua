@@ -6,11 +6,11 @@
 --                           |___/
 -- See: https://github.com/glepnir/galaxyline.nvim
 local gl = require("galaxyline")
-local vcs = require("galaxyline.provider_vcs")
+local vcs = require("galaxyline.providers.vcs")
 local condition = require("galaxyline.condition")
 local gls = gl.section
 
-local fileinfo = require("galaxyline.provider_fileinfo")
+local fileinfo = require("galaxyline.providers.fileinfo")
 
 local function u(code)
     if type(code) == "string" then

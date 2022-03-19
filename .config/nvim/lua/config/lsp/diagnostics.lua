@@ -1,5 +1,6 @@
 local function setup()
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    local lsp_method = "textDocument/publishDiagnostics"
+    vim.lsp.handlers[lsp_method] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
         virtual_text = true,
         underline = true,
         signs = true,
@@ -8,10 +9,9 @@ local function setup()
 
     -- Send diagnostics to quickfix list
     do
-        local lsp_method = "textDocument/publishDiagnostics"
         local default_handler = vim.lsp.handlers[lsp_method]
-        vim.lsp.handlers[lsp_method] = function(err, method, result, client_id, orig_bufnr, config)
-            default_handler(err, method, result, client_id, orig_bufnr, config)
+        vim.lsp.handlers[lsp_method] = function(err, result, ctx, config)
+            default_handler(err, result, ctx, config)
             vim.diagnostic.setqflist({ open = false })
         end
     end
