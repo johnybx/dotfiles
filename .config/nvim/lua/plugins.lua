@@ -7,6 +7,7 @@ return require("packer").startup(function()
         requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
     })
     use({ "nvim-telescope/telescope-file-browser.nvim", requires = { { "nvim-telescope/telescope.nvim" } } })
+    use({ "stevearc/dressing.nvim", requires = { { "nvim-telescope/telescope.nvim" } } })
     -- LSP and completion
     use({ "neovim/nvim-lspconfig" })
     -- CMP plugings

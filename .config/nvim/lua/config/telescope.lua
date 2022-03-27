@@ -85,6 +85,7 @@ require("telescope").setup({
             end,
         },
     },
+    extensions = {},
 })
 
 -- Extensions
