@@ -9,7 +9,7 @@ local on_attach = function(client, bufnr)
     signature_on_attach(bufnr)
     highlight(client)
     formatting_setup(client)
-    code_lens(client)
+    code_lens(client, bufnr)
 end
 
 M = {
