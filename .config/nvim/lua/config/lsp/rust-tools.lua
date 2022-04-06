@@ -20,7 +20,14 @@ local function setup(on_attach, capabilities)
                 ["rust-analyzer"] = {
                     checkOnSave = {
                         command = "clippy",
+                        allFeatures = nil,
+                    },
+                    diagnostics = {
+                        enableExperimental = true,
+                    },
+                    cargo = {
                         allFeatures = true,
+                        -- features = {},
                     },
                 },
             },
