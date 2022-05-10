@@ -29,6 +29,7 @@ utils.opt("w", "number", true)
 utils.opt("w", "relativenumber", true)
 utils.opt("o", "clipboard", "unnamed,unnamedplus")
 utils.opt("o", "completeopt", "menuone,noselect")
+utils.opt("o", "listchars", "tab:→\\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»")
 
 -- fix for SQLComplete: The debxt plugin must be loaded for dynamic SQL completion
 -- vim.g.omni_sql_default_compl_type = "syntax"

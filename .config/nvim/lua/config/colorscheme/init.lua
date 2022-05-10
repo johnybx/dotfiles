@@ -3,11 +3,13 @@ local utils = require("utils")
 utils.opt("o", "termguicolors", true)
 
 local onedark = require("config.colorscheme.onedark")
+local gruvbox = require("config.colorscheme.gruvbox")
 local nightfox = require("config.colorscheme.nightfox")
 local catppuccino = require("config.colorscheme.catppuccino")
 
-nightfox.setup()
+-- nightfox.setup()
 -- catppuccino.setup()
+gruvbox.setup()
 
 -- Nice undercurl
 vim.api.nvim_exec(

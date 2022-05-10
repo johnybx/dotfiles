@@ -43,6 +43,9 @@ utils.map("n", "<CR>", '<cmd>let @/=""<CR><CR>', { silent = true })
 utils.map("n", "<ESC>", '<ESC><cmd>let @/=""<CR>')
 utils.map("n", "<leader>/", '<cmd>let @/=""<CR>', { silent = true })
 
+-- Show hidden characters
+utils.map("n", "<leader>h", "<cmd>if &list == 0 |  set list | else | set nolist | endif<CR>")
+
 -- Tabs - <C-Tab> does not work
 utils.map("n", "<S-Tab>", ":tabnext<CR>", { silent = true })
 utils.map("n", "<leader><S-Tab>", ":tabprevious<CR>", { silent = true })
@@ -125,7 +128,7 @@ utils.map(
     { silent = true }
 )
 utils.map("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.run()<CR>", { silent = true })
-utils.map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
+utils.map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename(nil, {name='pyright'})<CR>", { silent = true })
 utils.map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })
 utils.map("v", "<leader>cf", "<cmd>'<,'>lua vim.lsp.buf.range_formatting()<CR>", { silent = true })
 utils.map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { silent = true })

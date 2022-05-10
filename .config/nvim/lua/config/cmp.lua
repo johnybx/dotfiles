@@ -43,6 +43,12 @@ end
 
 cmp.setup({
     mapping = {
+        ["<Down>"] = {
+            i = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
+        },
+        ["<Up>"] = {
+            i = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
+        },
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
@@ -81,9 +87,9 @@ cmp.setup({
             vim.fn["UltiSnips#Anon"](args.body)
         end,
     },
-    documentation = {
-        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
+    window = { documentation = {
+        border = "rounded",
+    } },
     confirmation = {
         default_behavior = types.cmp.ConfirmBehavior.Replace,
     },

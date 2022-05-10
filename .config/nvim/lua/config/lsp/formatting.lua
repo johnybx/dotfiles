@@ -4,7 +4,7 @@ M.autoformat = true
 
 function M.format()
     if M.autoformat then
-        vim.lsp.buf.formatting_sync(nil, 5000)
+        vim.lsp.buf.format({ timeout_ms = 5000, async = false })
     end
 end
 
@@ -22,7 +22,7 @@ function M.toggle()
 end
 
 function M.setup(client)
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.documentFormattingProvider then
         vim.cmd([[
             augroup LspFormat
                 autocmd! * <buffer>

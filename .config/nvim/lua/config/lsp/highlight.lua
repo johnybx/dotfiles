@@ -1,5 +1,5 @@
 local function highlight(client)
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlightProvider then
         vim.api.nvim_exec(
             [[
             hi LspReferenceRead gui=none guibg=#393f4a

@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup(client, bufnr)
-    if client.resolved_capabilities.code_lens then
+    if client.server_capabilities.codeLensProvider then
         vim.api.nvim_exec(
             string.format(
                 [[
@@ -18,9 +18,9 @@ function M.setup(client, bufnr)
             false
         )
         -- trigger reset codelens with delay to make sure that codelens is not deadlocked
-        vim.defer_fn(function()
-            M.reset_codelens(bufnr)
-        end, 5000)
+        -- vim.defer_fn(function()
+        --     M.reset_codelens(bufnr)
+        -- end, 5000)
         -- debug
         -- local default_handler = vim.lsp.codelens.on_codelens
         -- vim.lsp.codelens.on_codelens = function(err, result, ctx, ...)
@@ -42,7 +42,8 @@ function M.reset_codelens(bufnr)
     vim.lsp.buf_request(
         _bufnr,
         "textDocument/codeLens",
-        { textDocument = vim.lsp.util.make_text_document_params(_bufnr) }
+        { textDocument = vim.lsp.util.make_text_document_params(_bufnr) },
+        vim.lsp.codelens.on_codelens
     )
 end
 

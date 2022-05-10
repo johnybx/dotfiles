@@ -40,6 +40,7 @@ local function open_preview_window(location)
         minheight = math.floor(max_lines * win_height),
         height = math.floor(max_lines * win_height),
     })
+    vim.api.nvim_win_set_option(preview_win, "winhl", "Normal:TelescopePreviewNormal")
     local preview_border_win = preview_opts.border and preview_opts.border.win_id
     if preview_border_win then
         vim.api.nvim_win_set_option(preview_border_win, "winhl", "Normal:TelescopePromptBorder")

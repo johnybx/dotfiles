@@ -5,7 +5,7 @@ local function setup(on_attach, capabilities)
 
     local function _on_attach(client, ...)
         -- fomatting is done by null-ls with stylua
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.documentFormattingProvider = false
         on_attach(client, ...)
     end
 

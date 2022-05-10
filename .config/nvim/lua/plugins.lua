@@ -66,7 +66,7 @@ return require("packer").startup(function()
     use({ "rcarriga/nvim-notify" })
 
     -- Float term
-    use({ "akinsho/toggleterm.nvim" })
+    use({ "akinsho/toggleterm.nvim", branch = "main" })
 
     -- Easy align
     use({ "junegunn/vim-easy-align" })
@@ -123,6 +123,7 @@ return require("packer").startup(function()
     use({ "navarasu/onedark.nvim" })
     use({ "EdenEast/nightfox.nvim" })
     use({ "Pocco81/Catppuccino.nvim" })
+    use({ "ellisonleao/gruvbox.nvim" })
     -- use({ "arcticicestudio/nord-vim" })
     -- use({ "folke/tokyonight.nvim" })
     -- use({ "patstockwell/vim-monokai-tasty" })
