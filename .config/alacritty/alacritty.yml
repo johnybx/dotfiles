@@ -14,6 +14,8 @@ window:
 
   # Disable border and title bar
   decorations: none
+
+  opacity: 0.80
 # https://github.com/ryanoasis/nerd-fonts
 font:
   normal:
@@ -60,7 +62,6 @@ colors:
     cyan: "#56b6c2"
     white: "#5c6370"
 
-background_opacity: 0.80
 cursor:
   style: block
 
@@ -91,4 +92,3 @@ key_bindings:
 # allow shift+Middle to paste (by default only without shift) # Disabled in favor of tmux which does this by default
 # mouse_bindings:
 #   - { mouse: Middle, mods: Shift, action: Paste }
-
