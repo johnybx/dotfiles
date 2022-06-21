@@ -137,7 +137,16 @@ return require("packer").startup(function()
     use({ "kristijanhusak/vim-dadbod-completion" })
 
     -- Debug / Tests
-    use({ "rcarriga/vim-ultest", requires = { "vim-test/vim-test" }, run = ":UpdateRemotePlugins" })
+    use({
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+        },
+    })
+    use({ "nvim-neotest/neotest-python", requires = { "nvim-neotest/neotest" } })
+    use({ "nvim-neotest/neotest-plenary", requires = { "nvim-neotest/neotest" } })
     use({ "mfussenegger/nvim-dap" })
     use({ "mfussenegger/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
     use({ "mfussenegger/nvim-dap-python", requires = { "mfussenegger/nvim-dap" } })

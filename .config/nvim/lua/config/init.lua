@@ -31,6 +31,6 @@ require("config.notify")
 require("config.gitlinker")
 require("config.dap-ui")
 require("config.dap-python")
-require("config.ultest")
+require("config.neotest")
 
 require("config.lsp")

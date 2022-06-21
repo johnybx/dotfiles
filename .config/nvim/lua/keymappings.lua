@@ -128,14 +128,13 @@ utils.map(
     { silent = true }
 )
 utils.map("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.run()<CR>", { silent = true })
-utils.map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename(nil, {name='pyright'})<CR>", { silent = true })
+utils.map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
 utils.map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })
 utils.map("v", "<leader>cf", "<cmd>'<,'>lua vim.lsp.buf.range_formatting()<CR>", { silent = true })
 utils.map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { silent = true })
 utils.map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { silent = true })
 utils.map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' }})<CR>", { silent = true })
 utils.map("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded' }})<CR>", { silent = true })
--- TODO: https://github.com/neovim/neovim/issues/15703
 utils.map(
     "n",
     "<leader>cd",
@@ -183,14 +182,14 @@ utils.map("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>")
 utils.map("n", "<leader>mg", "<cmd>Glow<CR>")
 
 -- Tests / Debug
--- Ultest
-utils.map("n", "<leader>ts", "<Plug>(ultest-summary-toggle)", { noremap = false })
-utils.map("n", "<leader>tf", "<Plug>(ultest-run-file)", { noremap = false })
-utils.map("n", "<leader>tn", "<Plug>(ultest-run-nearest)", { noremap = false })
-utils.map("n", "<leader>to", "<Plug>(ultest-output-show)", { noremap = false })
-utils.map("n", "<leader>tj", "<Plug>(ultest-output-jump)", { noremap = false })
-utils.map("n", "]t", "<Plug>(ultest-next-fail)", { noremap = false })
-utils.map("n", "[t", "<Plug>(ultest-prev-fail)", { noremap = false })
+-- Neotest
+utils.map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>', { noremap = false })
+utils.map("n", "<leader>tf", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', { noremap = false })
+utils.map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>', { noremap = false })
+utils.map("n", "<leader>to", '<cmd>lua require("neotest").output.open()<CR>', { noremap = false })
+utils.map("n", "<leader>tj", '<cmd>lua require("neotest").output.open({ enter = true })<CR>', { noremap = false })
+utils.map("n", "]t", '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>', { noremap = false })
+utils.map("n", "[t", '<cmd>lua require("neotest").jump.next({ status = "failed" })<CR>', { noremap = false })
 
 -- HTTP requests
 vim.cmd([[
