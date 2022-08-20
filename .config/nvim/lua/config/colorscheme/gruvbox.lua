@@ -1,6 +1,8 @@
 local function setup()
-    vim.g.gruvbox_contrast_dark = "hard"
-    vim.g.gruvbox_bold = 0
+    require("gruvbox").setup({
+        bold = false,
+        contrast = "hard",
+    })
     vim.cmd("colorscheme gruvbox")
 
     vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#283a28" })

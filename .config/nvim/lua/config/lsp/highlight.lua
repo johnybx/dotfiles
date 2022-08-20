@@ -13,7 +13,6 @@ local function highlight(client)
             ]],
             false
         )
-        require("illuminate").on_attach(client)
     end
 end
 

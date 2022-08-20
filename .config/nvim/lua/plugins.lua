@@ -71,9 +71,6 @@ return require("packer").startup(function()
     -- Easy align
     use({ "junegunn/vim-easy-align" })
 
-    -- Symbols Outline
-    use({ "simrat39/symbols-outline.nvim" })
-
     -- Startify
     use({ "mhinz/vim-startify" })
 
@@ -151,12 +148,18 @@ return require("packer").startup(function()
     use({ "mfussenegger/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
     use({ "mfussenegger/nvim-dap-python", requires = { "mfussenegger/nvim-dap" } })
 
+    -- ENV variables
+    use({ "tpope/vim-dotenv" })
+
     -- HTTP requests
-    use({ "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" } })
+    use({ "rest-nvim/rest.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
     -- TODO:
     -- https://github.com/ggandor/lightspeed.nvim --> move quickly
     -- https://awesomeopensource.com/project/wellle/targets.vim --> move with f,F,t,T easier
+    -- https://github.com/Pocco81/true-zen.nvim
+    -- https://github.com/kkoomen/vim-doge - Documentation generation
+    -- https://github.com/kristijanhusak/orgmode.nvim - notes
     --
     --
     -- https://github.com/itchyny/calendar.vim
@@ -168,12 +171,11 @@ return require("packer").startup(function()
     -- https://github.com/kevinhwang91/nvim-bqf - better quickfix window
     -- https://github.com/folke/which-key.nvim - shortcut hints
     -- https://github.com/sbdchd/neoformat - if null-ls is not good enough
-    -- https://github.com/kkoomen/vim-doge - Documentation generation
     -- https://awesomeopensource.com/project/wellle/context.vim
-    -- https://github.com/kristijanhusak/orgmode.nvim - notes
     -- https://github.com/pearofducks/ansible-vim
     -- https://github.com/vim-ctrlspace/vim-ctrlspace
     -- https://github.com/unblevable/quick-scope - show header of current function, class, condition...
     -- https://github.com/liuchengxu/vista.vim - View and search LSP symbols, tags
+    -- https://github.com/simrat39/symbols-outline.nvim
     -- https://github.com/tjdevries/sg.nvim
 end)

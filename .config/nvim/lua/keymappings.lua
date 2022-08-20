@@ -156,10 +156,6 @@ utils.map("n", "<leader>xl", "<cmd>Trouble loclist<CR>", { silent = true })
 utils.map("n", "<leader>xq", "<cmd>Trouble quickfix<CR>", { silent = true })
 utils.map("n", "gR", "<cmd>Trouble lsp_references<CR>", { silent = true })
 
--- Illuminate
-utils.map("n", "<a-n>", '<cmd>lua require"illuminate".next_reference{wrap=true}<CR>')
-utils.map("n", "<a-p>", '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<CR>')
-
 -- https://github.com/kristijanhusak/vim-dadbod-ui
 -- Unmap C-k, C-j in dbui
 vim.cmd("autocmd FileType dbui nunmap <buffer> <c-j>")
@@ -173,7 +169,7 @@ utils.map("x", "ga", "<Plug>(EasyAlign)", { noremap = false })
 -- Diffview
 utils.map("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { silent = true })
 utils.map("n", "<leader>g<Space>", ":DiffviewOpen<Space>")
-utils.map("n", "<leader>gf", "<cmd>DiffviewFileHistory<CR>", { silent = true })
+utils.map("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>", { silent = true })
 utils.map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { silent = true })
 
 -- Markdown preview
