@@ -19,6 +19,8 @@ return require("packer").startup(function()
     use({ "hrsh7th/cmp-calc" })
     use({ "hrsh7th/cmp-vsnip" })
     use({ "hrsh7th/cmp-emoji" })
+    use({ "hrsh7th/cmp-cmdline" })
+    use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
     use({ "f3fora/cmp-spell" })
     use({ "quangnguyen30192/cmp-nvim-ultisnips" })
     --- CMP plugins END

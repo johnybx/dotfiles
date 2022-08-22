@@ -28,7 +28,8 @@ utils.opt("o", "wildmode", "list:longest")
 utils.opt("w", "number", true)
 utils.opt("w", "relativenumber", true)
 utils.opt("o", "clipboard", "unnamed,unnamedplus")
-utils.opt("o", "completeopt", "menuone,noselect")
+utils.opt("o", "completeopt", "menu,menuone,noselect")
+utils.opt("o", "pumheight", 20)
 utils.opt("o", "listchars", "tab:→\\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»")
 
 -- fix for SQLComplete: The debxt plugin must be loaded for dynamic SQL completion
