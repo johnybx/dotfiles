@@ -1,5 +1,6 @@
 local actions = require("telescope.actions")
 local layout = require("telescope.actions.layout")
+local file_browser_actions = require("telescope").extensions.file_browser.actions
 
 local function normalize_path(path)
     return require("plenary.path"):new(path):make_relative(vim.loop.cwd())
@@ -85,7 +86,22 @@ require("telescope").setup({
             end,
         },
     },
-    extensions = {},
+    extensions = {
+        file_browser = {
+            mappings = {
+                i = {
+                    ["<C-s>"] = actions.select_horizontal,
+                    ["<C-v>"] = actions.select_vertical,
+                    ["<C-t>"] = actions.select_tab,
+                },
+                n = {
+                    ["<C-s>"] = actions.select_horizontal,
+                    ["<C-v>"] = actions.select_vertical,
+                    ["<C-t>"] = actions.select_tab,
+                },
+            },
+        },
+    },
 })
 
 -- Extensions
