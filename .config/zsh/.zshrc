@@ -11,6 +11,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export PATH="$HOME/.local/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.local/share/oh-my-zsh
 
@@ -94,7 +95,21 @@ plugins=(
     command-not-found
 )
 
+if type poetry &> /dev/null; then
+    plugins+=(poetry)
+fi
+
 source $ZSH/oh-my-zsh.sh
+
+if type poetry &> /dev/null; then
+    if [[ ! -d $ZSH_CUSTOM/plugins/poetry ]]; then
+        mkdir -p $ZSH_CUSTOM/plugins/poetry
+    fi
+
+    if [[ ! -f $ZSH_CUSTOM/plugins/poetry/_poetry ]] || [[ $(date -r $ZSH_CUSTOM/plugins/poetry/_poetry +%s) < $(date --date="7 days ago" +%s) ]]; then
+        poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+    fi
+fi
 
 # User configuration
 
@@ -191,6 +206,7 @@ alias ll='ls -la'
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias httpws='http --verify=no --timeout 600 '
 alias ssha='ssh-add ~/.ssh/id_rsa ~/.ssh/id_ed25519'
+alias rsync='/usr/bin/rsync -e "ssh -o RemoteCommand=none -o RequestTTY=no" '
 alias env_upgrade='pip install --upgrade  pip black -r requirements/main.txt -r requirements/tests.txt -r requirements/doc.txt'
 alias pip_upgrade='pip install --use-feature=2020-resolver --upgrade `pip list --outdated --format=freeze | cut -d = -f1 | awk '"'"'{printf "%s ", $1}'"'"'`'
 alias system-virt-viewer='virt-viewer -c qemu:///system --hotkeys=toggle-fullscreen=ctrl+alt+F,release-cursor=shift+f12'
@@ -202,14 +218,25 @@ alias xcp='xclip -out -selection clipboard'
 alias vim='nvim'
 pvim ()
 {
-    env_path="env/bin/activate"
+    env_path=""
     if [[ ! -z "$1" && -d "$1" && -d "$1/bin" && -f "$1/bin/activate" ]]; then
         env_path="$1/bin/activate"
         shift
+    else
+        for folder in "env" "venv" ".venv"; do
+            if [[ -d "$folder" && -d "$folder/bin" && -f "$folder/bin/activate" ]]; then
+                env_path="$folder/bin/activate"
+                break
+            fi
+        done
     fi
-    source $env_path
+    if [[ ! -z "$env_path" ]]; then
+        source $env_path
+    fi
     nvim $@
-    deactivate
+    if type deactivate &> /dev/null; then
+        deactivate
+    fi
 }
 
 zlist ()
