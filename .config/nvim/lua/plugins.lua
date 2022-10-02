@@ -122,9 +122,9 @@ return require("packer").startup(function()
         },
     })
 
-    -- Galaxyline
+    -- Lualine
     use({
-        "NTBBloodbath/galaxyline.nvim",
+        "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
 
