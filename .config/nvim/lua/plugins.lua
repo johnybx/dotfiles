@@ -22,7 +22,13 @@ return require("packer").startup(function()
     use({ "hrsh7th/cmp-cmdline" })
     use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
     use({ "f3fora/cmp-spell" })
-    use({ "quangnguyen30192/cmp-nvim-ultisnips" })
+    -- Snippets
+    use({ "L3MON4D3/LuaSnip" })
+    use({ "rafamadriz/friendly-snippets" })
+    use({ "saadparwaiz1/cmp_luasnip" })
+    -- use({ "hrsh7th/vim-vsnip" })
+    -- use({ "quangnguyen30192/cmp-nvim-ultisnips" })
+    -- use({ "SirVer/ultisnips", requires = "honza/vim-snippets" })
     --- CMP plugins END
     use({ "p00f/nvim-ts-rainbow" })
     use({ "RRethy/vim-illuminate" })
@@ -31,8 +37,6 @@ return require("packer").startup(function()
     -- Visual hint for textobjects
     -- https://github.com/mfussenegger/nvim-ts-hint-textobject
     use({ "nvim-treesitter/playground" })
-    use({ "hrsh7th/vim-vsnip" })
-    use({ "SirVer/ultisnips", requires = "honza/vim-snippets" })
     use({ "ray-x/lsp_signature.nvim" })
     use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } })
 
@@ -46,8 +50,8 @@ return require("packer").startup(function()
         requires = "nvim-lua/plenary.nvim",
     })
     use({ "karb94/neoscroll.nvim" })
-    -- use({ "pechorin/any-jump.vim" })
-    use({ "norcalli/nvim-colorizer.lua" })
+    -- use({ "norcalli/nvim-colorizer.lua" })
+    use({ "NvChad/nvim-colorizer.lua" })
     use({ "lukas-reineke/indent-blankline.nvim" })
     use({ "windwp/nvim-autopairs" })
     use({ "moll/vim-bbye" })
@@ -66,6 +70,7 @@ return require("packer").startup(function()
     use({ "onsails/lspkind-nvim" })
     use({ "kosayoda/nvim-lightbulb" })
     use({ "rcarriga/nvim-notify" })
+    use({ "andythigpen/nvim-coverage" })
 
     -- Float term
     use({ "akinsho/toggleterm.nvim", branch = "main" })
@@ -89,7 +94,7 @@ return require("packer").startup(function()
     use({ "chr4/nginx.vim" })
 
     -- Markdown
-    use({ "plasticboy/vim-markdown", requires = "godlygeek/tabular" })
+    use({ "preservim/vim-markdown", requires = "godlygeek/tabular" })
     use({
         "iamcco/markdown-preview.nvim",
         run = function()
@@ -106,8 +111,16 @@ return require("packer").startup(function()
     use({ "sindrets/diffview.nvim" })
     use({ "lewis6991/gitsigns.nvim" })
     use({ "ruifm/gitlinker.nvim", requires = "nvim-lua/plenary.nvim" })
+
     -- Github reviews / MR
-    -- https://github.com/pwntester/octo.nvim
+    use({
+        "pwntester/octo.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "kyazdani42/nvim-web-devicons",
+        },
+    })
 
     -- Galaxyline
     use({
@@ -156,6 +169,9 @@ return require("packer").startup(function()
     -- HTTP requests
     use({ "rest-nvim/rest.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
+    -- ORG mode
+    use({ "kristijanhusak/orgmode.nvim", requires = { "nvim-treesitter/nvim-treesitter" } })
+
     -- TODO:
     -- https://github.com/ggandor/lightspeed.nvim --> move quickly
     -- https://awesomeopensource.com/project/wellle/targets.vim --> move with f,F,t,T easier
@@ -163,6 +179,7 @@ return require("packer").startup(function()
     -- https://github.com/kkoomen/vim-doge - Documentation generation
     -- https://github.com/kristijanhusak/orgmode.nvim - notes
     --
+    -- https://github.com/williamboman/mason.nvim
     --
     -- https://github.com/itchyny/calendar.vim
     -- https://github.com/junegunn/fzf.vim

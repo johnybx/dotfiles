@@ -10,6 +10,7 @@ local catppuccino = require("config.colorscheme.catppuccino")
 -- nightfox.setup()
 -- catppuccino.setup()
 gruvbox.setup()
+-- onedark.setup()
 
 -- Nice undercurl
 vim.api.nvim_exec(

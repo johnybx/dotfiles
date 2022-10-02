@@ -49,7 +49,8 @@ cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
 -- yaml, json, markdown should expand tab as 2 spaces
 cmd("autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab")
 cmd("autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab")
-cmd("autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab")
+cmd("autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab nofoldenable")
+cmd("autocmd FileType org setlocal ts=2 sts=2 sw=2 expandtab")
 
 -- set correct file type for salt files
 cmd([[

@@ -31,5 +31,8 @@ require("config.gitlinker")
 require("config.dap-ui")
 require("config.dap-python")
 require("config.neotest")
+require("config.orgmode")
+require("config.octo")
+require("config.coverage")
 
 require("config.lsp")

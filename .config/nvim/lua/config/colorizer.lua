@@ -1,1 +1,1 @@
-require("colorizer").setup({ "*" }, { mode = "foreground" })
+require("colorizer").setup()

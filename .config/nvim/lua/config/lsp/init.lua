@@ -21,7 +21,7 @@ else
 end
 
 -- Others
-local servers = { "pyright", "dockerls", "bashls", "vimls", "intelephense", "tsserver" }
+local servers = { "pyright", "dockerls", "bashls", "vimls", "intelephense", "tsserver", "marksman" }
 require("config.lsp.generic_lsp").setup(servers, on_attach, capabilities)
 
 -- Setup lsp diagnostics

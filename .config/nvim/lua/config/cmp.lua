@@ -1,41 +1,36 @@
 local cmp = require("cmp")
 local types = require("cmp.types")
 local lspkind = require("lspkind")
+local luasnip = require("luasnip")
+require("luasnip.loaders.from_vscode").lazy_load()
 
-local function t(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local function check_back_space()
-    local col = vim.fn.col(".") - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
+local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 local function tab_complete(fallback)
-    -- if vim.fn.pumvisible() == 1 then
-    -- 	vim.fn.feedkeys(t("<C-n>"), "n")
     if cmp.visible() then
         cmp.select_next_item()
-        -- elseif vim.fn["vsnip#available"](1) == 1 then
-        -- 	vim.fn.feedkeys(t("<Plug>(vsnip-expand-or-jump)"), "")
-    elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-        vim.fn.feedkeys(t("<C-j>"), "")
-    elseif check_back_space() then
-        vim.fn.feedkeys(t("<Tab>"), "n")
+        -- elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+        --     vim.fn.feedkeys(t("<C-j>"), "")
+    elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+    elseif has_words_before() then
+        cmp.complete()
     else
         fallback()
     end
 end
 
 local function s_tab_complete(fallback)
-    -- if vim.fn.pumvisible() == 1 then
-    -- vim.fn.feedkeys(t("<C-p>"), "n")
     if cmp.visible() then
         cmp.select_prev_item()
-        -- elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-        -- 	vim.fn.feedkeys(t("<Plug>(vsnip-jump-prev)"), "")
-    elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-        vim.fn.feedkeys(t("<C-k>"), "")
+
+        -- elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+        -- vim.fn.feedkeys(t("<C-k>"), "")
+    elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
     else
         fallback()
     end
@@ -53,7 +48,7 @@ cmp.setup({
         ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-Space>"] = cmp.mapping.complete({}),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<C-q>"] = cmp.mapping.close(),
         ["<CR>"] = cmp.mapping.confirm({
@@ -70,9 +65,11 @@ cmp.setup({
                 nvim_lua = "[Lua]",
                 path = "[Path]",
                 buffer = "[Buffer]",
+                luasnip = "[LuaSnip]",
                 ultisnips = "[UltiSnips]",
                 calc = "[Calc]",
                 vsnip = "[Vsnip]",
+                orgmode = "[Orgmode]",
                 emoji = "[Emoji]",
                 ["vim-dadbod-completion"] = "[Dadbod]",
                 spell = "[Spell]",
@@ -84,7 +81,8 @@ cmp.setup({
     },
     snippet = {
         expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)
+            -- vim.fn["UltiSnips#Anon"](args.body)
+            luasnip.lsp_expand(args.body)
         end,
     },
     window = { documentation = {
@@ -100,11 +98,13 @@ cmp.setup({
         { name = "path" },
         { name = "vim-dadbod-completion" },
         { name = "buffer", keyword_length = 3 },
-        { name = "ultisnips" },
+        { name = "luasnip" },
+        -- { name = "ultisnips" },
+        -- { name = "vsnip" },
         { name = "spell" },
         { name = "emoji" },
         { name = "calc" },
-        -- { name = "vsnip" },
+        { name = "orgmode" },
     },
     sorting = {
         priority_weight = 2,
@@ -127,4 +127,11 @@ cmp.setup.cmdline("/", {
     }, {
         { name = "buffer" },
     }),
+})
+cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = "nvim_lua" },
+        { name = "cmdline" },
+    },
 })

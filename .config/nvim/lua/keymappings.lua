@@ -113,20 +113,10 @@ utils.map(
 utils.map("n", "<leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", { silent = true })
 utils.map("n", "<leader>gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", { silent = true })
 utils.map("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", { silent = true })
-utils.map(
-    "n",
-    "<leader>ca",
-    "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
-    { silent = true }
-)
+utils.map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
 -- TODO: using lua require current visual range as parameter.
-utils.map("v", "<leader>ca", "<cmd>Telescope lsp_range_code_actions themes=get_cursor<CR>", { silent = true })
-utils.map(
-    "n",
-    "<C-.>",
-    "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({winblend=10}))<CR>",
-    { silent = true }
-)
+utils.map("v", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
+utils.map("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
 utils.map("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.run()<CR>", { silent = true })
 utils.map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
 utils.map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })

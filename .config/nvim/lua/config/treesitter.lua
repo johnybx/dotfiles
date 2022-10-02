@@ -32,6 +32,7 @@ require("nvim-treesitter.configs").setup({
         "lua",
         "make",
         "markdown",
+        "org",
         "norg",
         "pascal",
         "perl",
@@ -63,7 +64,7 @@ require("nvim-treesitter.configs").setup({
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
         -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = { "org" },
     },
     incremental_selection = {
         enable = true,
@@ -97,32 +98,46 @@ require("nvim-treesitter.configs").setup({
                 ["if"] = "@function.inner",
                 ["ac"] = "@class.outer",
                 ["ic"] = "@class.inner",
+                ["am"] = "@comment.outer",
+                ["ar"] = "@parameter.outer",
+                ["ir"] = "@parameter.inner",
+                ["al"] = "@loop.outer",
+                ["il"] = "@loop.inner",
+                ["at"] = "@statement.outer",
+                ["ak"] = "@call.outer",
+                ["ik"] = "@call.inner",
             },
         },
         move = {
             enable = true,
             set_jumps = true, -- whether to set jumps in the jumplist
             goto_next_start = {
-                ["]m"] = "@function.outer",
-                ["]]"] = "@class.outer",
+                ["]]"] = "@function.outer",
+                ["]c"] = "@class.outer",
             },
             goto_next_end = {
-                ["]M"] = "@function.outer",
-                ["]["] = "@class.outer",
+                ["]["] = "@function.outer",
+                ["]C"] = "@class.outer",
             },
             goto_previous_start = {
-                ["[m"] = "@function.outer",
-                ["[["] = "@class.outer",
+                ["[["] = "@function.outer",
+                ["[c"] = "@class.outer",
             },
             goto_previous_end = {
-                ["[M"] = "@function.outer",
-                ["[]"] = "@class.outer",
+                ["[]"] = "@function.outer",
+                ["[C"] = "@class.outer",
             },
         },
         swap = {
             enable = true,
-            swap_next = { ["<leader>z"] = "@parameter.inner", ["<leader>fu"] = "@function.outer" },
-            swap_previous = { ["<leader>Z"] = "@parameter.inner", ["<leader>Fu"] = "@function.outer" },
+            swap_next = {
+                ["<leader>sp"] = "@parameter.inner",
+                ["<leader>sf"] = "@function.outer",
+            },
+            swap_previous = {
+                ["<leader>sP"] = "@parameter.inner",
+                ["<leader>sF"] = "@function.outer",
+            },
         },
         lsp_interop = {
             enable = true,
