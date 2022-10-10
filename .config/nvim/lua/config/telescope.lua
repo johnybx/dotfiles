@@ -1,6 +1,5 @@
 local actions = require("telescope.actions")
 local layout = require("telescope.actions.layout")
-local file_browser_actions = require("telescope").extensions.file_browser.actions
 
 local function normalize_path(path)
     return require("plenary.path"):new(path):make_relative(vim.loop.cwd())
@@ -106,3 +105,4 @@ require("telescope").setup({
 
 -- Extensions
 require("telescope").load_extension("file_browser")
+require("telescope").load_extension("dap")

@@ -7,6 +7,7 @@ return require("packer").startup(function()
         requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
     })
     use({ "nvim-telescope/telescope-file-browser.nvim", requires = { { "nvim-telescope/telescope.nvim" } } })
+    use({ "nvim-telescope/telescope-dap.nvim", requires = { { "nvim-telescope/telescope.nvim" } } })
     use({ "stevearc/dressing.nvim", requires = { { "nvim-telescope/telescope.nvim" } } })
     -- LSP and completion
     use({ "neovim/nvim-lspconfig" })
@@ -148,6 +149,9 @@ return require("packer").startup(function()
     use({ "kristijanhusak/vim-dadbod-ui" })
     use({ "kristijanhusak/vim-dadbod-completion" })
 
+    -- ENV variables
+    use({ "tpope/vim-dotenv" })
+
     -- Debug / Tests
     use({
         "nvim-neotest/neotest",
@@ -160,11 +164,8 @@ return require("packer").startup(function()
     use({ "nvim-neotest/neotest-python", requires = { "nvim-neotest/neotest" } })
     use({ "nvim-neotest/neotest-plenary", requires = { "nvim-neotest/neotest" } })
     use({ "mfussenegger/nvim-dap" })
-    use({ "mfussenegger/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-    use({ "mfussenegger/nvim-dap-python", requires = { "mfussenegger/nvim-dap" } })
-
-    -- ENV variables
-    use({ "tpope/vim-dotenv" })
+    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+    use({ "mfussenegger/nvim-dap-python", requires = { "mfussenegger/nvim-dap", "tpope/vim-dotenv" } })
 
     -- HTTP requests
     use({ "rest-nvim/rest.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -172,15 +173,19 @@ return require("packer").startup(function()
     -- ORG mode
     use({ "kristijanhusak/orgmode.nvim", requires = { "nvim-treesitter/nvim-treesitter" } })
 
-    -- TODO:
+    -- TODO:: These are interesting
+    -- https://github.com/stevearc/overseer.nvim - A task runner and job management plugin for Neovim
     -- https://github.com/ggandor/lightspeed.nvim --> move quickly
     -- https://awesomeopensource.com/project/wellle/targets.vim --> move with f,F,t,T easier
     -- https://github.com/Pocco81/true-zen.nvim
     -- https://github.com/kkoomen/vim-doge - Documentation generation
-    -- https://github.com/kristijanhusak/orgmode.nvim - notes
+    -- https://github.com/SmiteshP/nvim-navic - current code context
     --
     -- https://github.com/williamboman/mason.nvim
     --
+    -- https://github.com/jbyuki/venn.nvim - fancy diagrams
+    --
+    -- https://github.com/theHamsta/nvim-dap-virtual-text
     -- https://github.com/itchyny/calendar.vim
     -- https://github.com/junegunn/fzf.vim
     -- https://github.com/yuki-yano/fzf-preview.vim

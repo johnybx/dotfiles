@@ -172,10 +172,50 @@ utils.map("n", "<leader>mg", "<cmd>Glow<CR>")
 utils.map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>', { noremap = false })
 utils.map("n", "<leader>tf", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', { noremap = false })
 utils.map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>', { noremap = false })
+utils.map("n", "<leader>td", '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>', { noremap = false })
 utils.map("n", "<leader>to", '<cmd>lua require("neotest").output.open()<CR>', { noremap = false })
 utils.map("n", "<leader>tj", '<cmd>lua require("neotest").output.open({ enter = true })<CR>', { noremap = false })
 utils.map("n", "]t", '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>', { noremap = false })
 utils.map("n", "[t", '<cmd>lua require("neotest").jump.next({ status = "failed" })<CR>', { noremap = false })
+
+-- Dap
+utils.map("n", "<leader>dc", '<cmd>lua require("dap").continue()<CR>', { noremap = false })
+utils.map("n", "<leader>dp", '<cmd>lua require("dap").pause()<CR>', { noremap = false })
+utils.map("n", "<leader>dl", '<cmd>lua require("dap").run_last()<CR>', { noremap = false })
+utils.map("n", "<leader>dr", '<cmd>lua require("dap").run_to_cursor()<CR>', { noremap = false })
+utils.map("n", "<leader>dt", '<cmd>lua  require("dap").terminate()<CR>', { noremap = false })
+utils.map("n", "<leader>dd", '<cmd>lua  require("dap").disconnect()<CR>', { noremap = false })
+utils.map("n", "<leader>dh", '<cmd>lua  require("dap.ui.widgets").hover()<CR>', { noremap = false })
+utils.map("n", "<leader>dk", '<cmd>lua  require("dap").up()<CR>', { noremap = false })
+utils.map("n", "<leader>dj", '<cmd>lua  require("dap").down()<CR>', { noremap = false })
+utils.map("n", "<leader>du", '<cmd>lua  require("dapui").toggle()<CR>', { noremap = false })
+
+utils.map("n", "<leader>dv", '<cmd>lua require("telescope").extensions.dap.variables()<CR>', { noremap = false })
+utils.map("n", "<leader>dm", '<cmd>lua require("telescope").extensions.dap.frames()<CR>', { noremap = false })
+utils.map("n", "<leader>so", '<cmd>lua  require("dap").step_over()<CR>', { noremap = false })
+utils.map("n", "<leader>si", '<cmd>lua  require("dap").step_into()<CR>', { noremap = false })
+utils.map("n", "<leader>su", '<cmd>lua  require("dap").step_out()<CR>', { noremap = false })
+utils.map("n", "<leader>bt", '<cmd>lua require("dap").toggle_breakpoint()<CR>', { noremap = false })
+utils.map(
+    "n",
+    "<leader>bi",
+    '<cmd>lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+    { noremap = false }
+)
+utils.map(
+    "n",
+    "<leader>bh",
+    '<cmd>lua require("dap").set_breakpoint(nil, vim.fn.input("Breakpoint hit condition: "))<CR>',
+    { noremap = false }
+)
+utils.map(
+    "n",
+    "<leader>bg",
+    '<cmd>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
+    { noremap = false }
+)
+utils.map("n", "<leader>bl", '<cmd>lua require("telescope").extensions.dap.list_breakpoints()<CR>', { noremap = false })
+utils.map("n", "<leader>bc", '<cmd>lua require("dap").clear_breakpoints()<CR>', { noremap = false })
 
 -- HTTP requests
 vim.cmd([[

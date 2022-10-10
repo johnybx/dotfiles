@@ -11,7 +11,7 @@ require("lualine").setup({
     sections = {
         lualine_x = { check_lsp, "fileformat", "filetype" },
         lualine_c = {
-            { "filename", path = 1 },
+            { "filename", path = 1, shorting_target = 60 },
         },
     },
     inactive_sections = {
