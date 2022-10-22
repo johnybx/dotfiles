@@ -73,6 +73,7 @@ cmp.setup({
                 emoji = "[Emoji]",
                 ["vim-dadbod-completion"] = "[Dadbod]",
                 spell = "[Spell]",
+                dap = "[Dap]",
             }
             vim_item.kind = lspkind.presets.default[vim_item.kind] .. "  " .. vim_item.kind
             vim_item.menu = sources[entry.source.name] or entry.source.name
@@ -92,7 +93,7 @@ cmp.setup({
         default_behavior = types.cmp.ConfirmBehavior.Replace,
     },
     preselect = types.cmp.PreselectMode.Item,
-    sources = {
+    sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "path" },
@@ -105,7 +106,7 @@ cmp.setup({
         { name = "emoji" },
         { name = "calc" },
         { name = "orgmode" },
-    },
+    }),
     sorting = {
         priority_weight = 2,
         comparators = {
@@ -117,6 +118,16 @@ cmp.setup({
             cmp.config.compare.sort_text,
             cmp.config.compare.order,
         },
+    },
+    enabled = function()
+        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+    end,
+})
+
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+    mapping = cmp.mapping.preset.insert(),
+    sources = {
+        { name = "dap" },
     },
 })
 

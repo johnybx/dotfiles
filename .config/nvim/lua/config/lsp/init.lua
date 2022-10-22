@@ -4,7 +4,7 @@ local on_attach = require("config.lsp.default_on_attach").on_attach
 local capabilities = require("config.lsp.capabilities").get()
 
 -- Lua
-require("config.lsp.lua-dev").setup(on_attach, capabilities)
+require("config.lsp.neodev").setup(on_attach, capabilities)
 -- Null lsp
 require("config.lsp.null-ls").setup(on_attach)
 -- Yamlls

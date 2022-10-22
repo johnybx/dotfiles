@@ -30,14 +30,14 @@ utils.opt("w", "relativenumber", true)
 utils.opt("o", "clipboard", "unnamed,unnamedplus")
 utils.opt("o", "completeopt", "menu,menuone,noselect")
 utils.opt("o", "pumheight", 20)
-utils.opt("o", "listchars", "tab:→\\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»")
+utils.opt("o", "listchars", "tab:→\\ ,nbsp:␣,trail:•,eol:↲,precedes:«,extends:»")
 
 -- fix for SQLComplete: The debxt plugin must be loaded for dynamic SQL completion
 -- vim.g.omni_sql_default_compl_type = "syntax"
 vim.g.omni_sql_no_default_maps = 1
 
 cmd("autocmd FileType * set shortmess+=c")
-cmd("autocmd FileType * set formatoptions-=tcro")
+cmd("autocmd FileType * set formatoptions-=tcr")
 
 -- Startify + nvim-tree => do not save empty windows to session
 -- TODO: https://github.com/kyazdani42/nvim-tree.lua/issues/488

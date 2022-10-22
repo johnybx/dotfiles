@@ -1,4 +1,7 @@
 local function setup(on_attach, capabilities)
+    local extension_path = vim.fn.glob("~/.vscode-insiders/extensions/vadimcn.vscode-lldb-*/")
+    local codelldb_path = extension_path .. "adapter/codelldb"
+    local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
     require("rust-tools").setup({
         tools = {
             inlay_hints = {
@@ -31,6 +34,9 @@ local function setup(on_attach, capabilities)
                     },
                 },
             },
+        },
+        dap = {
+            adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
         },
     })
 end

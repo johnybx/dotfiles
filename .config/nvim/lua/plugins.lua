@@ -23,6 +23,7 @@ return require("packer").startup(function()
     use({ "hrsh7th/cmp-cmdline" })
     use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
     use({ "f3fora/cmp-spell" })
+    use({ "rcarriga/cmp-dap" })
     -- Snippets
     use({ "L3MON4D3/LuaSnip" })
     use({ "rafamadriz/friendly-snippets" })
@@ -108,7 +109,6 @@ return require("packer").startup(function()
     use({ "tpope/vim-surround" })
 
     -- Git
-    use({ "tpope/vim-fugitive" })
     use({ "sindrets/diffview.nvim" })
     use({ "lewis6991/gitsigns.nvim" })
     use({ "ruifm/gitlinker.nvim", requires = "nvim-lua/plenary.nvim" })
@@ -135,8 +135,9 @@ return require("packer").startup(function()
     -- Themes
     use({ "navarasu/onedark.nvim" })
     use({ "EdenEast/nightfox.nvim" })
-    use({ "Pocco81/Catppuccino.nvim" })
+    use({ "catppuccin/nvim" })
     use({ "ellisonleao/gruvbox.nvim" })
+    use({ "marko-cerovac/material.nvim" })
     -- use({ "arcticicestudio/nord-vim" })
     -- use({ "folke/tokyonight.nvim" })
     -- use({ "patstockwell/vim-monokai-tasty" })
@@ -170,16 +171,19 @@ return require("packer").startup(function()
     -- HTTP requests
     use({ "rest-nvim/rest.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
-    -- ORG mode
-    use({ "kristijanhusak/orgmode.nvim", requires = { "nvim-treesitter/nvim-treesitter" } })
+    -- Notes
+    use({ "phaazon/mind.nvim", branch = "v2.2" })
 
     -- TODO:: These are interesting
+    -- https://github.com/phaazon/hop.nvim
     -- https://github.com/stevearc/overseer.nvim - A task runner and job management plugin for Neovim
     -- https://github.com/ggandor/lightspeed.nvim --> move quickly
     -- https://awesomeopensource.com/project/wellle/targets.vim --> move with f,F,t,T easier
     -- https://github.com/Pocco81/true-zen.nvim
     -- https://github.com/kkoomen/vim-doge - Documentation generation
     -- https://github.com/SmiteshP/nvim-navic - current code context
+    -- https://github.com/anuvyklack/windows.nvim
+    -- https://github.com/AckslD/nvim-FeMaco.lua
     --
     -- https://github.com/williamboman/mason.nvim
     --
