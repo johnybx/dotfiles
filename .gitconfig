@@ -6,7 +6,23 @@
 	chp = cherry-pick
 	l = pull
 	p = push
+[diff]
+    colorMoved = default
+	algorithm = patience
 [pull]
-	rebase = false
+	rebase = true
+[push]
+    autoSetupRemote = true
+    signed = if-asked
+[commit]
+    gpgSign = true
 [init]
 	defaultBranch = main
+[rerere]
+    enabled = true
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
+[url "ssh://git@gitlab.com/"]
+    insteadOf = https://gitlab.com/

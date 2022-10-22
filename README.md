@@ -18,4 +18,6 @@
 
 ### Screenshots:
 
-#### TODO:
+![terminals](screenshots/screen-terminals.png)
+![neofetch](screenshots/neofetch.png)
+![guake](screenshots/guake.png)
