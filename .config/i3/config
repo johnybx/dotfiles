@@ -193,6 +193,8 @@ assign [class="^Thunderbird$"] → 4
 assign [class="^Boostnote$"] → 4
 assign [class="^Virt-manager$"] → 5
 
+no_focus [class="^markdown-preview$"]
+
 # start with workspace layout
 workspace_layout tabbed
 # align title

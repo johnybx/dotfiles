@@ -97,13 +97,14 @@ return require("packer").startup(function()
 
     -- Markdown
     use({ "preservim/vim-markdown", requires = "godlygeek/tabular" })
+    use({ "npxbr/glow.nvim" })
     use({
         "iamcco/markdown-preview.nvim",
         run = function()
             vim.fn["mkdp#util#install"]()
         end,
     })
-    use({ "npxbr/glow.nvim" })
+    -- use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
 
     -- Better quoting
     use({ "tpope/vim-surround" })
