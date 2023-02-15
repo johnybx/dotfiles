@@ -8,7 +8,7 @@ local function setup(on_attach, capabilities)
     require("neodev").setup({})
 
     local lspconfig = require("lspconfig")
-    lspconfig.sumneko_lua.setup({
+    lspconfig.lua_ls.setup({
         cmd = { "lua-language-server" },
         single_file_support = true,
         capabilities = capabilities,

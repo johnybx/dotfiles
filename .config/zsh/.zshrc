@@ -201,8 +201,6 @@ if [[ $TERM = "xterm-kitty" ]]; then
 fi
 
 # Aliases
-alias ls='ls --color=auto'
-alias ll='ls -la'
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias httpws='http --verify=no --timeout 600 '
 alias ssha='ssh-add ~/.ssh/id_rsa ~/.ssh/id_ed25519'
@@ -210,9 +208,9 @@ alias rsync='/usr/bin/rsync -e "ssh -o RemoteCommand=none -o RequestTTY=no" '
 alias env_upgrade='pip install --upgrade  pip black -r requirements/main.txt -r requirements/tests.txt -r requirements/doc.txt'
 alias pip_upgrade='pip install --use-feature=2020-resolver --upgrade `pip list --outdated --format=freeze | cut -d = -f1 | awk '"'"'{printf "%s ", $1}'"'"'`'
 alias system-virt-viewer='virt-viewer -c qemu:///system --hotkeys=toggle-fullscreen=ctrl+alt+F,release-cursor=shift+f12'
+alias ll='ls -lah'
 alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../..'
+alias cdw='cd ~/workspace'
 alias xc='xclip -in -selection clipboard'
 alias xcp='xclip -out -selection clipboard'
 alias vim='nvim'

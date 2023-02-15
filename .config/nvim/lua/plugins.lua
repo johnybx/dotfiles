@@ -32,7 +32,8 @@ return require("packer").startup(function()
     -- use({ "quangnguyen30192/cmp-nvim-ultisnips" })
     -- use({ "SirVer/ultisnips", requires = "honza/vim-snippets" })
     --- CMP plugins END
-    use({ "p00f/nvim-ts-rainbow" })
+
+    use({ "mrjones2014/nvim-ts-rainbow" })
     use({ "RRethy/vim-illuminate" })
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
@@ -73,6 +74,7 @@ return require("packer").startup(function()
     use({ "kosayoda/nvim-lightbulb" })
     use({ "rcarriga/nvim-notify" })
     use({ "andythigpen/nvim-coverage" })
+    use({ "ziontee113/neo-minimap" })
 
     -- Float term
     use({ "akinsho/toggleterm.nvim", branch = "main" })
@@ -175,20 +177,35 @@ return require("packer").startup(function()
     -- Notes
     use({ "phaazon/mind.nvim", branch = "v2.2" })
 
+    -- AI
+    use({
+        "jackMort/ChatGPT.nvim",
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+    })
+    -- https://github.com/dense-analysis/neural
+    -- https://github.com/aduros/ai.vim
+
     -- TODO:: These are interesting
     -- https://github.com/phaazon/hop.nvim
     -- https://github.com/stevearc/overseer.nvim - A task runner and job management plugin for Neovim
     -- https://github.com/ggandor/lightspeed.nvim --> move quickly
     -- https://awesomeopensource.com/project/wellle/targets.vim --> move with f,F,t,T easier
     -- https://github.com/Pocco81/true-zen.nvim
-    -- https://github.com/kkoomen/vim-doge - Documentation generation
+    -- https://github.com/danymat/neogen - Documentation generation
     -- https://github.com/SmiteshP/nvim-navic - current code context
     -- https://github.com/anuvyklack/windows.nvim
     -- https://github.com/AckslD/nvim-FeMaco.lua
+    -- https://github.com/narutoxy/silicon.lua - screenshot code
     --
     -- https://github.com/williamboman/mason.nvim
+    -- https://github.com/p00f/clangd_extensions.nvim
     --
     -- https://github.com/jbyuki/venn.nvim - fancy diagrams
+    -- https://github.com/LudoPinelli/comment-box.nvim
     --
     -- https://github.com/theHamsta/nvim-dap-virtual-text
     -- https://github.com/itchyny/calendar.vim
@@ -207,4 +224,5 @@ return require("packer").startup(function()
     -- https://github.com/liuchengxu/vista.vim - View and search LSP symbols, tags
     -- https://github.com/simrat39/symbols-outline.nvim
     -- https://github.com/tjdevries/sg.nvim
+    -- https://github.com/debugloop/telescope-undo.nvim
 end)

@@ -4,7 +4,10 @@ local formatting_setup = require("config.lsp.formatting").setup
 local code_lens = require("config.lsp.codelens").setup
 
 local on_attach = function(client, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+    -- Disable setting formatexpr=v:lua.vim.lsp.formatexpr()
+    -- allow to use built in 'gq' in combination with format on save
+    vim.bo[bufnr].formatexpr = nil
 
     signature_on_attach(bufnr)
     highlight(client)

@@ -49,7 +49,7 @@ Plug 'nvie/vim-flake8'
 Plug 'psf/black', { 'branch': 'main' }
 
 " Generic
-Plug 'valloric/youcompleteme'
+" Plug 'valloric/youcompleteme'
 Plug 'ervandew/supertab'
 Plug 'w0rp/ale'
 

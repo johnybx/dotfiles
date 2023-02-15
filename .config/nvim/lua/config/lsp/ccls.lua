@@ -1,6 +1,8 @@
 -- ccls require compilation database https://github.com/MaskRay/ccls/wiki/Project-Setup#compile_commandsjson
 -- or ccls file https://github.com/MaskRay/ccls/wiki/Project-Setup#ccls-file
 -- in root directory
+-- ccls links clang - in order to use custom clang build the ccls need to be recompiled (example
+-- espressif llvm fork)
 local util = require("lspconfig.util")
 local function setup(on_attach, capabilities)
     require("lspconfig")["ccls"].setup({

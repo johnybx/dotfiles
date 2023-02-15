@@ -11,6 +11,8 @@ require("config.lsp.null-ls").setup(on_attach)
 require("config.lsp.yamlls").setup(on_attach, capabilities)
 -- Ccls
 require("config.lsp.ccls").setup(on_attach, capabilities)
+-- Clang
+-- https://github.com/p00f/clangd_extensions.nvim
 
 -- Rust analyzer
 local status, _ = pcall(require, "rust-tools")

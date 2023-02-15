@@ -83,7 +83,7 @@ require("nvim-treesitter.configs").setup({
     rainbow = {
         enable = true,
         extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-        max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+        max_file_lines = 5000, -- Do not enable for files with more than 1000 lines, int
     },
     textobjects = {
         select = {
@@ -114,18 +114,22 @@ require("nvim-treesitter.configs").setup({
             goto_next_start = {
                 ["]]"] = "@function.outer",
                 ["]a"] = "@class.outer",
+                ["]p"] = "@parameter.outer",
             },
             goto_next_end = {
                 ["]["] = "@function.outer",
                 ["]A"] = "@class.outer",
+                ["]P"] = "@parameter.outer",
             },
             goto_previous_start = {
                 ["[["] = "@function.outer",
                 ["[a"] = "@class.outer",
+                ["[p"] = "@parameter.outer",
             },
             goto_previous_end = {
                 ["[]"] = "@function.outer",
                 ["[A"] = "@class.outer",
+                ["[P"] = "@parameter.outer",
             },
         },
         swap = {
@@ -168,6 +172,7 @@ require("nvim-treesitter.configs").setup({
     },
     context_commentstring = {
         enable = true,
+        enable_autocmd = false,
     },
     autopairs = { enable = true },
 })

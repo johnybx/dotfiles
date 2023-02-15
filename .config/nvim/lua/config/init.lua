@@ -32,6 +32,8 @@ require("config.neotest")
 require("config.octo")
 require("config.coverage")
 require("config.mind")
+require("config.neo-minimap")
+require("config.chatgpt")
 
 require("config.lsp")
 require("config.dap")

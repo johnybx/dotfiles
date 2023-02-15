@@ -65,6 +65,8 @@ utils.map("t", "<A-k>", "<C-\\><C-N><C-w>k", { silent = true })
 utils.map("t", "<A-l>", "<C-\\><C-N><C-w>l", { silent = true })
 
 -- Spell
+-- spell check now check only comments and text by default
+-- see `spelloptions`
 utils.map("n", "<F11>", "<cmd>lua vim.wo.spell = not vim.wo.spell<CR>")
 
 -- Plugins
@@ -90,7 +92,7 @@ utils.map("n", "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document
 utils.map("n", "<leader>fk", "<cmd>lua require('telescope.builtin').keymaps()<CR>", { silent = true })
 
 -- ¯\_(ツ)_/¯
-utils.map("i", ",shrug", "¯\\_(ツ)_/¯", { silent = true })
+utils.map("i", "<leader>shrug", "¯\\_(ツ)_/¯", { silent = true })
 
 -- LSP - TODO: these should be mapped only if there is active LSP
 -- Border styl - not really mapping but diagnostics need also style here anyway so at least it is
@@ -111,6 +113,7 @@ utils.map(
     { silent = true }
 )
 utils.map("n", "<leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", { silent = true })
+utils.map("n", "<leader>ge", "<cmd>lua vim.lsp.buf.definition()<CR>", { silent = true })
 utils.map("n", "<leader>gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", { silent = true })
 utils.map("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", { silent = true })
 utils.map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
@@ -158,7 +161,7 @@ utils.map("x", "ga", "<Plug>(EasyAlign)", { noremap = false })
 
 -- Diffview
 utils.map("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { silent = true })
-utils.map("n", "<leader>g<Space>", "<cmd>DiffviewOpen<Space>")
+utils.map("n", "<leader>g<Space>", ":DiffviewOpen<Space>")
 utils.map("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>", { silent = true })
 utils.map("v", "<leader>gf", "<ESC><cmd>'<,'>DiffviewFileHistory %<CR>", { silent = true })
 utils.map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { silent = true })
