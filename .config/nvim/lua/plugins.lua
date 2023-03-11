@@ -24,6 +24,7 @@ return require("packer").startup(function()
     use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
     use({ "f3fora/cmp-spell" })
     use({ "rcarriga/cmp-dap" })
+    use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
     -- Snippets
     use({ "L3MON4D3/LuaSnip" })
     use({ "rafamadriz/friendly-snippets" })
@@ -200,6 +201,8 @@ return require("packer").startup(function()
     -- https://github.com/anuvyklack/windows.nvim
     -- https://github.com/AckslD/nvim-FeMaco.lua
     -- https://github.com/narutoxy/silicon.lua - screenshot code
+    -- https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/align.lua - maybe interesting
+    -- replacement for vim-easy-align
     --
     -- https://github.com/williamboman/mason.nvim
     -- https://github.com/p00f/clangd_extensions.nvim

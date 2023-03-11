@@ -74,9 +74,12 @@ cmp.setup({
                 ["vim-dadbod-completion"] = "[Dadbod]",
                 spell = "[Spell]",
                 dap = "[Dap]",
+                cmp_tabnine = "[Tabnine]",
             }
             vim_item.kind = lspkind.presets.default[vim_item.kind] .. "  " .. vim_item.kind
             vim_item.menu = sources[entry.source.name] or entry.source.name
+            local maxwidth = 80
+            vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
             return vim_item
         end,
     },
@@ -94,6 +97,7 @@ cmp.setup({
     },
     preselect = types.cmp.PreselectMode.Item,
     sources = cmp.config.sources({
+        { name = "cmp_tabnine" },
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "path" },
@@ -110,6 +114,7 @@ cmp.setup({
     sorting = {
         priority_weight = 2,
         comparators = {
+            require("cmp_tabnine.compare"),
             cmp.config.compare.offset,
             cmp.config.compare.exact,
             cmp.config.compare.score,
@@ -145,4 +150,21 @@ cmp.setup.cmdline(":", {
         { name = "nvim_lua" },
         { name = "cmdline" },
     },
+})
+
+-- Tabnine setup
+local tabnine = require("cmp_tabnine.config")
+
+tabnine:setup({
+    max_lines = 1000,
+    max_num_results = 20,
+    sort = true,
+    run_on_every_keystroke = true,
+    snippet_placeholder = "..",
+    ignored_file_types = {
+        -- default is not to ignore
+        -- uncomment to ignore in lua:
+        -- lua = true
+    },
+    show_prediction_strength = false,
 })
