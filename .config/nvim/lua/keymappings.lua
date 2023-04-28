@@ -2,6 +2,8 @@ local utils = require("utils")
 
 utils.map("", "<F3>", ":set invpaste paste?<CR>:%s/\\s\\+$//g<CR>")
 utils.map("c", "w!!", "w !sudo tee > /dev/null %")
+-- generate patch file from buffer diff
+utils.map("c", "pfile", 'w !diff -au "%" - > ')
 utils.map("n", "<A-x>", ":NvimTreeToggle<CR>")
 utils.map("n", "<A-z>", ":NvimTreeFindFile<CR>")
 
@@ -135,11 +137,9 @@ utils.map(
     { silent = true }
 )
 
--- kommentary
-vim.g.kommentary_create_default_mappings = false
-utils.map("n", "<C-_>", "<Plug>kommentary_line_default", { noremap = false })
-utils.map("n", "gc", "<Plug>kommentary_motion_default", { noremap = false })
-utils.map("v", "<C-_>", "<Plug>kommentary_visual_default<C-c>", { noremap = false })
+-- Comment.nvim
+utils.map("n", "<C-_>", "<Plug>(comment_toggle_linewise_current)", { noremap = false })
+utils.map("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", { noremap = false })
 
 -- Trouble
 utils.map("n", "<leader>xx", "<cmd>Trouble<CR>", { silent = true })

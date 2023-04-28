@@ -34,7 +34,7 @@ return require("packer").startup(function()
     -- use({ "SirVer/ultisnips", requires = "honza/vim-snippets" })
     --- CMP plugins END
 
-    use({ "mrjones2014/nvim-ts-rainbow" })
+    use({ "https://gitlab.com/HiPhish/nvim-ts-rainbow2" })
     use({ "RRethy/vim-illuminate" })
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
@@ -47,7 +47,7 @@ return require("packer").startup(function()
     -- Editor
     -- https://github.com/ThePrimeagen/refactoring.nvim
     use({ "JoosepAlviste/nvim-ts-context-commentstring" })
-    use({ "b3nj5m1n/kommentary" })
+    use({ "numToStr/Comment.nvim" })
     use({ "mg979/vim-visual-multi" })
     use({
         "folke/todo-comments.nvim",
@@ -110,7 +110,8 @@ return require("packer").startup(function()
     -- use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
 
     -- Better quoting
-    use({ "tpope/vim-surround" })
+    use({ "kylechui/nvim-surround" })
+    -- use({ "tpope/vim-surround" })
 
     -- Git
     use({ "sindrets/diffview.nvim" })
@@ -163,7 +164,6 @@ return require("packer").startup(function()
         requires = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
-            "antoinemadec/FixCursorHold.nvim",
         },
     })
     use({ "nvim-neotest/neotest-python", requires = { "nvim-neotest/neotest" } })

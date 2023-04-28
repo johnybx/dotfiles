@@ -33,12 +33,15 @@ utils.opt("o", "listchars", "tab:→\\ ,nbsp:␣,trail:•,eol:↲,precedes:«,e
 utils.opt("b", "textwidth", 98)
 -- support also letter lists (e.g. "a)" ) and unordered bullets
 utils.opt("b", "formatlistpat", [[^\s*\(\d\+\|\w\{1,3\}\)[\]:.)}\t]\s\+\|^\s*[-+]\s\+]])
+-- remove default 't' option
+utils.opt("b", "formatoptions", "cqj")
 
 -- fix for SQLComplete: The debxt plugin must be loaded for dynamic SQL completion
 -- vim.g.omni_sql_default_compl_type = "syntax"
 vim.g.omni_sql_no_default_maps = 1
 
 cmd("autocmd FileType * setlocal shortmess+=c")
+-- Options for files with FileType
 cmd(
     "autocmd FileType * setlocal formatoptions-=t formatoptions-=o formatoptions+=c formatoptions+=r formatoptions+=l formatoptions+=n"
 )

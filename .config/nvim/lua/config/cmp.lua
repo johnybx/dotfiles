@@ -76,7 +76,9 @@ cmp.setup({
                 dap = "[Dap]",
                 cmp_tabnine = "[Tabnine]",
             }
-            vim_item.kind = lspkind.presets.default[vim_item.kind] .. "  " .. vim_item.kind
+            if lspkind.symbol_map[vim_item.kind] then
+                vim_item.kind = lspkind.symbol_map[vim_item.kind] .. "  " .. vim_item.kind
+            end
             vim_item.menu = sources[entry.source.name] or entry.source.name
             local maxwidth = 80
             vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)

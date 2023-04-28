@@ -1,44 +1,11 @@
-require("lspkind").init({
-    -- enables text annotations
-    --
-    -- default: true
-    mode = true,
-
-    -- default symbol map
-    -- can be either 'default' or
-    -- 'codicons' for codicon preset (requires vscode-codicons font installed)
-    --
-    -- default: 'default'
+local lspkind = require("lspkind")
+lspkind.init({
+    mode = "symbol",
     preset = "default",
 
     -- override preset symbols
-    --
-    -- default: {}
+    -- can override only default symbols
     -- symbol_map = {
-    -- 	"   (Text) ",
-    -- 	"   (Method)",
-    -- 	"   (Function)",
-    -- 	"   (Constructor)",
-    -- 	" ﴲ  (Field)",
-    -- 	"[] (Variable)",
-    -- 	"   (Class)",
-    -- 	" ﰮ  (Interface)",
-    -- 	"   (Module)",
-    -- 	" 襁 (Property)",
-    -- 	"   (Unit)",
-    -- 	"   (Value)",
-    -- 	" 練 (Enum)",
-    -- 	"   (Keyword)",
-    -- 	"   (Snippet)",
-    -- 	"   (Color)",
-    -- 	"   (File)",
-    -- 	"   (Reference)",
-    -- 	"   (Folder)",
-    -- 	"   (EnumMember)",
-    -- 	" ﲀ  (Constant)",
-    -- 	" ﳤ  (Struct)",
-    -- 	"   (Event)",
-    -- 	"   (Operator)",
-    -- 	"   (TypeParameter)",
     -- },
 })
+lspkind.symbol_map["TabNine"] = "🤖"
