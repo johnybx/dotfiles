@@ -111,7 +111,7 @@ utils.map("n", "gD", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR
 utils.map(
     "n",
     "gd",
-    "<cmd>lua require('config.lsp.preview_definition').open('textDocument/definition', 'LSP Definitions')<CR>",
+    "<cmd>lua require('plugins.lsp.preview_definition').open('textDocument/definition', 'LSP Definitions')<CR>",
     { silent = true }
 )
 utils.map("n", "<leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", { silent = true })
@@ -154,10 +154,6 @@ utils.map("n", "gR", "<cmd>Trouble lsp_references<CR>", { silent = true })
 vim.cmd("autocmd FileType dbui nunmap <buffer> <c-j>")
 vim.cmd("autocmd FileType dbui nunmap <buffer> <c-k>")
 utils.map("n", "<leader>db", "<cmd>DBUIToggle<CR>")
-
--- Easy Align
-utils.map("n", "ga", "<Plug>(EasyAlign)", { noremap = false })
-utils.map("x", "ga", "<Plug>(EasyAlign)", { noremap = false })
 
 -- Diffview
 utils.map("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { silent = true })
