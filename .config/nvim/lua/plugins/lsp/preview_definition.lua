@@ -264,12 +264,17 @@ local function jump(preview_win, jump_type)
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
     row = row - 1
     local location = state[preview_win].location
-    if location.range.start.line ~= row then
-        -- Update location to current location in floating window
-        location.range.start.line = row
-        location.range.start.character = col
-        location.range["end"].line = row
-        location.range["end"].character = col
+    local target_location_pos = { line = row, character = col }
+    local target_location_range = { start = target_location_pos, ["end"] = target_location_pos }
+
+    -- Update location to current location in floating window
+    if location.range and location.range.start.line ~= row then
+        -- Location - https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#locationLink
+        location.range = target_location_range
+    elseif location.targetRange and location.targetRange.start.line ~= row then
+        -- LocationLink - https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#locationLink
+        location.targetRange = target_location_range
+        location.targetSelectionRange = target_location_range
     end
     local initial_window = state[preview_win].initial_window
 
