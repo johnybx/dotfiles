@@ -213,8 +213,12 @@ alias ll='ls -lah'
 alias ..='cd ..'
 alias cdw='cd ~/workspace'
 alias xc='xclip -in -selection clipboard'
-alias xcp='xclip -out -selection clipboard'
+alias xp='xclip -out -selection clipboard'
+# Delayed clipboard paste - for cases when normal paste is not supported
+alias dxp='bash -c "sleep 2; xdotool type -- \"$(xclip -o -selection clipboard)\""'
 alias vim='nvim'
+alias notes='nvim -c "Neorg workspace notes"'
+alias wnotes='nvim -c "Neorg workspace work"'
 pvim ()
 {
     env_path=""
