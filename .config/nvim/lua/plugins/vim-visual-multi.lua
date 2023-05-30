@@ -6,8 +6,12 @@ vim.g.VM_show_warnings = 0
 vim.g.VM_maps = {
     ["I Return"] = "",
 }
-return { "mg979/vim-visual-multi", keys = {
-    "<C-n>",
-    nil,
-    desc = "Vim Visual Multi",
-} }
+return {
+    "mg979/vim-visual-multi",
+    keys = { {
+        "<C-n>",
+        nil,
+        mode = { "n", "v" },
+        desc = "Vim Visual Multi",
+    } },
+}

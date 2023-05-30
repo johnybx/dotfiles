@@ -17,4 +17,14 @@ function utils.map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
+function utils.replace_substring(substring)
+    local _, s_row, _, _ = unpack(vim.fn.getpos("'<"))
+    local _, e_row, _, _ = unpack(vim.fn.getpos("'>"))
+    local text = vim.api.nvim_buf_get_lines(0, s_row - 1, e_row, false)
+    for k, v in pairs(text) do
+        text[k] = string.gsub(v, substring, "")
+    end
+    vim.api.nvim_buf_set_lines(0, s_row - 1, e_row, false, text)
+end
+
 return utils

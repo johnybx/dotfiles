@@ -4,8 +4,10 @@ utils.map("", "<F3>", ":set invpaste paste?<CR>:%s/\\s\\+$//g<CR>")
 utils.map("c", "w!!", "w !sudo tee > /dev/null %")
 -- generate patch file from buffer diff
 utils.map("c", "pfile", 'w !diff -au "%" - > ')
-utils.map("n", "<A-x>", ":NvimTreeToggle<CR>")
-utils.map("n", "<A-z>", ":NvimTreeFindFile<CR>")
+
+-- File manager Oil
+utils.map("n", "<A-x>", "<cmd>Oil --float<CR>")
+utils.map("n", "<A-z>", "<cmd>Oil<CR>")
 
 -- Better window movement
 utils.map("n", "<A-h>", "<C-w>h", { silent = true })
@@ -14,12 +16,12 @@ utils.map("n", "<A-k>", "<C-w>k", { silent = true })
 utils.map("n", "<A-l>", "<C-w>l", { silent = true })
 
 -- Move lines
-utils.map("n", "<C-j>", ":m .+1<CR>==", { silent = true })
-utils.map("n", "<C-k>", ":m .-2<CR>==", { silent = true })
-utils.map("i", "<C-j>", "<Esc>:m .+1<CR>==gi", { silent = true })
-utils.map("i", "<C-k>", "<Esc>:m .-2<CR>==gi", { silent = true })
-utils.map("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true })
-utils.map("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true })
+utils.map("n", "<C-j>", "<cmd>m .+1<CR>==", { silent = true })
+utils.map("n", "<C-k>", "<cmd>m .-2<CR>==", { silent = true })
+utils.map("i", "<C-j>", "<Esc><cmd>m .+1<CR>==gi", { silent = true })
+utils.map("i", "<C-k>", "<Esc><cmd>m .-2<CR>==gi", { silent = true })
+utils.map("v", "<C-j>", "<cmd>m '>+1<CR>gv=gv", { silent = true })
+utils.map("v", "<C-k>", "<cmd>m '<-2<CR>gv=gv", { silent = true })
 
 -- Resize
 utils.map("n", "<leader>h", "<C-w><", { silent = true })
@@ -44,6 +46,10 @@ utils.map("i", "<C-s>", "<ESC> :w<CR>", { silent = true })
 utils.map("n", "<CR>", '<cmd>let @/=""<CR><CR>', { silent = true })
 utils.map("n", "<ESC>", '<ESC><cmd>let @/=""<CR>')
 utils.map("n", "<leader>/", '<cmd>let @/=""<CR>', { silent = true })
+
+-- cross out line with unicode
+utils.map("v", "<leader>c", '<ESC><cmd>\'<,\'>s/\\(.\\)/\\=submatch(1) . "\\u0336"/g | let @/=""<CR>')
+utils.map("v", "<leader>C", "<ESC><cmd>lua require('utils').replace_substring('\204\182')<CR>")
 
 -- Show hidden characters
 utils.map("n", "<leader>h", "<cmd>if &list == 0 |  set list | else | set nolist | endif<CR>")
@@ -92,6 +98,12 @@ utils.map("n", "<leader>fs", "<cmd>lua require('telescope.builtin').git_status()
 utils.map("n", "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<CR>", { silent = true })
 utils.map("n", "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", { silent = true })
 utils.map("n", "<leader>fk", "<cmd>lua require('telescope.builtin').keymaps()<CR>", { silent = true })
+utils.map(
+    "n",
+    "<leader>ss",
+    "<cmd>lua require('telescope.builtin').spell_suggest(require('telescope.themes').get_cursor({}))<CR>",
+    { silent = true }
+)
 
 -- ¯\_(ツ)_/¯
 utils.map("i", "<leader>shrug", "¯\\_(ツ)_/¯", { silent = true })
@@ -159,13 +171,17 @@ utils.map("n", "<leader>db", "<cmd>DBUIToggle<CR>")
 
 -- Diffview
 utils.map("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { silent = true })
-utils.map("n", "<leader>g<Space>", ":DiffviewOpen<Space>")
+utils.map("n", "<leader>g<Space>", "<cmd>DiffviewOpen<Space>")
 utils.map("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>", { silent = true })
 utils.map("v", "<leader>gf", "<ESC><cmd>'<,'>DiffviewFileHistory %<CR>", { silent = true })
 utils.map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { silent = true })
 
+-- Gitsigns
+utils.map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>")
+
 -- Markdown preview
 utils.map("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>")
+
 -- Markdown Glow
 utils.map("n", "<leader>mg", "<cmd>Glow<CR>")
 
@@ -220,8 +236,8 @@ utils.map("n", "<leader>bl", '<cmd>lua require("telescope").extensions.dap.list_
 utils.map("n", "<leader>bc", '<cmd>lua require("dap").clear_breakpoints()<CR>', { remap = true })
 
 -- Notes
-utils.map("n", "mm", "<cmd>lua require('mind').open_main()<CR>", { remap = true })
-utils.map("n", "mp", "<cmd>lua require('mind').open_project(true)<CR>", { remap = true })
+utils.map("n", "<leader>nw", "<cmd>Neorg workspace work<CR>", { remap = true })
+utils.map("n", "<leader>nh", "<cmd>Neorg workspace notes<CR>", { remap = true })
 
 -- HTTP requests
 vim.cmd([[
