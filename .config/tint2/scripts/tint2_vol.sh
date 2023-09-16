@@ -9,7 +9,7 @@ if [ "$1" == "up" ]; then
 elif [ "$1" == "down" ]; then
     /usr/bin/amixer set Master 5%- >/dev/null 2>&1
 elif [ "$1" == "mute" ]; then
-    a=$(amixer set Master 1+ toggle);
+    amixer set Master 1+ toggle
 elif [ "$1" == "mic" ]; then
     /usr/bin/amixer set Capture toggle
 fi
@@ -24,7 +24,6 @@ mic=$($amixer sget 'Capture')
 
 mavol=$(echo "$master" | grep '%' | head -n 1 | sed -r "s/$vpattern/\1/")
 mivol=$(echo "$mic" | grep '%' | head -n 1 | sed -r "s/$vpattern/\1/")
-mivol=0
 
 jackdev=$($amixer contents | grep -i "'headphone jack'" | cut -d"," -f1,2)
 
@@ -32,16 +31,16 @@ jackdev=$($amixer contents | grep -i "'headphone jack'" | cut -d"," -f1,2)
 THEME="/usr/share/icons/$(/usr/bin/gsettings get org.gnome.desktop.interface icon-theme | tr -d "'")"
 
 if grep -qi $spattern <<< $master; then
-    icon="婢"
+    icon="󰖁"
     ipath="$(find "$THEME" -name *audio*mute* | grep 24 | head -n1)"
 elif [[ "$jackdev" ]] && grep -qi 'values=on' <<< $($amixer cget "$jackdev"); then
-    icon=" "
+    icon="󰋋 "
     ipath="$(find "$THEME" -name *headphone* | grep 24 | head -n1)"
 elif [[ $mavol -ge 0 ]] && [[ $mavol -lt 31 ]]; then
     icon=""
     ipath="$(find "$THEME" -name *audio*low* | grep 24 | head -n1)"
 elif [[ $mavol -gt 30  ]] && [[ $mavol -lt 60 ]]; then
-    icon="墳"
+    icon="󰕾"
     ipath="$(find "$THEME" -name *audio*medium* | grep 24 | head -n1)"
 else
     icon=""
@@ -49,9 +48,9 @@ else
 fi
 
 if grep -qi $spattern <<< $mic; then
-    icon=" $icon"
+    icon=" $icon"
 else
-    icon=" $icon"
+    icon=" $icon"
 fi
 
 if [ -z $1 ]; then
