@@ -46,8 +46,6 @@ cmd(
     "autocmd FileType * setlocal formatoptions-=t formatoptions-=o formatoptions+=c formatoptions+=r formatoptions+=l formatoptions+=n"
 )
 
--- Startify + nvim-tree => do not save empty windows to session
--- TODO: https://github.com/kyazdani42/nvim-tree.lua/issues/488
 cmd("set sessionoptions-=blank")
 
 -- More precise diff

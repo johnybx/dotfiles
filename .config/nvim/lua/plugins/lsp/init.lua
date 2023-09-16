@@ -3,21 +3,19 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         { "ray-x/lsp_signature.nvim" },
-        { "jose-elias-alvarez/null-ls.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
         { "simrat39/rust-tools.nvim" },
         { "folke/lua-dev.nvim" },
-        { "j-hui/fidget.nvim", opts = {} },
+        { "j-hui/fidget.nvim", opts = {}, event = "LspAttach", tag = "legacy" },
     },
     config = function()
         require("plugins.lsp.diagnostic_sign").setup()
+        require("plugins.lsp.formatting").setup()
 
         local on_attach = require("plugins.lsp.default_on_attach").on_attach
         local capabilities = require("plugins.lsp.capabilities").get()
 
         -- Lua
         require("plugins.lsp.neodev").setup(on_attach, capabilities)
-        -- Null lsp
-        require("plugins.lsp.null-ls").setup(on_attach)
         -- Yamlls
         require("plugins.lsp.yamlls").setup(on_attach, capabilities)
         -- Ccls

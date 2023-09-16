@@ -1,5 +1,4 @@
 local dap = require("dap")
-local dap_widgets = require("dap.ui.widgets")
 local dap_python = require("dap-python")
 local M = {}
 
@@ -33,6 +32,7 @@ table.insert(dap.configurations.python, {
             },
         }
     end,
+    justMyCode = false,
 })
 
 return M

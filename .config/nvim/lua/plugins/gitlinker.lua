@@ -2,7 +2,7 @@ return {
     "ruifm/gitlinker.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     keys = {
-        { "<leader>gy", nil, desc = "GitLinker" },
+        { "<leader>gy", nil, desc = "GitLinker", mode = { "n", "v" } },
     },
     config = function()
         local paths = package.path

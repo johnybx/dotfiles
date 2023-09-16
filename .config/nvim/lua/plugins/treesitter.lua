@@ -59,6 +59,9 @@ return {
                 "vue",
                 "yaml",
             },
+            sync_install = false,
+            auto_install = false,
+            modules = {},
             ignore_install = {}, -- List of parsers to ignore installing
             highlight = {
                 enable = true, -- false will disable the whole extension
@@ -67,7 +70,7 @@ return {
                 -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
                 -- Using this option may slow down your editor, and you may see some duplicate highlights.
                 -- Instead of true it can also be a list of languages
-                additional_vim_regex_highlighting = { "org" },
+                additional_vim_regex_highlighting = { "org", "markdown" },
             },
             incremental_selection = {
                 enable = true,
@@ -82,11 +85,6 @@ return {
             indent = {
                 enable = false,
                 disable = { "yaml" },
-            },
-            rainbow = {
-                enable = true,
-                extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-                max_file_lines = 5000, -- Do not enable for files with more than 1000 lines, int
             },
             textobjects = {
                 select = {
@@ -118,21 +116,29 @@ return {
                         ["]]"] = "@function.outer",
                         ["]a"] = "@class.outer",
                         ["]p"] = "@parameter.outer",
+                        ["]k"] = "@call.outer",
+                        ["]v"] = "@assignment.outer",
                     },
                     goto_next_end = {
                         ["]["] = "@function.outer",
                         ["]A"] = "@class.outer",
                         ["]P"] = "@parameter.outer",
+                        ["]K"] = "@call.outer",
+                        ["]V"] = "@assignment.outer",
                     },
                     goto_previous_start = {
                         ["[["] = "@function.outer",
                         ["[a"] = "@class.outer",
                         ["[p"] = "@parameter.outer",
+                        ["[k"] = "@call.outer",
+                        ["[v"] = "@assignment.outer",
                     },
                     goto_previous_end = {
                         ["[]"] = "@function.outer",
                         ["[A"] = "@class.outer",
                         ["[P"] = "@parameter.outer",
+                        ["[K"] = "@call.outer",
+                        ["[V"] = "@assignment.outer",
                     },
                 },
                 swap = {

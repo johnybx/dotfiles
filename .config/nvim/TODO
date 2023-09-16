@@ -1,0 +1,28 @@
+Read vim command to buffer:
+To get the output in a buffer:
+
+:put =execute('messages')
+
+To put it in the clipboard:
+
+:let @+ = execute('messages')
+--------------------
+
+Treesitter:
+    * test keybindings for movement - func params, functions other ...
+
+Python:
+    * add / test pylint
+
+LSP:
+    * code lens - vim.lsp.codelens
+
+Galaxyline:
+    * limit length of file name, github branch etc.
+
+Stuff:
+
+Telescope:
+    * PR
+        * toggle results and prompt
+            * https://github.com/nvim-telescope/telescope.nvim/pull/1305#discussion_r723627645

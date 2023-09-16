@@ -1,6 +1,5 @@
 local signature_on_attach = require("plugins.lsp.lsp_signature").signature_on_attach
 local highlight = require("plugins.lsp.highlight").highlight
-local formatting_setup = require("plugins.lsp.formatting").setup
 local code_lens = require("plugins.lsp.codelens").setup
 
 local on_attach = function(client, bufnr)
@@ -11,7 +10,6 @@ local on_attach = function(client, bufnr)
 
     signature_on_attach(bufnr)
     highlight(client)
-    formatting_setup(client)
     code_lens(client, bufnr)
 end
 

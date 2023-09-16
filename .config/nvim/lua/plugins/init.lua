@@ -3,6 +3,7 @@ return {}
 --     -- https://github.com/aduros/ai.vim
 --
 --     -- TODO:: These are interesting
+--     -- https://github.com/folke/flash.nvim
 --     -- https://github.com/quarto-dev/quarto-nvim
 --     -- https://github.com/GnikDroy/projections.nvim
 --     -- https://github.com/stevearc/overseer.nvim - A task runner and job management plugin for Neovim
@@ -13,8 +14,6 @@ return {}
 --     -- https://github.com/anuvyklack/windows.nvim
 --     -- https://github.com/AckslD/nvim-FeMaco.lua
 --     -- https://github.com/narutoxy/silicon.lua - screenshot code
---     -- https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/align.lua - maybe interesting
---     -- replacement for vim-easy-align
 --     --
 --     -- https://github.com/williamboman/mason.nvim
 --     -- https://github.com/p00f/clangd_extensions.nvim
@@ -31,6 +30,7 @@ return {}
 --     -- https://github.com/kevinhwang91/nvim-bqf - better quickfix window
 --     -- https://github.com/folke/which-key.nvim - shortcut hints
 --     -- https://github.com/sbdchd/neoformat - if null-ls is not good enough
+--     -- https://github.com/mattn/efm-langserver
 --     -- https://awesomeopensource.com/project/wellle/context.vim
 --     -- https://github.com/pearofducks/ansible-vim
 --     -- https://github.com/vim-ctrlspace/vim-ctrlspace

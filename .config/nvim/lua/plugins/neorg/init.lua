@@ -30,14 +30,6 @@ return {
             ["core.keybinds"] = {
                 config = {
                     hook = function(keybinds)
-                        keybinds.unmap("norg", "n", "gtu")
-                        keybinds.unmap("norg", "n", "gtp")
-                        keybinds.unmap("norg", "n", "gtd")
-                        keybinds.unmap("norg", "n", "gth")
-                        keybinds.unmap("norg", "n", "gtc")
-                        keybinds.unmap("norg", "n", "gtr")
-                        keybinds.unmap("norg", "n", "gti")
-                        keybinds.unmap("norg", "n", "gtu")
                         keybinds.map(
                             "norg",
                             "n",

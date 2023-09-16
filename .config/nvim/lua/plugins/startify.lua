@@ -17,9 +17,9 @@ vim.g.startify_fortune_use_unicode = 1
 vim.g.startify_session_persistence = 1
 
 vim.g.startify_commands = {
-    { g = "Telescope git_files" },
-    { f = "Telescope find_files" },
-    { b = "Telescope file_browser" },
+    { fg = "Telescope git_files" },
+    { ff = "Telescope find_files" },
+    { fe = "Telescope file_browser" },
     { o = "Oil" },
 }
 vim.g.startify_bookmarks = {
@@ -30,4 +30,23 @@ vim.g.startify_bookmarks = {
 }
 
 vim.g.startify_enable_special = 1
-return { "mhinz/vim-startify", event = "VimEnter" }
+
+return {
+    "mhinz/vim-startify",
+    event = "VimEnter",
+    config = function()
+        -- https://github.com/mhinz/vim-startify/issues/549
+        vim.api.nvim_create_autocmd("VimEnter", {
+            group = vim.api.nvim_create_augroup("Dashboard", { clear = true }),
+            callback = function()
+                if
+                    vim.fn.argc() == 0
+                    and vim.api.nvim_buf_line_count(0) == 1
+                    and vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] == ""
+                then
+                    vim.cmd("Startify")
+                end
+            end,
+        })
+    end,
+}

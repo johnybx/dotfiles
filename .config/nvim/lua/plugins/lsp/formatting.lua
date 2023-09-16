@@ -2,9 +2,10 @@ local M = {}
 
 M.autoformat = true
 
-function M.format()
+function M.format(bufnr)
     if M.autoformat then
-        vim.lsp.buf.format({ timeout_ms = 5000, async = false })
+        -- vim.lsp.buf.format({ timeout_ms = 5000, async = false })
+        require("conform").format({ timeout_ms = 5000, async = false, lsp_fallback = "always", bufnr = bufnr })
     end
 end
 
@@ -21,15 +22,15 @@ function M.toggle()
     M.status()
 end
 
-function M.setup(client)
-    if client.server_capabilities.documentFormattingProvider then
-        vim.cmd([[
-            augroup LspFormat
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua require("plugins.lsp.formatting").format()
-            augroup END
-        ]])
-    end
+function M.setup()
+    local group_id = vim.api.nvim_create_augroup("LspFormat", { clear = true })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*",
+        callback = function(args)
+            require("plugins.lsp.formatting").format(args.buf)
+        end,
+        group = group_id,
+    })
 end
 
 return M

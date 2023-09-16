@@ -1,6 +1,5 @@
 return {
     "sourcegraph/sg.nvim",
-    build = "cargo build --workspace",
     lazy = true,
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
     opts = function()

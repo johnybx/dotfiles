@@ -1,6 +1,6 @@
 return {
     "alvarosevilla95/luatab.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
         local cell = require("luatab").helpers.cell
         local extract_highlight_colors = require("luatab.highlight").extract_highlight_colors
