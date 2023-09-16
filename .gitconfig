@@ -26,3 +26,8 @@
 
 [url "ssh://git@gitlab.com/"]
     insteadOf = https://gitlab.com/
+[user]
+	name = johnybx
+	email = johnybx@users.noreply.github.com
+[core]
+	excludesfile = ~/.gitignore

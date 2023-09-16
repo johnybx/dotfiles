@@ -1,0 +1,9 @@
+.gitlab.nvim
+.env*
+env*
+venv*
+.debugpy.env
+.venv
+.envrc
+__pycache__
+*.pyc
