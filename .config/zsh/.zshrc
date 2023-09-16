@@ -206,8 +206,11 @@ alias httpws='http --verify=no --timeout 600 '
 alias ssha='ssh-add ~/.ssh/id_rsa ~/.ssh/id_ed25519'
 alias rsync='/usr/bin/rsync -e "ssh -o RemoteCommand=none -o RequestTTY=no" '
 alias pip='pip --require-virtualenv'
-alias env_upgrade='pip install --upgrade  pip black -r requirements/main.txt -r requirements/tests.txt -r requirements/doc.txt'
-alias pip_upgrade='pip install --use-feature=2020-resolver --upgrade `pip list --outdated --format=freeze | cut -d = -f1 | awk '"'"'{printf "%s ", $1}'"'"'`'
+alias env_upgrade='pip install --upgrade pip pip-tools python-dotenv black flake8 isort'
+alias env_upgrade_all='pip install --use-feature=2020-resolver --upgrade `pip list --outdated --format=freeze | cut -d = -f1 | awk '"'"'{printf "%s ", $1}'"'"'`'
+alias pip_sync='$(dotenv get PIP-SYNC)'
+alias pip_compile='$(dotenv get COMPILE-MAIN)'
+alias pip_compile_dev='$(dotenv get COMPILE-DEV)'
 alias system-virt-viewer='virt-viewer -c qemu:///system --hotkeys=toggle-fullscreen=ctrl+alt+F,release-cursor=shift+f12'
 alias ll='ls -lah'
 alias ..='cd ..'
@@ -260,4 +263,6 @@ else
     export EDITOR='nvim'
     export MANPAGER='nvim +Man!'
 fi
+
+export QT_QPA_PLATFORMTHEME=qt5ct
 
