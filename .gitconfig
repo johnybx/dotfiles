@@ -6,6 +6,8 @@
 	chp = cherry-pick
 	l = pull
 	p = push
+	refresh-head = remote set-head origin -a
+	default-branch = !git symbolic-ref refs/remotes/origin/HEAD --short | sed -e \"s|^origin/||\"
 [diff]
     colorMoved = default
 	algorithm = patience

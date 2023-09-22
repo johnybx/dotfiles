@@ -1,0 +1,7 @@
+ci: pipeline ci
+co: mr checkout
+approvals: '!glab api $(glab mr show 2>/dev/null | python -c "import re, sys, urllib.parse; input = sys.stdin.read();input = input.replace(\"\n\",\" \"); m = re.match(r\".*url:\s*https://[^/]*/(.*(?=/-/))/-/merge_requests/(\d+)\s+--.*\", input); project_path, mr_id = m.groups(); print(f\"/projects/{urllib.parse.quote_plus(project_path)}/merge_requests/{mr_id}/approvals\")")'
+token: "!glab conf get token -h $(glab host)"
+host: '!git ls-remote --get-url | python -c "import sys,re; input = sys.stdin.read(); m = re.match(\".*://git@([^/]*)/.*|.*git@([^:]*):.*|https://([^/]*)/.*\", input); print(m and (m.group(1) or m.group(2) or m.group(3)))"'
+refresh-head: "!git remote set-head origin -a"
+cmr: '!glab mr create -a $(glab conf get username -h $(glab host)) --remove-source-branch -b $(git symbolic-ref refs/remotes/origin/HEAD --short| sed -e "s|^origin/||") --title "$1" --description "$2" ${@:3}'
