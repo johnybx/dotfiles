@@ -5,3 +5,6 @@ token: "!glab conf get token -h $(glab host)"
 host: '!git ls-remote --get-url | python -c "import sys,re; input = sys.stdin.read(); m = re.match(\".*://git@([^/]*)/.*|.*git@([^:]*):.*|https://([^/]*)/.*\", input); print(m and (m.group(1) or m.group(2) or m.group(3)))"'
 refresh-head: "!git remote set-head origin -a"
 cmr: '!glab mr create -a $(glab conf get username -h $(glab host)) --remove-source-branch -b $(git symbolic-ref refs/remotes/origin/HEAD --short| sed -e "s|^origin/||") --title "$1" --description "$2" ${@:3}'
+project_path: '!git ls-remote --get-url | python -c "import sys,re; input = sys.stdin.read(); m = re.match(\".*://git@[^/]*/(.*)|.*git@[^:]*:(.*)|https://[^/]*/(.*)\", input); print(m and (m.group(1) or m.group(2) or m.group(3)))"'
+project_id: '!glab project_info | jq ".id"'
+project_info: '!glab api $(glab project_path | python -c "import sys,urllib.parse; input = sys.stdin.read(); input = input.strip(\"\n\"); print(f\"/projects/{urllib.parse.quote_plus(input)}\")")'
