@@ -149,7 +149,7 @@ utils.map(
     { silent = true }
 )
 -- Source graph (sg.nvim)
-utils.map("n", "<leader>sg", "<cmd>lua require('sg.telescope').fuzzy_search_results()<CR>")
+utils.map("n", "<leader>sg", "<cmd>lua require('sg.extensions.telescope').fuzzy_search_results()<CR>")
 
 -- Comment.nvim
 utils.map("n", "<C-_>", "<Plug>(comment_toggle_linewise_current)", { remap = true })

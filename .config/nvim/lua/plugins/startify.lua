@@ -34,19 +34,4 @@ vim.g.startify_enable_special = 1
 return {
     "mhinz/vim-startify",
     event = "VimEnter",
-    config = function()
-        -- https://github.com/mhinz/vim-startify/issues/549
-        vim.api.nvim_create_autocmd("VimEnter", {
-            group = vim.api.nvim_create_augroup("Dashboard", { clear = true }),
-            callback = function()
-                if
-                    vim.fn.argc() == 0
-                    and vim.api.nvim_buf_line_count(0) == 1
-                    and vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] == ""
-                then
-                    vim.cmd("Startify")
-                end
-            end,
-        })
-    end,
 }

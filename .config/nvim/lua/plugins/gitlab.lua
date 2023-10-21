@@ -41,10 +41,12 @@ return {
         if os.getenv("GITLAB_TOKEN") then
             local utils = require("utils")
             utils.map("n", "<leader>glr", '<cmd>lua require("gitlab").review()<CR>')
-            utils.map("n", "<leader>gls", '<cmd>lua require("gitlab").summary()<CR>')
+            utils.map("n", "<leader>glS", '<cmd>lua require("gitlab").summary()<CR>')
             utils.map("n", "<leader>glA", '<cmd>lua require("gitlab").approve()<CR>')
             utils.map("n", "<leader>glR", '<cmd>lua require("gitlab").revoke()<CR>')
-            utils.map({ "n", "v" }, "<leader>glc", '<cmd>lua require("gitlab").create_comment()<CR>')
+            utils.map("n", "<leader>glc", '<cmd>lua require("gitlab").create_comment()<CR>')
+            utils.map("v", "<leader>glc", '<cmd>lua require("gitlab").create_multiline_comment()<CR>')
+            utils.map("v", "<leader>gls", '<cmd>lua require("gitlab").create_comment_suggestion()<CR>')
             utils.map("n", "<leader>gln", '<cmd>lua require("gitlab").create_note()<CR>')
             utils.map("n", "<leader>gld", '<cmd>lua require("gitlab").toggle_discussions()<CR>')
             utils.map("n", "<leader>glaa", '<cmd>lua require("gitlab").add_assignee()<CR>')
@@ -65,6 +67,10 @@ return {
     config = function()
         require("gitlab").setup({
             reviewer = "diffview",
+            port = nil,
+            discussion_tree = {
+                toggle_node = "<Tab>",
+            },
         })
     end,
 }

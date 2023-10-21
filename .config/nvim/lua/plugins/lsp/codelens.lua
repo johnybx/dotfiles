@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup(client, bufnr)
     if client.server_capabilities.codeLensProvider then
-        vim.api.nvim_exec(
+        vim.api.nvim_exec2(
             string.format(
                 [[
             augroup lsp_code_lens
@@ -15,7 +15,7 @@ function M.setup(client, bufnr)
                 bufnr,
                 bufnr
             ),
-            false
+            { output = false }
         )
         -- trigger reset codelens with delay to make sure that codelens is not deadlocked
         -- vim.defer_fn(function()

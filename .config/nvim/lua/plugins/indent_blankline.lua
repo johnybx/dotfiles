@@ -1,8 +1,9 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
+    main = "ibl",
     opts = {
-        char = "|",
-        buftype_exclude = { "terminal", "NvimTree", "help", "sagahover" },
+        indent = { char = "|" },
+        scope = { show_start = false, show_end = false },
     },
 }

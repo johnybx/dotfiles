@@ -11,13 +11,13 @@ return {
                 "regex",
             },
         })
-        vim.api.nvim_exec(
+        vim.api.nvim_exec2(
             [[
     hi IlluminatedWordText gui=NONE guibg=#393f4a
     hi IlluminatedWordRead gui=NONE guibg=#393f4a
     hi IlluminatedWordWrite gui=NONE guibg=#393f4a
 ]],
-            false
+            { output = false }
         )
     end,
 }

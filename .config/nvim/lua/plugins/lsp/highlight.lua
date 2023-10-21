@@ -1,6 +1,6 @@
 local function highlight(client)
     if client.server_capabilities.documentHighlightProvider then
-        vim.api.nvim_exec(
+        vim.api.nvim_exec2(
             [[
             hi LspReferenceRead gui=none guibg=#393f4a
             hi LspReferenceText gui=none guibg=#393f4a
@@ -11,7 +11,7 @@ local function highlight(client)
             autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
             augroup END
             ]],
-            false
+            { output = false }
         )
     end
 end

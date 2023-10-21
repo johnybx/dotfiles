@@ -20,7 +20,7 @@ return {
             end
             return nil
         end
-        setup({
+        setup.setup({
             log = {
                 level = "OFF",
             },

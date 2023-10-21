@@ -14,5 +14,6 @@ return {
         })
         lspkind.symbol_map["TabNine"] = "🤖"
         lspkind.symbol_map["Codeium"] = "🤖"
+        lspkind.symbol_map["Cody"] = "🤖"
     end,
 }

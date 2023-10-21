@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
     {
         "hrsh7th/nvim-cmp",
@@ -14,7 +15,7 @@ return {
             "f3fora/cmp-spell",
             "rcarriga/cmp-dap",
             "tzachar/cmp-tabnine",
-            "jcdickinson/codeium.nvim",
+            "Exafunction/codeium.nvim",
             "saadparwaiz1/cmp_luasnip",
         },
         config = function()
@@ -97,6 +98,7 @@ return {
                             neorg = "[Neorg]",
                             cmp_tabnine = "[Tabnine]",
                             codeium = "[Codeium]",
+                            cody = "[Cody]",
                         }
                         if lspkind.symbol_map[vim_item.kind] then
                             vim_item.kind = lspkind.symbol_map[vim_item.kind] .. "  " .. vim_item.kind
@@ -123,6 +125,7 @@ return {
                 sources = cmp.config.sources({
                     { name = "codeium" },
                     { name = "cmp_tabnine" },
+                    { name = "cody" },
                     { name = "nvim_lsp" },
                     { name = "nvim_lua" },
                     { name = "path" },
@@ -151,8 +154,12 @@ return {
                     },
                 },
                 enabled = function()
-                    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+                    return vim.api.nvim_get_option_value("buftype", { buf = 0 }) ~= "prompt"
+                        or require("cmp_dap").is_dap_buffer()
                 end,
+                experimental = {
+                    ghost_text = true,
+                },
             })
 
             cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
@@ -193,7 +200,7 @@ return {
     {
         "tzachar/cmp-tabnine",
         build = "./install.sh",
-        cond = false,
+        cond = true,
         config = function()
             local tabnine = require("cmp_tabnine.config")
             tabnine:setup({
@@ -212,12 +219,12 @@ return {
         end,
     },
     {
-        "jcdickinson/codeium.nvim",
+        "Exafunction/codeium.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        cond = false,
         opts = {},
+        cond = false,
     },
     {
         "saadparwaiz1/cmp_luasnip",

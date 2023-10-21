@@ -45,7 +45,7 @@ function M.toggle_browser()
     if M.job then
         M.close_browser()
     else
-        vim.api.nvim_exec("MarkdownPreview", false)
+        vim.api.nvim_exec2("MarkdownPreview", { output = false })
     end
 end
 
