@@ -245,6 +245,16 @@ pvim ()
     fi
 }
 
+gpvim ()
+{
+    git rev-parse --is-inside-work-tree 1>/dev/null 2>/dev/null
+    if [[ $? == 0 ]]; then
+        GITLAB_TOKEN=$(glab token) pvim $@
+    else
+        pvim $@
+    fi
+}
+
 zlist ()
 {
     zfs list $@ | grep -v "/docker/"
