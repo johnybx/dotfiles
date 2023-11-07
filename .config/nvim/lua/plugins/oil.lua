@@ -14,5 +14,8 @@ return {
                 winblend = 0,
             },
         },
+        view_options = {
+            show_hidden = true,
+        },
     },
 }

@@ -66,8 +66,8 @@ return {
                     ["<Up>"] = {
                         i = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
                     },
-                    ["<C-p>"] = cmp.mapping.select_prev_item(),
-                    ["<C-n>"] = cmp.mapping.select_next_item(),
+                    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
+                    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
                     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-d>"] = cmp.mapping.scroll_docs(4),
                     ["<C-Space>"] = cmp.mapping.complete({}),
@@ -200,7 +200,7 @@ return {
     {
         "tzachar/cmp-tabnine",
         build = "./install.sh",
-        cond = true,
+        cond = false,
         config = function()
             local tabnine = require("cmp_tabnine.config")
             tabnine:setup({
@@ -224,7 +224,7 @@ return {
             "nvim-lua/plenary.nvim",
         },
         opts = {},
-        cond = false,
+        cond = true,
     },
     {
         "saadparwaiz1/cmp_luasnip",

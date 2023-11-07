@@ -47,6 +47,7 @@ return {
             utils.map("n", "<leader>glc", '<cmd>lua require("gitlab").create_comment()<CR>')
             utils.map("v", "<leader>glc", '<cmd>lua require("gitlab").create_multiline_comment()<CR>')
             utils.map("v", "<leader>gls", '<cmd>lua require("gitlab").create_comment_suggestion()<CR>')
+            utils.map("n", "<leader>glm", '<cmd>lua require("gitlab").move_to_discussion_tree_from_diagnostic()<CR>')
             utils.map("n", "<leader>gln", '<cmd>lua require("gitlab").create_note()<CR>')
             utils.map("n", "<leader>gld", '<cmd>lua require("gitlab").toggle_discussions()<CR>')
             utils.map("n", "<leader>glaa", '<cmd>lua require("gitlab").add_assignee()<CR>')

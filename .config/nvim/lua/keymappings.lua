@@ -191,6 +191,7 @@ utils.map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>',
 utils.map("n", "<leader>tf", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', { remap = true })
 utils.map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>', { remap = true })
 utils.map("n", "<leader>td", '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>', { remap = true })
+utils.map("n", "<leader>tt", '<cmd>lua require("neotest").run.stop()<CR>', { remap = true })
 utils.map("n", "<leader>to", '<cmd>lua require("neotest").output.open()<CR>', { remap = true })
 utils.map("n", "<leader>tj", '<cmd>lua require("neotest").output.open({ enter = true })<CR>', { remap = true })
 utils.map("n", "]t", '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>', { remap = true })
