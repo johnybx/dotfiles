@@ -4,15 +4,6 @@ local function setup(on_attach, capabilities)
         on_attach(client, ...)
     end
 
-    require("neodev").setup({
-        override = function(root_dir, library)
-            if root_dir:match("/workspace/nvim/") then
-                library.enabled = true
-                library.plugins = true
-            end
-        end,
-    })
-
     local lspconfig = require("lspconfig")
     lspconfig.lua_ls.setup({
         cmd = { "lua-language-server" },
@@ -25,6 +16,7 @@ local function setup(on_attach, capabilities)
                 format = {
                     enable = false,
                 },
+                workspace = {},
             },
         },
     })

@@ -3,10 +3,10 @@ return {}
 --     -- https://github.com/aduros/ai.vim
 --
 --     -- TODO:: These are interesting
+--     -- https://github.com/stevearc/overseer.nvim - A task runner and job management plugin for Neovim
 --     -- https://github.com/folke/flash.nvim
 --     -- https://github.com/quarto-dev/quarto-nvim
 --     -- https://github.com/GnikDroy/projections.nvim
---     -- https://github.com/stevearc/overseer.nvim - A task runner and job management plugin for Neovim
 --     -- https://github.com/ggandor/lightspeed.nvim --> move quickly
 --     -- https://awesomeopensource.com/project/wellle/targets.vim --> move with f,F,t,T easier
 --     -- https://github.com/danymat/neogen - Documentation generation
@@ -14,6 +14,7 @@ return {}
 --     -- https://github.com/anuvyklack/windows.nvim
 --     -- https://github.com/AckslD/nvim-FeMaco.lua
 --     -- https://github.com/narutoxy/silicon.lua - screenshot code
+--     -- https://github.com/nvimtools/none-ls.nvim - maintained fork of null-ls!
 --     --
 --     -- https://github.com/williamboman/mason.nvim
 --     -- https://github.com/p00f/clangd_extensions.nvim

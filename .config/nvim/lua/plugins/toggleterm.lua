@@ -4,13 +4,14 @@ return {
     keys = {
         { "<M-d>", nil, desc = "Toggle Term" },
     },
+    cmd = "ToggleTerm",
     opts = {
         -- size can be a number or function which is passed the current terminal
         size = function(term)
             if term.direction == "float" then
                 return vim.o.columns * 0.8
             end
-            return 20
+            return vim.o.lines * 0.4
         end,
         open_mapping = [[<M-d>]],
         hide_numbers = false, -- hide the number column in toggleterm buffers

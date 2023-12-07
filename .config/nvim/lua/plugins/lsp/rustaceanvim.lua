@@ -1,19 +1,18 @@
 local function setup(on_attach, capabilities)
-    local extension_path = vim.fn.glob("~/.vscode-insiders/extensions/vadimcn.vscode-lldb-*/")
-    local codelldb_path = extension_path .. "adapter/codelldb"
-    local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
-    require("rust-tools").setup({
+    local function _on_attach(client, bufnr)
+        vim.lsp.inlay_hint.enable(bufnr, true)
+        on_attach(client, bufnr)
+    end
+
+    vim.g.rustaceanvim = {
+
         tools = {
             inlay_hints = {
                 show_variable_name = true,
             },
         },
         server = {
-            -- for some reason running rust-analyzer using rustup does not show diagnostics.
-            -- cmd = { "rustup", "run", "nightly", "rust-analyzer" },
-            -- cmd = { vim.fn.expand("~/workspace/rust/rust-analyzer/target/release/rust-analyzer") },
-            cmd = { vim.fn.expand("~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rust-analyzer") },
-            on_attach = on_attach,
+            on_attach = _on_attach,
             capabilities = capabilities,
             flags = {
                 debounce_text_changes = 150,
@@ -35,10 +34,7 @@ local function setup(on_attach, capabilities)
                 },
             },
         },
-        dap = {
-            adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
-        },
-    })
+    }
 end
 
 local M = {

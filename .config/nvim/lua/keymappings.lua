@@ -96,12 +96,18 @@ utils.map(
 utils.map("n", "<leader>fc", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", { silent = true })
 utils.map("n", "<leader>fs", "<cmd>lua require('telescope.builtin').git_status()<CR>", { silent = true })
 utils.map("n", "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<CR>", { silent = true })
-utils.map("n", "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", { silent = true })
+utils.map("n", "<leader>fd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", { silent = true })
 utils.map("n", "<leader>fk", "<cmd>lua require('telescope.builtin').keymaps()<CR>", { silent = true })
 utils.map(
     "n",
     "<leader>ss",
     "<cmd>lua require('telescope.builtin').spell_suggest(require('telescope.themes').get_cursor({}))<CR>",
+    { silent = true }
+)
+utils.map(
+    "n",
+    "<leader>fl",
+    "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
     { silent = true }
 )
 
@@ -249,3 +255,16 @@ vim.cmd([[
          autocmd FileType http nnoremap <buffer> <C-S> <cmd>lua c=require("rest-nvim.config");c.set({skip_ssl_verification = not c.get("skip_ssl_verification")});print("ssl verification: "..tostring(c.get("skip_ssl_verification")))<CR>
      augroup END
 ]])
+
+-- Toggleterm
+utils.map("n", "<M-S-d>", "<cmd>ToggleTerm direction=horizontal<CR>")
+utils.map("t", "<M-S-d>", "<cmd>ToggleTerm<CR>")
+utils.map({ "v", "n" }, "<leader>sc", function()
+    local mode = vim.api.nvim_get_mode()["mode"]
+    local send_type = mode == "V" and "visual_lines" or mode == "n" and "single_line" or "visual_selection"
+    require("toggleterm").send_lines_to_terminal(send_type, true, { args = vim.v.count })
+end)
+
+-- Gitlinker
+utils.map({ "n", "v" }, "<leader>gy", "<cmd>GitLink<cr>")
+utils.map({ "n", "v" }, "<leader>gY", "<cmd>GitLink blame<cr>")

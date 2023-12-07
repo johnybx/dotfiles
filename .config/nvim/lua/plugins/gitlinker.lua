@@ -1,9 +1,7 @@
 return {
-    "ruifm/gitlinker.nvim",
+    "linrongbin16/gitlinker.nvim",
     dependencies = "nvim-lua/plenary.nvim",
-    keys = {
-        { "<leader>gy", nil, desc = "GitLinker", mode = { "n", "v" } },
-    },
+    cmd = { "GitLink" },
     config = function()
         local paths = package.path
         package.path = vim.fn.expand("~/.local/share/nvim/") .. "gitlinker_callbacks.lua"
@@ -13,7 +11,7 @@ return {
             callbacks = {}
         end
         require("gitlinker").setup({
-            callbacks = callbacks,
+            router = callbacks,
         })
     end,
 }

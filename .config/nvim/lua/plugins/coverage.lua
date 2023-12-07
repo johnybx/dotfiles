@@ -1,5 +1,5 @@
 return {
     "andythigpen/nvim-coverage",
-    cmd = { "CoverageLoad", "CoverageShow", "CoverageToggle", "CoverageSummary" },
+    cmd = { "Coverage", "CoverageLoad", "CoverageShow", "CoverageToggle", "CoverageSummary" },
     opts = {},
 }

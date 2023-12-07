@@ -1,3 +1,4 @@
+vim.g.skip_ts_context_commentstring_module = true
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -5,7 +6,10 @@ return {
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
         "nvim-treesitter/playground",
-        "JoosepAlviste/nvim-ts-context-commentstring",
+        {
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            opts = { enable = true, enable_autocmd = false },
+        },
     },
     config = function()
         require("nvim-treesitter.configs").setup({
@@ -178,10 +182,6 @@ return {
                         show_help = "?",
                     },
                 },
-            },
-            context_commentstring = {
-                enable = true,
-                enable_autocmd = false,
             },
             autopairs = { enable = true },
         })

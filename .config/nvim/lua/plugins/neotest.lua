@@ -24,19 +24,12 @@ return {
         opts = function()
             return {
                 adapters = {
-                    require("neotest-python"),
+                    require("neotest-python")({ pytest_discover_instances = true }),
                     require("neotest-plenary"),
                 },
                 output = { open_on_run = false },
                 quickfix = {
                     open = false,
-                },
-                icons = {
-                    passed = "✔",
-                    running = "🗘",
-                    failed = "✖",
-                    skipped = "ﰸ",
-                    unknown = "?",
                 },
                 discovery = {
                     filter_dir = function(name, rel_path, root)

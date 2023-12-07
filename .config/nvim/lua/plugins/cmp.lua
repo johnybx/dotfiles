@@ -66,8 +66,8 @@ return {
                     ["<Up>"] = {
                         i = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
                     },
-                    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
-                    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
+                    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }),
+                    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }),
                     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-d>"] = cmp.mapping.scroll_docs(4),
                     ["<C-Space>"] = cmp.mapping.complete({}),
@@ -158,7 +158,7 @@ return {
                         or require("cmp_dap").is_dap_buffer()
                 end,
                 experimental = {
-                    ghost_text = true,
+                    ghost_text = false,
                 },
             })
 
@@ -224,7 +224,7 @@ return {
             "nvim-lua/plenary.nvim",
         },
         opts = {},
-        cond = true,
+        cond = false,
     },
     {
         "saadparwaiz1/cmp_luasnip",
