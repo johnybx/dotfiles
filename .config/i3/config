@@ -41,7 +41,7 @@ exec_always --no-startup-id ~/.config/i3/scripts/restart.sh ulauncher --hide-win
 exec_always --no-startup-id ~/.config/i3/scripts/restart.sh tint2
 # exec --no-startup-id sudo tlp start # managed by systemd
 # exec --no-startup-id sudo powertop --auto-calibrate # managed by systemd
-exec_always --no-startup-id ~/.config/i3/scripts/restart.sh clipit
+exec_always --no-startup-id ~/.config/i3/scripts/restart.sh copyq
 # exec_always --no-startup-id ~/.config/i3/scripts/restart.sh dunst
 # exec_always --no-startup-id i3-msg 'workspace 4; exec pkill -9 slack; exec /usr/bin/slack'
 exec_always --no-startup-id ~/.config/i3/scripts/restart.sh guake
@@ -193,6 +193,8 @@ assign [class="^Thunderbird$"] → 4
 assign [class="^Boostnote$"] → 4
 assign [class="^Virt-manager$"] → 5
 
+# Window settings
+for_window [instance="copyq"] floating enable, resize set 40 ppt 70 ppt, move position center
 no_focus [class="^markdown-preview$"]
 
 # start with workspace layout
