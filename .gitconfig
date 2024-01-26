@@ -31,5 +31,8 @@
 [user]
 	name = johnybx
 	email = johnybx@users.noreply.github.com
+    signingkey = EF9A4C64D49634CB
 [core]
 	excludesfile = ~/.gitignore
+[include]
+    path = ~/workspace/.gitconfig
