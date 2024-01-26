@@ -1,6 +1,6 @@
 return {
-    -- "harrisoncramer/gitlab.nvim",
-    dir = "~/workspace/nvim/gitlab.nvim",
+    "harrisoncramer/gitlab.nvim",
+    -- dir = "~/workspace/nvim/gitlab.nvim",
     dependencies = {
         "MunifTanjim/nui.nvim",
         "nvim-lua/plenary.nvim",
@@ -53,10 +53,16 @@ return {
         require("gitlab").setup({
             reviewer = "diffview",
             port = nil,
+            open_reviewer_against = "filesystem",
             discussion_tree = {
                 toggle_node = "<Tab>",
                 position = "bottom",
                 tree_type = "per_filename",
+            },
+            reviewer_settings = {
+                diffview = {
+                    imply_local = true,
+                },
             },
             discussion_sign_and_diagnostic = {
                 skip_resolved_discussion = false,

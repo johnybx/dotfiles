@@ -177,7 +177,7 @@ utils.map("n", "<leader>db", "<cmd>DBUIToggle<CR>")
 
 -- Diffview
 utils.map("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { silent = true })
-utils.map("n", "<leader>g<Space>", ":DiffviewOpen<Space>")
+utils.map("n", "<leader>g<Space>", ":DiffviewOpen --imply-local<Space>")
 utils.map("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>", { silent = true })
 utils.map("v", "<leader>gf", "<ESC><cmd>'<,'>DiffviewFileHistory %<CR>", { silent = true })
 utils.map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { silent = true })

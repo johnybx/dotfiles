@@ -5,7 +5,7 @@ M.autoformat = true
 function M.format(bufnr)
     if M.autoformat then
         -- vim.lsp.buf.format({ timeout_ms = 5000, async = false })
-        require("conform").format({ timeout_ms = 5000, async = false, lsp_fallback = "always", bufnr = bufnr })
+        require("conform").format({ timeout_ms = 5000, async = false, lsp_fallback = true, bufnr = bufnr })
     end
 end
 

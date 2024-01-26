@@ -47,7 +47,20 @@ return {
         end
 
         -- Others
-        local servers = { "pyright", "dockerls", "bashls", "vimls", "intelephense", "tsserver", "marksman", "gopls" }
+        local servers = {
+            "pyright",
+            "dockerls",
+            "bashls",
+            "vimls",
+            "intelephense",
+            "html",
+            "marksman",
+            "gopls",
+            "tsserver",
+            "eslint",
+            "vuels",
+            "emmet_language_server",
+        }
         require("plugins.lsp.generic_lsp").setup(servers, on_attach, capabilities)
 
         -- Setup lsp diagnostics
