@@ -1,4 +1,4 @@
-local group = vim.api.nvim_create_augroup("NeotestConfig", {})
+local group = vim.api.nvim_create_augroup("NeotestConfig", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "neotest-output",
     group = group,
@@ -9,6 +9,19 @@ vim.api.nvim_create_autocmd("FileType", {
             buffer = opts.buf,
         })
     end,
+})
+
+-- Keep summary centered
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "neotest-summary",
+    callback = function(opts)
+        for _, w_id in ipairs(vim.api.nvim_list_wins()) do
+            if vim.api.nvim_win_get_buf(w_id) == opts.buf and vim.api.nvim_win_is_valid(w_id) then
+                vim.api.nvim_set_option_value("scrolloff", 999, { win = w_id })
+            end
+        end
+    end,
+    group = group,
 })
 
 return {

@@ -55,6 +55,7 @@ return {
             port = nil,
             open_reviewer_against = "filesystem",
             discussion_tree = {
+                auto_open = false,
                 toggle_node = "<Tab>",
                 position = "bottom",
                 tree_type = "per_filename",

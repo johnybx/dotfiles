@@ -3,6 +3,7 @@ return {}
 --     -- https://github.com/aduros/ai.vim
 --
 --     -- TODO:: These are interesting
+
 --     -- https://github.com/stevearc/overseer.nvim - A task runner and job management plugin for Neovim
 --     -- https://github.com/folke/flash.nvim
 --     -- https://github.com/quarto-dev/quarto-nvim
@@ -15,6 +16,9 @@ return {}
 --     -- https://github.com/AckslD/nvim-FeMaco.lua
 --     -- https://github.com/narutoxy/silicon.lua - screenshot code
 --     -- https://github.com/nvimtools/none-ls.nvim - maintained fork of null-ls!
+--     -- https://github.com/kevinhwang91/nvim-ufo
+--     -- https://github.com/jellydn/hurl.nvim  - https://hurl.dev/ - similar to http.nvim
+--     -- https://github.com/LintaoAmons/scratch.nvim
 --     --
 --     -- https://github.com/williamboman/mason.nvim
 --     -- https://github.com/p00f/clangd_extensions.nvim

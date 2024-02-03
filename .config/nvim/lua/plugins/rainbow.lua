@@ -22,7 +22,7 @@ return {
         end
         setup.setup({
             log = {
-                level = "OFF",
+                level = vim.log.levels.OFF,
             },
         })
     end,

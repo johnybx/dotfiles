@@ -17,6 +17,16 @@ local function theme_defaults()
     )
 end
 
+local function transparent_background()
+    vim.api.nvim_exec2(
+        [[
+    highlight Normal guibg=none ctermbg=none
+    highlight NonText guibg=none ctermbg=none
+    ]],
+        { output = false }
+    )
+end
+
 return {
     -- Themes
     { "navarasu/onedark.nvim", cond = false },
@@ -26,7 +36,7 @@ return {
         "ellisonleao/gruvbox.nvim",
         lazy = false,
         priority = 1000,
-        cond = false,
+        cond = true,
         config = function()
             ---@diagnostic disable: unused-local
 
@@ -38,6 +48,7 @@ return {
             -- nightfox.setup()
             -- catppuccino.setup()
             gruvbox.setup()
+            transparent_background()
             -- onedark.setup()
             theme_defaults()
         end,
@@ -47,6 +58,7 @@ return {
         "rebelot/kanagawa.nvim",
         priority = 1000,
         lazy = false,
+        cond = false,
         config = function()
             vim.cmd("colorscheme kanagawa")
         end,
