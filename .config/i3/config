@@ -32,7 +32,8 @@ set $right l
 floating_modifier $mod
 
 # autostart
-exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpaper/arch-background.jpg
+# --randomize ~/.config/i3/wallpaper/*
+exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpaper/hexagon-orange.jpg
 # exec --no-startup-id xsettingsd &
 exec_always --no-startup-id ~/.config/i3/scripts/restart.sh picom --config ~/.config/picom/picom.conf -b
 exec_always --no-startup-id ~/.config/i3/scripts/opacity_fix.sh

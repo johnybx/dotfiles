@@ -8,7 +8,6 @@ vim.opt.updatetime = 500
 vim.opt.spelllang = "en,cjk"
 vim.opt.spellfile = vim.fn.expand("~/.config/nvim/spell/en.utf-8.add")
 
-cmd("syntax enable")
 cmd("filetype plugin indent on")
 
 utils.opt("b", "expandtab", true)
@@ -60,7 +59,7 @@ cmd("autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab")
 cmd("autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab nofoldenable comments=n:>")
 cmd("autocmd FileType org setlocal ts=2 sts=2 sw=2 expandtab")
 cmd("autocmd FileType norg setlocal ts=2 sts=2 sw=2 expandtab")
-cmd("autocmd FileType html,js setlocal ts=2 sts=2 sw=2 expandtab")
+cmd("autocmd FileType html,javascript,vue,css setlocal ts=2 sts=2 sw=2 expandtab")
 cmd("autocmd FileType sql,mysql setlocal commentstring=--%s")
 
 -- set correct file type for salt files

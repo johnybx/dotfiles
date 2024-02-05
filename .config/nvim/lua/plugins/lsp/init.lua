@@ -4,7 +4,19 @@ return {
     dependencies = {
         { "ray-x/lsp_signature.nvim" },
         { "mrcjkb/rustaceanvim", ft = { "rust" } },
-        { "j-hui/fidget.nvim", opts = {}, event = "LspAttach" },
+        {
+            "j-hui/fidget.nvim",
+            opts = {
+                notification = {
+                    window = {
+                        winblend = 0,
+                        border = "rounded",
+                        border_hl = "FloatermBorder",
+                    },
+                },
+            },
+            event = "LspAttach",
+        },
         {
             "folke/neodev.nvim",
             opts = {

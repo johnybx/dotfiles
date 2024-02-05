@@ -3,7 +3,8 @@
 # confirmations, etc.) must go above this block; everything else may go below.
 
 if [[ "$TERM_PROGRAM" == "guake" && -z "$TMUX" ]]; then
-    tmux 
+    export TMUX_IN_GUAKE=1
+    tmux -L guake
     exit
 fi
 

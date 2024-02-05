@@ -17,6 +17,7 @@ local function theme_defaults()
     )
 end
 
+---@diagnostic disable-next-line: unused-function, unused-local
 local function transparent_background()
     vim.api.nvim_exec2(
         [[
@@ -36,7 +37,12 @@ return {
         "ellisonleao/gruvbox.nvim",
         lazy = false,
         priority = 1000,
-        cond = true,
+        cond = function()
+            if os.getenv("TMUX_IN_GUAKE") then
+                return true
+            end
+            return false
+        end,
         config = function()
             ---@diagnostic disable: unused-local
 
@@ -45,11 +51,7 @@ return {
             local nightfox = require("plugins.colorscheme.nightfox")
             local catppuccino = require("plugins.colorscheme.catppuccino")
 
-            -- nightfox.setup()
-            -- catppuccino.setup()
             gruvbox.setup()
-            transparent_background()
-            -- onedark.setup()
             theme_defaults()
         end,
     },
@@ -58,8 +60,23 @@ return {
         "rebelot/kanagawa.nvim",
         priority = 1000,
         lazy = false,
-        cond = false,
+        cond = function()
+            if os.getenv("TMUX_IN_GUAKE") then
+                return false
+            end
+            return true
+        end,
         config = function()
+            require("kanagawa").setup({
+                statementStyle = { bold = false },
+                transparent = true,
+
+                overrides = function()
+                    return {
+                        ["@lsp.typemod.function.readonly"] = { bold = false },
+                    }
+                end,
+            })
             vim.cmd("colorscheme kanagawa")
         end,
     },
