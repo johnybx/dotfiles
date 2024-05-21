@@ -111,6 +111,8 @@ return {
                         ["at"] = "@statement.outer",
                         ["ak"] = "@call.outer",
                         ["ik"] = "@call.inner",
+                        ["ao"] = "@conditional.outer",
+                        ["io"] = "@conditional.inner",
                     },
                 },
                 move = {

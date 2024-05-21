@@ -19,6 +19,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.cargo/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.local/share/oh-my-zsh
 

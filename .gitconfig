@@ -13,6 +13,9 @@
 	algorithm = patience
 [pull]
 	rebase = true
+[rebase]
+    autosquash = true
+    autostash = true
 [push]
     autoSetupRemote = true
     signed = if-asked

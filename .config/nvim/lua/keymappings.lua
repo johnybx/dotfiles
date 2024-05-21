@@ -250,8 +250,7 @@ utils.map("n", "<leader>nh", "<cmd>Neorg workspace notes<CR>", { remap = true })
 vim.cmd([[
      augroup HTTPRequests
          autocmd! * <buffer>
-         autocmd FileType http nmap <buffer> <CR> <Plug>RestNvim
-         autocmd FileType http nmap <buffer> <A-CR> <Plug>RestNvimPreview
+         autocmd FileType http nmap <buffer> <CR> :Rest run<CR>
          autocmd FileType http nnoremap <buffer> <C-S> <cmd>lua c=require("rest-nvim.config");c.set({skip_ssl_verification = not c.get("skip_ssl_verification")});print("ssl verification: "..tostring(c.get("skip_ssl_verification")))<CR>
      augroup END
 ]])

@@ -19,6 +19,7 @@ return {}
 --     -- https://github.com/kevinhwang91/nvim-ufo
 --     -- https://github.com/jellydn/hurl.nvim  - https://hurl.dev/ - similar to http.nvim
 --     -- https://github.com/LintaoAmons/scratch.nvim
+--     -- https://github.com/kndndrj/nvim-dbee - db management \ similar to dadbod with interesting adapters
 --     --
 --     -- https://github.com/williamboman/mason.nvim
 --     -- https://github.com/p00f/clangd_extensions.nvim

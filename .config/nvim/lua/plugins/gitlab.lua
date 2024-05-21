@@ -7,6 +7,7 @@ return {
         "sindrets/diffview.nvim",
         "stevearc/dressing.nvim",
     },
+    branch = "main",
     -- Lazy load is not very supported yet
     -- keys = {
     --     { "<leader>glr", nil, mode = "n", desc = "Gitlab review" },
@@ -72,7 +73,7 @@ return {
         })
         local utils = require("utils")
         utils.map("n", "<leader>glr", '<cmd>lua require("gitlab").review()<CR>')
-        utils.map("n", "<leader>gls", '<cmd>lua require("gitlab").summary()<CR>')
+        utils.map("n", "<leader>glS", '<cmd>lua require("gitlab").summary()<CR>')
         utils.map("n", "<leader>glA", '<cmd>lua require("gitlab").approve()<CR>')
         utils.map("n", "<leader>glR", '<cmd>lua require("gitlab").revoke()<CR>')
         utils.map("n", "<leader>glc", '<cmd>lua require("gitlab").create_comment()<CR>')
@@ -87,6 +88,9 @@ return {
         utils.map("n", "<leader>glrd", '<cmd>lua require("gitlab").delete_reviewer()<CR>')
         utils.map("n", "<leader>glp", '<cmd>lua require("gitlab").pipeline()<CR>')
         utils.map("n", "<leader>glo", '<cmd>lua require("gitlab").open_in_browser()<CR>')
+        utils.map("n", "<leader>glla", '<cmd>lua require("gitlab").add_label()<CR>')
+        utils.map("n", "<leader>glld", '<cmd>lua require("gitlab").delete_label()<CR>')
+        utils.map("n", "<leader>gl<Space>", ':lua require("gitlab").')
         utils.map("n", "<leader>glB", function()
             require("gitlab.server").restart(function()
                 vim.cmd.tabclose()

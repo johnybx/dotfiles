@@ -34,7 +34,7 @@ return {
         require("fidget")
         require("plugins.lsp.diagnostic_sign").setup()
         require("plugins.lsp.formatting").setup()
-        require("plugins.lsp.fswatch").setup()
+        -- require("plugins.lsp.fswatch").setup()
 
         local on_attach = require("plugins.lsp.default_on_attach").on_attach
         local capabilities = require("plugins.lsp.capabilities").get()

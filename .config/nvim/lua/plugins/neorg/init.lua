@@ -1,6 +1,5 @@
 return {
     "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
     ft = "norg",
     cmd = "Neorg",
     opts = {
@@ -44,5 +43,5 @@ return {
             ["core.qol.toc"] = {},
         },
     },
-    dependencies = { { "nvim-lua/plenary.nvim" } },
+    dependencies = { "luarocks.nvim" },
 }

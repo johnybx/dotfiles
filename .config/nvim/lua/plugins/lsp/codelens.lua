@@ -7,10 +7,12 @@ function M.setup(client, bufnr)
                 [[
             augroup lsp_code_lens
             autocmd! * <buffer=%s>
-            autocmd BufEnter ++once <buffer=%s> lua vim.lsp.codelens.refresh()
-            autocmd CursorHold,InsertLeave <buffer=%s> lua vim.lsp.codelens.refresh()
+            autocmd BufEnter ++once <buffer=%s> lua vim.lsp.codelens.refresh({ bufnr = %s })
+            autocmd CursorHold,InsertLeave <buffer=%s> lua vim.lsp.codelens.refresh({ bufnr = %s })
             augroup END
             ]],
+                bufnr,
+                bufnr,
                 bufnr,
                 bufnr,
                 bufnr

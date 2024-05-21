@@ -23,8 +23,10 @@ vim.cmd([[
 return {
     "rest-nvim/rest.nvim",
     ft = "http",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-        skip_ssl_verification = false,
-    },
+    dependencies = { { "vhyrro/luarocks.nvim", opts = { rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" } } } },
+    config = function()
+        require("rest-nvim").setup({
+            skip_ssl_verification = false,
+        })
+    end,
 }
