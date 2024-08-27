@@ -59,7 +59,7 @@ cmd("autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab")
 cmd("autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab nofoldenable comments=n:>")
 cmd("autocmd FileType org setlocal ts=2 sts=2 sw=2 expandtab")
 cmd("autocmd FileType norg setlocal ts=2 sts=2 sw=2 expandtab")
-cmd("autocmd FileType html,javascript,vue,css setlocal ts=2 sts=2 sw=2 expandtab")
+cmd("autocmd FileType html,htmldjango,javascript,vue,css setlocal ts=2 sts=2 sw=2 expandtab")
 cmd("autocmd FileType sql,mysql setlocal commentstring=--%s")
 
 -- set correct file type for salt files

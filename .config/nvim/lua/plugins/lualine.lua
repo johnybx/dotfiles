@@ -1,5 +1,5 @@
 local function check_lsp()
-    local clients = vim.lsp.get_active_clients()
+    local clients = vim.lsp.get_clients()
     if next(clients) ~= nil then
         return ""
     else

@@ -45,3 +45,4 @@ return {}
 --     -- https://github.com/simrat39/symbols-outline.nvim
 --     -- https://github.com/debugloop/telescope-undo.nvim
 --     -- https://github.com/sotte/presenting.vim
+--     -- https://github.com/NStefan002/screenkey.nvim
