@@ -1,0 +1,27 @@
+* Hyprland CheatSheet
+
+** Hyprctl
+
+   List all monitors
+   @code bash
+   hyprctl monitor all
+   @end
+
+   Execute commands from config / test commands
+   @code bash
+   hyprctl keyword monitor "desc:Acer Technologies CB272 0x0381304E",preferred,auto-left,auto
+   @end
+
+   Execute process manually ( or any other keyword )
+   @code bash
+   hyprctl keyword exec -- waybar
+   @end
+
+** Find apps which run on XWayland
+
+   @code bash
+   xlsclients
+   xwininfo
+   hyprctl clients
+   @end
+

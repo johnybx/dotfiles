@@ -43,5 +43,4 @@ return {
             ["core.qol.toc"] = {},
         },
     },
-    dependencies = { "luarocks.nvim" },
 }

@@ -27,46 +27,12 @@ cmap w!! w !sudo tee > /dev/null %
 
 filetype off
 
-call plug#begin('~/.vim/plugged')
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Folder / file tree
-Plug 'preservim/nerdtree'
-" Git tools
-Plug 'tpope/vim-fugitive'
-" Theme
-Plug 'joshdick/onedark.vim', { 'branch': 'main' }
-" quoting / parenthesizing made simple
-Plug 'tpope/vim-surround'
-" Syntax checking hacks for vim
-Plug 'scrooloose/syntastic'
-" Rust
-Plug 'rust-lang/rust.vim'
-" Python
-Plug 'davidhalter/jedi-vim'
-Plug 'nvie/vim-flake8'
-Plug 'psf/black', { 'branch': 'main' }
-
-" Generic
-" Plug 'valloric/youcompleteme'
-Plug 'ervandew/supertab'
-Plug 'w0rp/ale'
-
-call plug#end()
-
 syntax enable
 filetype plugin indent on
-colorscheme onedark
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 set splitbelow
 set splitright

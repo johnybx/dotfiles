@@ -112,7 +112,7 @@ return {
                 },
             },
         })
-
+        vim.api.nvim_set_hl(0, "TelescopeBorder", { guifg = nil, guibg = nil })
         -- Extensions
         require("telescope").load_extension("file_browser")
         require("telescope").load_extension("dap")

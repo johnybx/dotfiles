@@ -21,7 +21,7 @@ fi
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.local/share/oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -223,10 +223,10 @@ alias system-virt-viewer='virt-viewer -c qemu:///system --hotkeys=toggle-fullscr
 alias ll='ls -lah'
 alias ..='cd ..'
 alias cdw='cd ~/workspace'
-alias xc='xclip -in -selection clipboard'
-alias xp='xclip -out -selection clipboard'
+alias xc='wl-copy'
+alias xp='wl-paste'
 # Delayed clipboard paste - for cases when normal paste is not supported
-alias dxp='bash -c "sleep 2; xdotool type -- \"$(xclip -o -selection clipboard)\""'
+# alias dxp='bash -c "sleep 2; xdotool type -- \"$(xclip -o -selection clipboard)\""'
 alias vim='nvim'
 alias notes='nvim -c "Neorg workspace notes"'
 alias wnotes='nvim -c "Neorg workspace work"'
@@ -261,11 +261,6 @@ gpvim ()
     else
         pvim $@
     fi
-}
-
-zlist ()
-{
-    zfs list $@ | grep -v "/docker/"
 }
 
 if [ -f $HOME/.local/share/aliases.sh ]; then

@@ -1,0 +1,10 @@
+* Hibernate
+* audio control gui
+* .dotfiles update
+* power management
+* Screensharing screen tearing
+* replacement of xdotool
+* screenshot gui -> draw in screenshot?
+ * https://github.com/Gustash/Hyprshot
+ * swappy
+ * grimblast

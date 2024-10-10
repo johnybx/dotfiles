@@ -5,19 +5,17 @@
 ### Setup:
 
 - **OS:** Arch linux
-- **Window Manager:** i3
+- **Window Manager:** Hyprland
 - **Terminal:** Kitty
 - **Terminal Multiplexer:** Tmux
 - **Shell:** ZSH
 - **Editor:** Nvim
 - **Application Launcher:** Ulauncher
-- **Bar:** Tint2
+- **Bar:** Waybar
 - **Browser:** Firefox
 - **File Manager:** Ranger
 - **Text Fonts and Icon Fonts:** mostly [Source Code Pro](https://www.nerdfonts.com/)
 
 ### Screenshots:
 
-![terminals](screenshots/screen-terminals.png)
-![neofetch](screenshots/neofetch.png)
-![guake](screenshots/guake.png)
+![terminals](screenshots/terminals.png)

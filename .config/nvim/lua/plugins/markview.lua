@@ -2,8 +2,7 @@ return {
     "OXY2DEV/markview.nvim",
     lazy = false,
     opts = {
-        modes = { "n", "i", "no", "c" },
-        hybrid_modes = { "i" },
+        modes = { "n", "no", "c" },
         -- This is nice to have
         callbacks = {
             on_enable = function(_, win)

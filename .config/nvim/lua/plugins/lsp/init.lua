@@ -68,7 +68,7 @@ return {
             "html",
             "marksman",
             "gopls",
-            "tsserver",
+            "ts_ls",
             "eslint",
             "vuels",
             "emmet_language_server",
