@@ -31,5 +31,5 @@ Target = neovim*
 [Action]
 Description = Update neovim python 3 client virtual env
 When = PostTransaction
-Exec = /usr/bin/bash -c \"/usr/bin/sudo -u jan /home/jan/.local/share/env/bin/pip install --upgrade pip -r /home/jan/.local/share/env/requirements.txt\"
+Exec = /usr/bin/bash -c \"/usr/bin/sudo -u jan /home/jan/.local/share/env/bin/pip install --upgrade pip -r /home/jan/.local/share/requirements.txt\"
 " | sudo tee /etc/pacman.d/hooks/neovim.hook

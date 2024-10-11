@@ -2,18 +2,23 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 
-if [[ "$TERM_PROGRAM" == "guake" && -z "$TMUX" ]]; then
-    export TMUX_IN_GUAKE=1
-    tmux -L guake
-    exit
-fi
-
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+case $(tty) in
+    /dev/tty[0-9])
+        ZSH_THEME="random"
+    ;;
+    *)
+        if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+        source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+        fi
+        # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+        [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+        # Set name of the theme to load --- if set to "random", it will
+        # load a random theme each time oh-my-zsh is loaded, in which case,
+        # to know which specific one was loaded, run: echo $RANDOM_THEME
+        # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+        ZSH_THEME="powerlevel10k/powerlevel10k"
+    ;;
+esac
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -23,11 +28,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -226,10 +226,11 @@ alias cdw='cd ~/workspace'
 alias xc='wl-copy'
 alias xp='wl-paste'
 # Delayed clipboard paste - for cases when normal paste is not supported
-# alias dxp='bash -c "sleep 2; xdotool type -- \"$(xclip -o -selection clipboard)\""'
+alias dxp='sudo bash -c "sleep 2; echo \"type $(wl-paste)\" | dotool"'
 alias vim='nvim'
 alias notes='nvim -c "Neorg workspace notes"'
 alias wnotes='nvim -c "Neorg workspace work"'
+alias btm='btm --theme gruvbox'
 pvim ()
 {
     env_path=""
