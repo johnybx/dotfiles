@@ -1,0 +1,25 @@
+{
+  "session_dirs": [
+    "/usr/share/wayland-sessions",
+    "/usr/share/xsessions"
+  ],
+  "custom_sessions": [
+    {
+      "name": "ZSH",
+      "exec": "/usr/bin/zsh"
+    }
+  ],
+  "monitor_nums": [],
+  "form_on_monitors": [],
+  "delay_secs": 1,
+  "cmd-sleep": "systemctl suspend",
+  "cmd-reboot": "systemctl reboot",
+  "cmd-poweroff": "systemctl poweroff",
+  "gtk-theme": "Arc-Dark",
+  "gtk-icon-theme": "Arc",
+  "gtk-cursor-theme": "BreezeX-RosePine-Linux",
+  "prefer-dark-theme": true,
+  "template-name": "",
+  "lang": "",
+  "env-vars": []
+}
