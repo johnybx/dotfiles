@@ -1,8 +1,20 @@
 local function setup()
-    vim.fn.sign_define("DiagnosticSignError", { text = " 🞮", numhl = "DiagnosticError" })
-    vim.fn.sign_define("DiagnosticSignWarn", { text = " ", numhl = "DiagnosticWarn" })
-    vim.fn.sign_define("DiagnosticSignInfo", { text = " ⁈", numhl = "DiagnosticInfo" })
-    vim.fn.sign_define("DiagnosticSignHint", { text = "🛈", numhl = "DiagnosticHint" })
+    vim.diagnostic.config({
+        signs = {
+            text = {
+                [vim.diagnostic.severity.ERROR] = " 🞮",
+                [vim.diagnostic.severity.WARN] = " ",
+                [vim.diagnostic.severity.INFO] = " ⁈",
+                [vim.diagnostic.severity.HINT] = "🛈",
+            },
+            numhl = {
+                [vim.diagnostic.severity.ERROR] = "DiagnosticError",
+                [vim.diagnostic.severity.WARN] = "DiagnosticWarn",
+                [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+                [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+            },
+        },
+    })
 end
 
 M = {

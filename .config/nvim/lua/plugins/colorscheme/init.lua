@@ -71,11 +71,26 @@ return {
                 statementStyle = { bold = false },
                 transparent = true,
 
-                overrides = function()
+                overrides = function(colors)
                     return {
                         ["@lsp.typemod.function.readonly"] = { bold = false },
+                        TabLine = { bg = "none" },
+                        TabLineFill = { bg = "none" },
+                        TabLineSel = { bg = "none" },
+                        TabNumSel = { bg = "none" },
+                        TabNum = { bg = "none" },
                     }
                 end,
+
+                colors = {
+                    theme = {
+                        all = {
+                            ui = {
+                                bg_gutter = "none",
+                            },
+                        },
+                    },
+                },
             })
             vim.cmd("colorscheme kanagawa")
         end,

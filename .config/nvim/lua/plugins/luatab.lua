@@ -18,7 +18,13 @@ return {
         end
 
         local bg = extract_highlight_colors("TabLine", "bg")
+        if bg == nil then
+            bg = "none"
+        end
         local bg_sel = extract_highlight_colors("TabLineSel", "bg")
+        if bg_sel == nil then
+            bg_sel = "none"
+        end
         local fg = "#dd7f47"
         vim.cmd("hi TabNum term=bold guifg=" .. fg .. " guibg=" .. bg)
         vim.cmd("hi TabNumSel term=bold guifg=" .. fg .. " guibg=" .. bg_sel)

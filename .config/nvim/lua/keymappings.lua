@@ -1,5 +1,8 @@
 local utils = require("utils")
 
+local term_program = os.getenv("TERM_PROGRAM")
+local is_tmux = term_program and term_program:lower() == "tmux"
+
 utils.map("", "<F3>", ":set invpaste paste?<CR>:%s/\\s\\+$//g<CR>")
 utils.map("c", "w!!", "w !sudo tee > /dev/null %")
 -- generate patch file from buffer diff
@@ -158,8 +161,13 @@ utils.map(
 utils.map("n", "<leader>sg", "<cmd>lua require('sg.extensions.telescope').fuzzy_search_results()<CR>")
 
 -- Comment.nvim
-utils.map("n", "<C-/>", "<Plug>(comment_toggle_linewise_current)", { remap = true })
-utils.map("v", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", { remap = true })
+if is_tmux then
+    utils.map("n", "<C-_>", "<Plug>(comment_toggle_linewise_current)", { remap = true })
+    utils.map("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", { remap = true })
+else
+    utils.map("n", "<C-/>", "<Plug>(comment_toggle_linewise_current)", { remap = true })
+    utils.map("v", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", { remap = true })
+end
 
 -- Trouble
 utils.map("n", "<leader>xx", "<cmd>Trouble<CR>", { silent = true })
