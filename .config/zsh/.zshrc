@@ -152,7 +152,7 @@ HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt autocd extendedglob nomatch
+setopt autocd extendedglob nomatch ksh_arrays
 unsetopt beep notify
 bindkey -v
 zstyle :compinstall filename '~/.config/zsh/.zshrc'
