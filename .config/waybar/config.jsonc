@@ -51,6 +51,12 @@
       "class<libreoffice-calc>": "",
       "class<libreoffice-impress>": "󰐩",
       "class<blueman.*>": "󰂯",
+      "class<swappy>": "",
+      "class<steam>": "",
+      "class<virt-manager>": "",
+      "class<virt-manager> title<.*QEMU.*>": "",
+      "class<com-eteks-sweethome3d-SweetHome3D>": "󱅙",
+      // 󱎓
     },
   },
   "custom/weather": {
@@ -73,8 +79,8 @@
     "format": "{percent}% {icon}",
     "scroll-step": 1,
     "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "on-scroll-up": "brightnessctl -q set 1%+",
-    "on-scroll-down": "brightnessctl -q set 1%-",
+    "on-scroll-up": "brightnessctl -d intel_backlight -q set 1%+",
+    "on-scroll-down": "brightnessctl -d intel_backlight -q set 1%-",
   },
   "battery": {
     "states": {
@@ -90,7 +96,7 @@
   },
   "wireplumber": {
     "format": "{volume}% {icon}",
-    "format-muted": "",
+    "format-muted": "{volume}% ",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol",
     "on-click-middle": "~/.config/waybar/scripts/set_next_default_audio.sh Sinks",
