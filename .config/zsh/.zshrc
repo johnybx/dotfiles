@@ -193,7 +193,7 @@ bindkey "^[[B" history-beginning-search-forward-end
 
 if [ -f ~/.ssh/agent.env ] ; then
     . ~/.ssh/agent.env > /dev/null
-    if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
+    if ! ps -p $SSH_AGENT_PID > /dev/null 2>&1; then
         eval `ssh-agent | tee ~/.ssh/agent.env` > /dev/null 2>&1
     fi
 else
@@ -219,6 +219,7 @@ alias env_upgrade_all='pip install --use-feature=2020-resolver --upgrade `pip li
 alias pip_sync='$(dotenv get PIP-SYNC)'
 alias pip_compile='$(dotenv get COMPILE-MAIN)'
 alias pip_compile_dev='$(dotenv get COMPILE-DEV)'
+alias pip_compile_shell='$(dotenv get COMPILE-SHELL)'
 alias system-virt-viewer='virt-viewer -c qemu:///system --hotkeys=toggle-fullscreen=ctrl+alt+F,release-cursor=shift+f12'
 alias ll='ls -lah'
 alias ..='cd ..'
