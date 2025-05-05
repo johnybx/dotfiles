@@ -22,6 +22,8 @@ local function get()
             },
         }
     end
+    capabilities.general = capabilities.general or {}
+    capabilities.general.positionEncodings = { "utf-16" }
 
     return capabilities
 end

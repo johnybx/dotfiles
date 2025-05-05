@@ -1,6 +1,6 @@
 local function setup(on_attach, capabilities)
     local function _on_attach(client, bufnr)
-        vim.lsp.inlay_hint.enable(bufnr, true)
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
         on_attach(client, bufnr)
     end
 

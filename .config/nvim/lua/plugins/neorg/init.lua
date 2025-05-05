@@ -2,6 +2,14 @@ return {
     "nvim-neorg/neorg",
     ft = "norg",
     cmd = "Neorg",
+    keys = {
+        {
+            "<leader>nt",
+            "<cmd>lua require('plugins.neorg.utils').generate_dir_contents()<CR>",
+            desc = "generate directory contents",
+            mode = "n",
+        },
+    },
     opts = {
         load = {
             ["core.defaults"] = {}, -- Loads default behaviour
@@ -27,16 +35,7 @@ return {
                 },
             },
             ["core.keybinds"] = {
-                config = {
-                    hook = function(keybinds)
-                        keybinds.map(
-                            "norg",
-                            "n",
-                            keybinds.leader .. "nt",
-                            "<cmd>lua require('plugins.neorg.utils').generate_dir_contents()<CR>"
-                        )
-                    end,
-                },
+                config = {},
             },
             ["core.itero"] = {},
             ["core.promo"] = {},

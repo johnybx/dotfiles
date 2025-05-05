@@ -11,7 +11,9 @@ return {
 
         vim.notify = function(msg, level, opts)
             log.info(msg, level, opts)
-
+            if string.match(msg or "", "Defaulting to position encoding of the first client") then
+                return
+            end
             require("notify")(msg, level, opts)
         end
     end,

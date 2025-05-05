@@ -15,7 +15,6 @@ return {
             "f3fora/cmp-spell",
             "rcarriga/cmp-dap",
             "tzachar/cmp-tabnine",
-            "Exafunction/codeium.nvim",
             "saadparwaiz1/cmp_luasnip",
         },
         config = function()
@@ -200,7 +199,7 @@ return {
     {
         "tzachar/cmp-tabnine",
         build = "./install.sh",
-        cond = true,
+        cond = false,
         config = function()
             local tabnine = require("cmp_tabnine.config")
             tabnine:setup({
@@ -218,14 +217,14 @@ return {
             })
         end,
     },
-    {
-        "Exafunction/codeium.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        opts = {},
-        cond = false,
-    },
+    -- {
+    --     "Exafunction/codeium.nvim",
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --     },
+    --     opts = {},
+    --     cond = false,
+    -- },
     {
         "saadparwaiz1/cmp_luasnip",
         dependencies = {

@@ -4,7 +4,7 @@ local function setup(on_attach, capabilities)
         on_attach(client, ...)
     end
 
-    require("lspconfig").ruff_lsp.setup({
+    require("lspconfig").ruff.setup({
         on_attach = _on_attach,
         capabilities = capabilities,
     })

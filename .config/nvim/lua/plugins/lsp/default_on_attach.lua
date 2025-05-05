@@ -3,6 +3,7 @@ local highlight = require("plugins.lsp.highlight").highlight
 local code_lens = require("plugins.lsp.codelens").setup
 
 local on_attach = function(client, bufnr)
+    client.offset_encoding = "utf-16"
     vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
     -- Disable setting formatexpr=v:lua.vim.lsp.formatexpr()
     -- allow to use built in 'gq' in combination with format on save

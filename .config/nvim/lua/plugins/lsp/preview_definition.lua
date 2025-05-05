@@ -40,13 +40,13 @@ local function open_preview_window(location)
         minheight = math.floor(max_lines * win_height),
         height = math.floor(max_lines * win_height),
     })
-    vim.api.nvim_win_set_option(preview_win, "winhl", "Normal:TelescopePreviewNormal")
+    vim.api.nvim_set_option_value("winhl", "Normal:TelescopePreviewNormal", { win = preview_win })
     local preview_border_win = preview_opts.border and preview_opts.border.win_id
     if preview_border_win then
-        vim.api.nvim_win_set_option(preview_border_win, "winhl", "Normal:TelescopePromptBorder")
+        vim.api.nvim_set_option_value("winhl", "Normal:TelescopePreviewNormal", { win = preview_border_win })
     end
     local preview_bufnr = vim.api.nvim_win_get_buf(preview_win)
-    pcall(vim.api.nvim_buf_set_option, preview_bufnr, "undolevels", -1)
+    pcall(vim.api.nvim_set_option_value, "undolevels", -1, { buf = preview_bufnr })
 
     state[preview_win] = {
         preview_bufnr = preview_bufnr,
@@ -58,13 +58,13 @@ local function open_preview_window(location)
     local function callback(...)
         vim.api.nvim_win_set_cursor(preview_win, { item.lnum, item.col })
         vim.cmd("norm! zz")
-        pcall(vim.api.nvim_buf_set_option, preview_bufnr, "filetype", "CustomPreview")
-        pcall(vim.api.nvim_buf_set_option, preview_bufnr, "readonly", true)
-        pcall(vim.api.nvim_buf_set_option, preview_bufnr, "undolevels", 1000)
+        pcall(vim.api.nvim_set_option_value, "filetype", "CustomPreview", { buf = preview_bufnr })
+        pcall(vim.api.nvim_set_option_value, "readonly", true, { buf = preview_bufnr })
+        pcall(vim.api.nvim_set_option_value, "undolevels", 1000, { buf = preview_bufnr })
     end
     previewers.buffer_previewer_maker(item.filename, preview_bufnr, { callback = callback })
     if winblend then
-        vim.api.nvim_win_set_option(preview_win, "winblend", winblend)
+        pcall(vim.api.nvim_set_option_value, "winblend", winblend, { win = preview_bufnr })
     end
     vim.cmd(
         string.format(
@@ -181,59 +181,67 @@ local function entry_from_location(opts)
             lnum = entry.lnum,
             col = entry.col,
             text = entry.text,
-            start = entry.start,
-            finish = entry.finish,
             location = location,
         }
     end
 end
+
 -- shamelessly borrowed from telescope.nvim -> lua/telescope/builtin/lsp.lua list_or_jump
 local function open(action, title, opts)
     opts = opts or {}
+    -- This uses buf_request_all under the hood which accept table or function as params
+    -- local params = function(client)
+    --     return vim.lsp.util.make_position_params(0, client.offset_encoding)
+    -- end
+    -- local result, err = vim.lsp.buf_request_sync(0, action, params, opts.timeout or 10000)
+    vim.lsp.buf_request_all(0, action, function(client)
+        return vim.lsp.util.make_position_params(0, client.offset_encoding)
+    end, function(result)
+        -- if err then
+        --     vim.api.nvim_err_writeln("Error when executing " .. action .. " : " .. err)
+        --     return
+        -- end
 
-    local params = vim.lsp.util.make_position_params()
-    local result, err = vim.lsp.buf_request_sync(0, action, params, opts.timeout or 10000)
-
-    if err then
-        vim.api.nvim_err_writeln("Error when executing " .. action .. " : " .. err)
-        return
-    end
-
-    local flattened_results = {}
-    for client_id, server_results in pairs(result) do
-        if server_results.result then
-            -- This need to be suppied to every locations_to_items call.
-            local offset_encoding = vim.lsp.get_client_by_id(client_id).offset_encoding
-            -- textDocument/definition can return Location or Location[]
-            if not vim.tbl_islist(server_results.result) then
-                server_results.result.offset_encoding = offset_encoding
-                vim.list_extend(flattened_results, { server_results.result })
-            else
-                for _, s_result in ipairs(server_results.result) do
-                    s_result.offset_encoding = offset_encoding
+        local flattened_results = {}
+        for client_id, server_results in pairs(result or {}) do
+            if server_results.err then
+                vim.api.nvim_err_writeln("Error when executing " .. action .. " : " .. server_results.err)
+            elseif server_results.result then
+                -- This need to be suppied to every locations_to_items call.
+                local offset_encoding = vim.lsp.get_client_by_id(client_id).offset_encoding
+                -- textDocument/definition can return Location or Location[]
+                if not vim.islist(server_results.result) then
+                    server_results.result.offset_encoding = offset_encoding
+                    vim.list_extend(flattened_results, { server_results.result })
+                else
+                    for _, s_result in ipairs(server_results.result) do
+                        s_result.offset_encoding = offset_encoding
+                    end
+                    vim.list_extend(flattened_results, server_results.result)
                 end
-                vim.list_extend(flattened_results, server_results.result)
             end
         end
-    end
 
-    if #flattened_results == 0 then
-        vim.api.nvim_err_writeln("No result from executing " .. action)
-        return
-    elseif #flattened_results == 1 then
-        open_preview_window(flattened_results[1])
-    else
-        pickers.new(opts, {
-            prompt_title = title,
-            finder = finders.new_table({
-                results = flattened_results,
-                entry_maker = opts.entry_maker or entry_from_location(opts),
-            }),
-            previewer = tconfig.values.qflist_previewer(opts),
-            sorter = tconfig.values.generic_sorter(opts),
-            attach_mappings = attach_mappings,
-        }):find()
-    end
+        if #flattened_results == 0 then
+            vim.api.nvim_err_writeln("No result from executing " .. action)
+            return
+        elseif #flattened_results == 1 then
+            open_preview_window(flattened_results[1])
+        else
+            pickers
+                .new(opts, {
+                    prompt_title = title,
+                    finder = finders.new_table({
+                        results = flattened_results,
+                        entry_maker = opts.entry_maker or entry_from_location(opts),
+                    }),
+                    previewer = tconfig.values.qflist_previewer(opts),
+                    sorter = tconfig.values.generic_sorter(opts),
+                    attach_mappings = attach_mappings,
+                })
+                :find()
+        end
+    end)
 end
 
 -- close floating preview buffer
@@ -292,7 +300,8 @@ local function jump(preview_win, jump_type)
         vim.cmd("vnew")
     end
 
-    vim.lsp.util.jump_to_location(location, location.offset_encoding)
+    vim.lsp.util.show_document(location, location.offset_encoding, { reuse_win = false, focus = true })
+
     vim.cmd("norm! zz")
 end
 

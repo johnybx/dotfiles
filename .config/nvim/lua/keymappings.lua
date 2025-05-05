@@ -171,8 +171,7 @@ end
 
 -- Trouble
 utils.map("n", "<leader>xx", "<cmd>Trouble<CR>", { silent = true })
-utils.map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<CR>", { silent = true })
-utils.map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<CR>", { silent = true })
+utils.map("n", "<leader>xd", "<cmd>Trouble diagnostics<CR>", { silent = true })
 utils.map("n", "<leader>xl", "<cmd>Trouble loclist<CR>", { silent = true })
 utils.map("n", "<leader>xq", "<cmd>Trouble quickfix<CR>", { silent = true })
 utils.map("n", "gR", "<cmd>Trouble lsp_references<CR>", { silent = true })
