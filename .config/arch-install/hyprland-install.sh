@@ -43,6 +43,14 @@ yay -S waybar-git
 # Misc
 yay -S hyprpicker-git
 
-## Screenshots
+# Screenshots
 ## grim -g "$(slurp -d)" - | wl-copy
 yay -S grim slurp wl-clipboard swappy
+
+
+# Polkit
+yay -S hyprpolkitagent-git
+
+
+# Nvidia
+sudo pacman -S nvidia-dkms nvidia-utils egl-wayland libva-nvidia-driver mesa-utils nvidia-settings

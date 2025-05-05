@@ -1,0 +1,2 @@
+#!/bin/bash
+PULSE_SERVER=tcp:127.0.0.1:4713 sudo --preserve-env=XDG_SESSION_TYPE,WAYLAND_DISPLAY,DISPLAY,XDG_RUNTIME_DIR,PULSE_SERVER  -u steam steam

@@ -11,6 +11,7 @@ mkdir -p /snapshots/root
 mkdir -p /snapshots/root-home
 mkdir -p /snapshots/workspace
 mkdir -p /snapshots/jan
+mkdir -p /snapshots/var/lib/pacman
 
 DATE="$(date +%Y-%m-%d)"
 
@@ -19,3 +20,4 @@ btrfs su snapshot /boot /snapshots/boot/"$DATE"
 btrfs su snapshot /root /snapshots/root-home/"$DATE"
 btrfs su snapshot /home/jan/workspace/ /snapshots/workspace/"$DATE"
 btrfs su snapshot /home/jan /snapshots/jan/"$DATE"
+btrfs su snapshot /var/lib/pacman /snapshots/var/lib/pacman/"$DATE"
