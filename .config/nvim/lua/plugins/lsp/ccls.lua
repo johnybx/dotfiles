@@ -5,7 +5,7 @@
 -- espressif llvm fork)
 local util = require("lspconfig.util")
 local function setup(on_attach, capabilities)
-    require("lspconfig")["ccls"].setup({
+    vim.lsp.config("ccls", {
         init_options = {
             compilationDatabaseDirectory = "",
             index = {
@@ -22,6 +22,7 @@ local function setup(on_attach, capabilities)
         },
         root_dir = util.root_pattern("compile_commands.json", ".ccls"),
     })
+    vim.lsp.enable("ccls", true)
 end
 
 M = {

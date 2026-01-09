@@ -84,6 +84,7 @@ return {
                         local sources = {
                             nvim_lsp = "[LSP]",
                             nvim_lua = "[Lua]",
+                            lazydev = "[Lazydev]",
                             path = "[Path]",
                             buffer = "[Buffer]",
                             luasnip = "[LuaSnip]",
@@ -98,6 +99,7 @@ return {
                             cmp_tabnine = "[Tabnine]",
                             codeium = "[Codeium]",
                             cody = "[Cody]",
+                            copilot = "[Copilot]",
                         }
                         if lspkind.symbol_map[vim_item.kind] then
                             vim_item.kind = lspkind.symbol_map[vim_item.kind] .. "  " .. vim_item.kind
@@ -114,18 +116,23 @@ return {
                         luasnip.lsp_expand(args.body)
                     end,
                 },
-                window = { documentation = {
-                    border = "rounded",
-                } },
+                window = {
+                    documentation = {
+                        border = "rounded",
+                        zindex = 101,
+                    },
+                },
                 confirmation = {
                     default_behavior = types.cmp.ConfirmBehavior.Replace,
                 },
                 preselect = types.cmp.PreselectMode.Item,
                 sources = cmp.config.sources({
+                    { name = "copilot" },
                     { name = "codeium" },
                     { name = "cmp_tabnine" },
                     { name = "cody" },
                     { name = "nvim_lsp" },
+                    { name = "lazydev", group_index = 0 },
                     { name = "nvim_lua" },
                     { name = "path" },
                     { name = "vim-dadbod-completion" },
@@ -231,5 +238,18 @@ return {
             "L3MON4D3/LuaSnip",
             "rafamadriz/friendly-snippets",
         },
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        dependencies = { "copilot.lua" },
+        cond = function(...)
+            if os.getenv("ENABLE_COPILOT") then
+                return true
+            end
+            return false
+        end,
+        config = function()
+            require("copilot_cmp").setup()
+        end,
     },
 }

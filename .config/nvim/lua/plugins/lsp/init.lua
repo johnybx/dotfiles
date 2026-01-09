@@ -18,14 +18,14 @@ return {
             event = "LspAttach",
         },
         {
-            "folke/neodev.nvim",
+            "folke/lazydev.nvim",
+            ft = "lua", -- only load on lua files
             opts = {
-                override = function(root_dir, library)
-                    if root_dir:match("/workspace/nvim/") then
-                        library.enabled = true
-                        library.plugins = true
-                    end
-                end,
+                library = {
+                    -- See the configuration section for more details
+                    -- Load luvit types when the `vim.uv` word is found
+                    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                },
             },
         },
     },
@@ -34,13 +34,13 @@ return {
         require("fidget")
         require("plugins.lsp.diagnostic_sign").setup()
         require("plugins.lsp.formatting").setup()
-        -- require("plugins.lsp.fswatch").setup()
 
         local on_attach = require("plugins.lsp.default_on_attach").on_attach
         local capabilities = require("plugins.lsp.capabilities").get()
 
-        -- Lua
-        require("plugins.lsp.neodev").setup(on_attach, capabilities)
+        -- Enable on type formating
+        vim.lsp.on_type_formatting.enable()
+
         -- Yamlls
         require("plugins.lsp.yamlls").setup(on_attach, capabilities)
         -- Ccls
@@ -60,7 +60,9 @@ return {
 
         -- Others
         local servers = {
-            "pyright",
+            "basedpyright",
+            -- "pyrefly",
+            -- "ty",
             "dockerls",
             "bashls",
             "vimls",
@@ -72,10 +74,8 @@ return {
             "eslint",
             "vuels",
             "emmet_language_server",
+            "lua_ls",
         }
         require("plugins.lsp.generic_lsp").setup(servers, on_attach, capabilities)
-
-        -- Setup lsp diagnostics
-        require("plugins.lsp.diagnostics").setup()
     end,
 }

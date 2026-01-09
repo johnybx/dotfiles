@@ -5,7 +5,7 @@ local function setup(on_attach, capabilities)
     -- Disable schema per file # yaml-language-server: $schema=none
     -- In order to disable schemas for files globaly the empty schema can be mapped to
     -- filename e.g. schemas = { [".empty-schema.yaml"] = {"deploy.yaml"} }
-    require("lspconfig").yamlls.setup({
+    vim.lsp.config("yamlls", {
         on_attach = on_attach,
         capabilities = capabilities,
         flags = {
@@ -19,6 +19,7 @@ local function setup(on_attach, capabilities)
             },
         },
     })
+    vim.lsp.enable("yamlls", true)
 end
 
 M = {

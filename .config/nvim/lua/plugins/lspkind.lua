@@ -15,5 +15,7 @@ return {
         lspkind.symbol_map["TabNine"] = "🤖"
         lspkind.symbol_map["Codeium"] = "🤖"
         lspkind.symbol_map["Cody"] = "🤖"
+        lspkind.symbol_map["Copilot"] = ""
+        vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
     end,
 }

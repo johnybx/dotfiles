@@ -1,5 +1,5 @@
 local function setup(on_attach, capabilities)
-    require("lspconfig")["rust_analyzer"].setup({
+    vim.lsp.config("rust_analyzer", {
         cmd = { "rustup", "run", "nightly", "rust-analyzer" },
         on_attach = on_attach,
         capabilities = capabilities,
@@ -7,6 +7,7 @@ local function setup(on_attach, capabilities)
             debounce_text_changes = 150,
         },
     })
+    vim.lsp.enable("rust_analyzer", true)
 end
 
 M = {

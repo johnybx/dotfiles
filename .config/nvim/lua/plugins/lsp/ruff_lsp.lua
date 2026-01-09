@@ -4,10 +4,11 @@ local function setup(on_attach, capabilities)
         on_attach(client, ...)
     end
 
-    require("lspconfig").ruff.setup({
+    vim.lsp.config("ruff", {
         on_attach = _on_attach,
         capabilities = capabilities,
     })
+    vim.lsp.enable("ruff", true)
 end
 
 return {

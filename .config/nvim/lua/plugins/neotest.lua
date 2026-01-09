@@ -37,7 +37,7 @@ return {
         opts = function()
             return {
                 adapters = {
-                    require("neotest-python")({ pytest_discover_instances = true }),
+                    require("neotest-python")({ pytest_discover_instances = true, dap = { justMyCode = false } }),
                     require("neotest-plenary"),
                 },
                 output = { open_on_run = false },

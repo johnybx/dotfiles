@@ -55,9 +55,13 @@ return {
             reviewer = "diffview",
             port = nil,
             open_reviewer_against = "filesystem",
+            keymaps = {
+                discussion_tree = {
+                    toggle_node = "<Tab>",
+                },
+            },
             discussion_tree = {
                 auto_open = false,
-                toggle_node = "<Tab>",
                 position = "bottom",
                 tree_type = "per_filename",
             },

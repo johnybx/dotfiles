@@ -8,6 +8,11 @@ local on_attach = function(client, bufnr)
     -- Disable setting formatexpr=v:lua.vim.lsp.formatexpr()
     -- allow to use built in 'gq' in combination with format on save
     vim.bo[bufnr].formatexpr = nil
+    if client.server_capabilities.inlayHintProvider then
+        vim.defer_fn(function()
+            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end, 500)
+    end
 
     signature_on_attach(bufnr)
     highlight(client)

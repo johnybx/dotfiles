@@ -10,6 +10,7 @@ return {
             "JoosepAlviste/nvim-ts-context-commentstring",
             opts = { enable = true, enable_autocmd = false },
         },
+        "OXY2DEV/markview.nvim",
     },
     config = function()
         require("nvim-treesitter.configs").setup({
