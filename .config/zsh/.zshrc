@@ -23,7 +23,7 @@ esac
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/go/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -231,7 +231,9 @@ alias dxp='sudo bash -c "sleep 2; echo \"type $(wl-paste)\" | dotool"'
 alias vim='nvim'
 alias notes='nvim -c "Neorg workspace notes"'
 alias wnotes='nvim -c "Neorg workspace work"'
-alias btm='btm --theme gruvbox'
+alias btm='btm --theme gruvbox --memory_legend top-left --network_legend top-left'
+alias opencode='docker run --mount type=bind,source="$HOME/.cache/opencode/home/.cache",destination="$HOME/.cache" --mount type=bind,source="$HOME/.cache/opencode/home/.local/state/opencode",destination="$HOME/.local/state/opencode" --mount type=bind,source="$HOME/.cache/opencode/home/.config",destination="$HOME/.config" --mount type=bind,source="$HOME/.cache/opencode/home/.bun",destination="$HOME/.bun"  -e OPENCODE_EXPERIMENTAL=true -v "$HOME/.local/share/opencode":"$HOME/.local/share/opencode" -v "$(pwd)":"$(pwd)" -w "$(pwd)" --user "$(id -u)":"$(id -g)" --add-host host.docker.internal:host-gateway --env-file .env.test -it --rm --name opencode-${PWD##*/}  local-opencode-image'
+alias dollama='OLLAMA_HOST=172.17.0.1:11434 ollama'
 pvim ()
 {
     env_path=""
@@ -259,7 +261,7 @@ gpvim ()
 {
     git rev-parse --is-inside-work-tree 1>/dev/null 2>/dev/null
     if [[ $? == 0 ]]; then
-        GITLAB_TOKEN=$(glab token) pvim $@
+        GITLAB_TOKEN=$(glab api-token) pvim $@
     else
         pvim $@
     fi
@@ -288,4 +290,5 @@ fi
 if [[ -f /usr/share/fzf/completion.zsh ]]; then
     . /usr/share/fzf/completion.zsh 
 fi
+
 

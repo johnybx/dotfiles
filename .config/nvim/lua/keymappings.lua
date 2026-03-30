@@ -117,16 +117,6 @@ utils.map(
 -- ¯\_(ツ)_/¯
 utils.map("i", "<leader>shrug", "¯\\_(ツ)_/¯", { silent = true })
 
--- LSP - TODO: these should be mapped only if there is active LSP
--- Border styl - not really mapping but diagnostics need also style here anyway so at least it is
--- in one place.
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-})
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-})
 --------------------
 utils.map("n", "gD", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", { silent = true })
 utils.map(
@@ -147,8 +137,8 @@ utils.map("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.run()<CR>", { silent = t
 utils.map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
 utils.map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", { silent = true })
 utils.map("v", "<leader>cf", "<ESC><cmd>'<,'>lua vim.lsp.buf.format({async=true})<CR>", { silent = true })
-utils.map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { silent = true })
-utils.map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { silent = true })
+utils.map("n", "K", '<cmd>lua vim.lsp.buf.hover({border = "rounded"})<CR>', { silent = true })
+utils.map("n", "gs", '<cmd>lua vim.lsp.buf.signature_help({border = "rounded"})<CR>', { silent = true })
 utils.map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' }})<CR>", { silent = true })
 utils.map("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded' }})<CR>", { silent = true })
 utils.map(

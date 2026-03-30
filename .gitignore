@@ -7,3 +7,7 @@ venv*
 .envrc
 __pycache__
 *.pyc
+ty.toml
+pyrefly.toml
+AGENTS.md
+.opencode

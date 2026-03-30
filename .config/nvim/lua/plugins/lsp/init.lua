@@ -58,6 +58,9 @@ return {
             require("plugins.lsp.rust-analyzer").setup(on_attach, capabilities)
         end
 
+        -- Helm
+        require("plugins.lsp.helm_lsp").setup(on_attach, capabilities)
+
         -- Others
         local servers = {
             "basedpyright",
@@ -75,6 +78,7 @@ return {
             "vuels",
             "emmet_language_server",
             "lua_ls",
+            "gopls",
         }
         require("plugins.lsp.generic_lsp").setup(servers, on_attach, capabilities)
     end,

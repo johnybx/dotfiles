@@ -19,6 +19,7 @@ return {
         "markdown",
         "markdown.mdx",
         "graphql",
+        "go",
     },
     config = function()
         require("conform").setup({
