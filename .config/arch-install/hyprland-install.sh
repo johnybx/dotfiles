@@ -33,10 +33,13 @@ gsettings set org.gnome.desktop.interface icon-theme Arc
 yay -S waybar
 
 # Login Screen
-./nwg-hello/install.sh
+(
+    cd nwg-hello
+    sudo bash ./install.sh
+)
 
 # Misc
-yay -S hyprpicker
+yay -S hyprpicker xdg-desktop-portal-hyprland hyprpaper hyprpwcenter
 
 # Screenshots
 ## grim -g "$(slurp -d)" - | wl-copy

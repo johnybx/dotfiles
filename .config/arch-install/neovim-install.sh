@@ -1,7 +1,10 @@
 #!/bin/bash
 set -e
 
-yay -S neovim-git tree-sitter-git tree-sitter-cli-git pyright-git bash-language-server lua-language-server shellcheck lua lua51 luarocks ruff-lsp yaml-language-server ccls dockerfile-language-server nodejs-intelephense marksman stylua prettierd emmet-language-server ripgrep vim-language-server
+#yay -S rustup
+#rustup default stable
+
+#yay -S neovim-git tree-sitter-git tree-sitter-cli-git basedpyright bash-language-server lua-language-server shellcheck lua lua51 luarocks ruff-lsp yaml-language-server ccls dockerfile-language-server nodejs-intelephense marksman stylua prettierd emmet-language-server ripgrep vim-language-server
 
 (
 mkdir -p ~/.local/share
@@ -19,7 +22,7 @@ ruff
 ruff-lsp
 pre-commit
 " > requirements.txt
-pip install -r requirements
+pip install -r requirements.txt
 )
 
 sudo mkdir -p /etc/pacman.d/hooks/

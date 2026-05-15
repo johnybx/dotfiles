@@ -12,8 +12,9 @@ echo "archlinux" | tee /etc/hostname
 
 echo "127.0.0.1 localhost
 ::1 localhost
-127.0.1.1 archlinux archlinux.localdomain" | tee -a /etc/host.conf
+127.0.1.1 archlinux archlinux.localdomain" | tee -a /etc/hosts
 
 useradd -G wheel jan
 passwd jan
 sed -i "s/#\+\s*%wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/" /etc/sudoers
+chown jan:jan -R /home/jan
