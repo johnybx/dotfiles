@@ -2,7 +2,7 @@
     "com.github.ulauncher.ulauncher-timer": {
         "id": "com.github.ulauncher.ulauncher-timer",
         "url": "https://github.com/ulauncher/ulauncher-timer",
-        "updated_at": "2024-10-06T14:10:23.797479",
+        "updated_at": "2026-05-15T15:51:46.380307",
         "last_commit": "2d3fe82fe1e38670e6eb8887cd2a4b4d1c2baa79",
         "last_commit_time": "2023-03-25T08:07:41"
     },
@@ -37,22 +37,22 @@
     "com.github.yannishuber.pass-ulauncher": {
         "id": "com.github.yannishuber.pass-ulauncher",
         "url": "https://github.com/yannishuber/pass-ulauncher",
-        "updated_at": "2024-10-06T14:10:31.800849",
+        "updated_at": "2026-05-15T15:51:50.522714",
         "last_commit": "25160ce85e731cf40e30ca1fe354b29c1fe6e494",
         "last_commit_time": "2019-05-28T05:27:22"
     },
     "com.github.brpaz.ulauncher-pwgen": {
         "id": "com.github.brpaz.ulauncher-pwgen",
         "url": "https://github.com/brpaz/ulauncher-pwgen",
-        "updated_at": "2024-10-06T14:10:33.511263",
+        "updated_at": "2026-05-15T15:51:53.888296",
         "last_commit": "96880bb135720cae1ad039b6635062a9e285ca71",
         "last_commit_time": "2021-12-12T15:47:59"
     },
     "com.github.ulauncher.ulauncher-emoji": {
         "id": "com.github.ulauncher.ulauncher-emoji",
         "url": "https://github.com/Ulauncher/ulauncher-emoji",
-        "updated_at": "2024-10-06T14:10:38.213142",
-        "last_commit": "827cfe5e1d2f89f742f811f981759787b0654fa9",
-        "last_commit_time": "2023-11-04T18:37:13"
+        "updated_at": "2026-05-15T15:52:15.427954",
+        "last_commit": "195d167ea0cfdbb2169906b5acaac8097db84767",
+        "last_commit_time": "2025-10-05T04:07:23"
     }
 }

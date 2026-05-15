@@ -14,7 +14,6 @@ return {
             "hrsh7th/cmp-nvim-lsp-document-symbol",
             "f3fora/cmp-spell",
             "rcarriga/cmp-dap",
-            "tzachar/cmp-tabnine",
             "saadparwaiz1/cmp_luasnip",
         },
         config = function()
@@ -96,7 +95,6 @@ return {
                             spell = "[Spell]",
                             dap = "[Dap]",
                             neorg = "[Neorg]",
-                            cmp_tabnine = "[Tabnine]",
                             codeium = "[Codeium]",
                             cody = "[Cody]",
                             copilot = "[Copilot]",
@@ -129,7 +127,6 @@ return {
                 sources = cmp.config.sources({
                     { name = "copilot" },
                     { name = "codeium" },
-                    { name = "cmp_tabnine" },
                     { name = "cody" },
                     { name = "nvim_lsp" },
                     { name = "lazydev", group_index = 0 },
@@ -203,27 +200,6 @@ return {
     { "hrsh7th/cmp-nvim-lsp-document-symbol" },
     { "f3fora/cmp-spell" },
     { "rcarriga/cmp-dap" },
-    {
-        "tzachar/cmp-tabnine",
-        build = "./install.sh",
-        cond = false,
-        config = function()
-            local tabnine = require("cmp_tabnine.config")
-            tabnine:setup({
-                max_lines = 1000,
-                max_num_results = 20,
-                sort = true,
-                run_on_every_keystroke = true,
-                snippet_placeholder = "..",
-                ignored_file_types = {
-                    -- default is not to ignore
-                    -- uncomment to ignore in lua:
-                    -- lua = true
-                },
-                show_prediction_strength = false,
-            })
-        end,
-    },
     -- {
     --     "Exafunction/codeium.nvim",
     --     dependencies = {
