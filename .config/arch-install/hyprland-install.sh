@@ -1,12 +1,7 @@
 #!/bin/bash
 set -e
 
-# Install these packages before aquamarine dependencies otherwise non git packages will be
-# installed and conflict with hyprland-git
-yay -S hyprutils-git hyprwayland-scanner-git
-yay -S aquamarine-git
-yay -S hyprland-git
-yay -S xdg-desktop-portal-hyprland-git
+yay -S hyprland
 sudo pacman -S qt5-wayland qt6-wayland
 
 # Launcher
@@ -19,7 +14,7 @@ sudo pacman -S copyq
 sudo pacman -S swaync
 
 # Lock Screen
-yay -S hyprlock-git hypridle-git
+yay -S hyprlock hypridle
 
 # Hyprcursor theme
 # For GTK apps update /usr/share/icons/default/index.theme
@@ -35,13 +30,13 @@ gsettings set org.gnome.desktop.interface gtk-theme Arc-Dark
 gsettings set org.gnome.desktop.interface icon-theme Arc
 
 # Status bar
-yay -S waybar-git
+yay -S waybar
 
 # Login Screen
 ./nwg-hello/install.sh
 
 # Misc
-yay -S hyprpicker-git
+yay -S hyprpicker
 
 # Screenshots
 ## grim -g "$(slurp -d)" - | wl-copy
@@ -49,7 +44,7 @@ yay -S grim slurp wl-clipboard swappy
 
 
 # Polkit
-yay -S hyprpolkitagent-git
+yay -S hyprpolkitagent
 
 
 # Nvidia
