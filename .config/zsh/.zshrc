@@ -1,22 +1,17 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-
 case $(tty) in
     /dev/tty[0-9])
-        ZSH_THEME="random"
+        ZSH_THEME="afowler"
     ;;
     *)
+        # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+        # Initialization code that may require console input (password prompts, [y/n]
+        # confirmations, etc.) must go above this block; everything else may go below.
         if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
         source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
         fi
+        ZSH_THEME="powerlevel10k/powerlevel10k"
         # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
         [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-        # Set name of the theme to load --- if set to "random", it will
-        # load a random theme each time oh-my-zsh is loaded, in which case,
-        # to know which specific one was loaded, run: echo $RANDOM_THEME
-        # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-        ZSH_THEME="powerlevel10k/powerlevel10k"
     ;;
 esac
 
@@ -101,15 +96,16 @@ plugins=(
     zsh-completions
     zsh-autosuggestions
     command-not-found
+    fzf
 )
 
-if type poetry &> /dev/null; then
+if [[ $commands[poetry] ]] &> /dev/null; then
     plugins+=(poetry)
 fi
 
 source $ZSH/oh-my-zsh.sh
 
-if type poetry &> /dev/null; then
+if [[ $commands[poetry] ]] &> /dev/null; then
     if [[ ! -d $ZSH_CUSTOM/plugins/poetry ]]; then
         mkdir -p $ZSH_CUSTOM/plugins/poetry
     fi
@@ -117,6 +113,10 @@ if type poetry &> /dev/null; then
     if [[ ! -f $ZSH_CUSTOM/plugins/poetry/_poetry ]] || [[ $(date -r $ZSH_CUSTOM/plugins/poetry/_poetry +%s) < $(date --date="7 days ago" +%s) ]]; then
         poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
     fi
+fi
+
+if [[ $commands[fzf] ]] &> /dev/null; then
+    source <(fzf --zsh)
 fi
 
 # User configuration
@@ -152,7 +152,8 @@ HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt autocd extendedglob nomatch ksh_arrays
+setopt autocd extendedglob nomatch 
+setopt noksh_arrays # ksh_arrays breaks fzf reverse search
 unsetopt beep notify
 bindkey -v
 zstyle :compinstall filename '~/.config/zsh/.zshrc'
@@ -180,12 +181,12 @@ zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # History search
-bindkey "^R" history-incremental-pattern-search-backward
+#bindkey "^R" history-incremental-pattern-search-backward
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "^[[A" history-beginning-search-backward-end
-bindkey "^[[B" history-beginning-search-forward-end
+#bindkey "^[[A" history-beginning-search-backward-end
+#bindkey "^[[B" history-beginning-search-forward-end
 
 # SSH Agent
 # If not running interactively, don't do anything
@@ -282,13 +283,4 @@ else
 fi
 
 export QT_QPA_PLATFORMTHEME=qt5ct
-
-if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
-    . /usr/share/fzf/key-bindings.zsh
-fi
-
-if [[ -f /usr/share/fzf/completion.zsh ]]; then
-    . /usr/share/fzf/completion.zsh 
-fi
-
 
