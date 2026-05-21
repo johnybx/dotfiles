@@ -24,7 +24,7 @@ gsettings set org.gnome.desktop.interface cursor-theme 'BreezeX-RosePine-Linux'
 gsettings set org.gnome.desktop.interface cursor-size 24
 
 # GTK-* theme
-yay -S arc-gtk-theme
+yay -S arc-gtk-theme arc-icon-theme
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface gtk-theme Arc-Dark
 gsettings set org.gnome.desktop.interface icon-theme Arc
