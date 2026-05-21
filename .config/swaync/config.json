@@ -11,7 +11,7 @@
   "control-center-positionX": "right",
   "control-center-positionY": "center",
   "fit-to-screen": true,
-  "hide-on-action": false,
+  "hide-on-action": true,
   "hide-on-clear": true,
   "image-visibility": "when-available",
   "keyboard-shortcuts": true,
