@@ -7,3 +7,5 @@ sudo cp ./hyprland.desktop /usr/share/wayland-sessions/hyprland.desktop
 sudo cp ./hyprland-custom.lua /etc/nwg-hello/
 sudo cp ./nwg-hello.json /etc/nwg-hello/
 
+sudo systemctl enable greetd.service
+

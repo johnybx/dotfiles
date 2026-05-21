@@ -9,6 +9,12 @@ hl.monitor({
 	position = "auto",
 	scale = "auto",
 })
+hl.monitor({
+	output = "desc:Sharp Corporation 0x14D1",
+	mode = "preferred",
+	position = "auto",
+	scale = 1,
+})
 
 hl.bind("ALT + Q", hl.dsp.window.close())
 
