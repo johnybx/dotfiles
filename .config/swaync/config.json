@@ -35,11 +35,9 @@
       "buttons-per-row": 5,
       "actions": [
         {
-          "active": false,
           "command": "notify-send 'hey' 'we have a notification!'",
           "label": "✉",
-          "type": "button",
-          "update_command": "notify-send 'Hi'"
+          "type": "button"
         },
         {
           "active": false,
@@ -48,19 +46,17 @@
           "type": "toggle"
         },
         {
-          "active": false,
           "command": "hyprctl eval 'hl.plugin.hyprcapture.open(\"window\")'",
           "label": "󰄀",
           "type": "button"
         },
         {
           "active": false,
-          "command": "hyprctl eval 'hl.plugin.hyprcapture.record_toggle()'",
+          "command": "hyprctl eval 'hl.plugin.hyprcapture.record_toggle(\"window\")'",
           "label": "󰕧",
           "type": "toggle"
         },
         {
-          "active": false,
           "command": "swaync-client -t",
           "label": "",
           "type": "button"
@@ -78,5 +74,5 @@
     }
   },
 
-  "widgets": ["title", "notifications", "buttons-grid", "mpris"]
+  "widgets": ["title", "buttons-grid", "notifications", "mpris"]
 }
