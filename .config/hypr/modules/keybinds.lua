@@ -43,11 +43,11 @@ for i = 1, 10 do
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
--- Move workspace to monitor TODO
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.workspace.move({ monitor = "left" }))
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.workspace.move({ monitor = "right" }))
-hl.bind(mainMod .. " + CTRL + J", hl.dsp.workspace.move({ monitor = "down" }))
-hl.bind(mainMod .. " + CTRL + K", hl.dsp.workspace.move({ monitor = "up" }))
+-- Move workspace to monitor
+hl.bind(mainMod .. " + CTRL + H", hl.dsp.workspace.move({ monitor = "l" }))
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.workspace.move({ monitor = "r" }))
+hl.bind(mainMod .. " + CTRL + J", hl.dsp.workspace.move({ monitor = "d" }))
+hl.bind(mainMod .. " + CTRL + K", hl.dsp.workspace.move({ monitor = "u" }))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
