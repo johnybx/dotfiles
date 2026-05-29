@@ -57,6 +57,7 @@
       "class<virt-manager> title<.*QEMU.*>": "",
       "class<com-eteks-sweethome3d-SweetHome3D>": "󱅙",
       "class<vesktop>": "",
+      "class<signal>": "",
       // 󱎓
     },
   },
