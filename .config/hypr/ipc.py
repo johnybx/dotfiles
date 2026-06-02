@@ -7,6 +7,26 @@ import re
 import subprocess
 
 MONITORS = ["Dell Inc. DELL P3421W GXHBJ53"]
+WINDOW_ACTIVE_STATE: dict[str, bool] = {}
+NOTES_TITLE = "kitty-notes"
+NOTES_SOCKET = f"/tmp/{NOTES_TITLE}"
+
+
+def on_activewindow(match: re.Match[str]):
+    if match["windowtitle"] == NOTES_TITLE:
+        WINDOW_ACTIVE_STATE[NOTES_TITLE] = True
+    elif WINDOW_ACTIVE_STATE.get(NOTES_TITLE, False):
+        _ = subprocess.call(
+            args=[
+                "kitten",
+                "@",
+                "--to",
+                "unix:/tmp/kitty-notes",
+                "send-text",
+                r":wqa\r",
+            ]
+        )
+        WINDOW_ACTIVE_STATE[NOTES_TITLE] = False
 
 
 def on_monitor_added(match: re.Match[str]):
@@ -27,7 +47,11 @@ HANDLERS = [
             r"^monitoraddedv2>>(?P<monitor_id>.*?),(?P<monitor_name>.*?),(?P<monitor_desc>.*)$"
         ),
         on_monitor_added,
-    )
+    ),
+    (
+        re.compile(r"^activewindow>>(?P<window_class>.*?),(?P<windowtitle>.*?)$"),
+        on_activewindow,
+    ),
 ]
 
 

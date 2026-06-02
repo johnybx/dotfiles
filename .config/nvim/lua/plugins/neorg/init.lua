@@ -14,6 +14,9 @@ return {
         load = {
             ["core.defaults"] = {}, -- Loads default behaviour
             ["core.export"] = {}, -- Loads default behaviour
+            ["core.export.markdown"] = {
+                config = { extensions = "all" },
+            },
             ["core.concealer"] = {}, -- Adds pretty icons to your documents
             ["core.presenter"] = {
                 config = {

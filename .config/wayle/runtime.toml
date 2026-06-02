@@ -1,0 +1,131 @@
+[general]
+font-sans = "SauceCodePro Nerd Font Propo"
+font-mono = "SauceCodePro Nerd Font Mono"
+
+[bar]
+inset-edge = 0.25
+padding = 0.0
+padding-ends = 0.25
+module-gap = 0.3499999940395355
+bg = "transparent"
+button-variant = "basic"
+button-bg-opacity = 70
+button-icon-size = 0.699999988079071
+button-label-size = 0.8500000238418579
+button-rounding = "full"
+button-border-width = 0
+button-group-module-gap = 0.0
+button-group-background = "bg-surface"
+button-group-opacity = 70
+button-group-rounding = "full"
+
+[[bar.layout]]
+monitor = "*"
+show = true
+left = [
+    "weather",
+    "hyprland-workspaces",
+    "cava",
+    { name = "settings", modules = [
+    "brightness",
+    "volume",
+    "microphone",
+] },
+]
+center = ["clock"]
+right = [
+    "systray",
+    { name = "stats", modules = [
+    "ram",
+    "cpu",
+    "storage",
+    "battery",
+] },
+    "network",
+    "notifications",
+    "dashboard",
+]
+
+[styling]
+rounding = "lg"
+matugen-scheme = "vibrant"
+
+[styling.palette]
+surface = "#1b1b1d"
+green = "#91b884"
+
+[modules.battery]
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[modules.brightness]
+label-color = "fg-default"
+
+[modules.clock]
+format = "%H:%M, %a, %b %d, %Y"
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[modules.cpu]
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[modules.dashboard]
+icon-color = "status-info"
+
+[modules.hyprland-workspaces]
+show-special = false
+app-icons-show = true
+icon-size = 0.75
+label-size = 0.8500000238418579
+active-indicator = "underline"
+active-color = "green"
+
+[modules.microphone]
+icon-color = "fg-default"
+label-color = "fg-default"
+scroll-up = "wayle audio input-volume +1"
+scroll-down = "wayle audio input-volume -1"
+
+[modules.network]
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-show = false
+label-color = "fg-default"
+label-max-length = 0
+
+[modules.notifications]
+icon-color = "status-warning"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[modules.ram]
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[modules.storage]
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+
+[modules.systray]
+item-gap = 0.30000001192092896
+
+[modules.volume]
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+scroll-up = "wayle audio output-volume +1"
+scroll-down = "wayle audio output-volume -1"
+
+[modules.weather]
+location = "Bratislava"
+icon-color = "status-info"
+label-color = "fg-default"
+
+[wallpaper]
+cycling-directory = "~/.config/hypr/wallpaper/"

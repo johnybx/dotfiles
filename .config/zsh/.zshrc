@@ -97,6 +97,7 @@ plugins=(
     zsh-autosuggestions
     command-not-found
     fzf
+    fzf-tab
 )
 
 if [[ $commands[poetry] ]] &> /dev/null; then

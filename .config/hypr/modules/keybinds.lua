@@ -11,11 +11,16 @@ hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exit())
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + M", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind("CTRL + ALT + F", hl.dsp.exec_cmd("copyq toggle"))
-hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("swaync-client -t -sw"))
+hl.bind(
+	mainMod .. " + N",
+	hl.dsp.exec_cmd(
+		"kitty -o allow_remote_control=yes --listen-on unix:/tmp/kitty-notes --title kitty-notes nvim ~/workspace/neorg/notes/TODO.norg"
+	)
+)
 hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("loginctl lock-session"))
 hl.bind("PRINT", hl.dsp.exec_cmd('grim -t png -g "$(slurp -d)" - | wl-copy'))
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd('grim -t png -g "$(slurp -d)" - | swappy -f -'))

@@ -21,49 +21,44 @@ hl.window_rule({
 hl.window_rule({
 	name = "size-copyq",
 	match = { class = "com.github.hluk.copyq" },
-	size = "50% 70%",
+	size = { "(monitor_w*0.5)", "(monitor_h*0.7)" },
 })
 
 hl.window_rule({
 	name = "opacity-copyq",
 	match = { class = "com.github.hluk.copyq" },
-	opacity = 0.9,
+	opacity = "0.9 override",
 })
 
 hl.window_rule({
 	name = "opacity-slack",
-	match = { class = "Slack" },
-	opacity = 0.95,
+	match = { class = "slack" },
+	opacity = "0.95 override",
 })
 
 hl.window_rule({
 	name = "opacity-spotify",
 	match = { class = "spotify" },
-	opacity = 0.95,
+	opacity = "0.95 override",
 })
 
 hl.window_rule({
 	name = "opacity-spotube",
 	match = { class = "Spotube" },
-	opacity = 0.95,
+	opacity = "0.95 override",
 })
 
 hl.window_rule({
 	name = "opacity-ulauncher",
 	match = { class = "ulauncher" },
-	opacity = 0.95,
-})
-
-hl.window_rule({
-	name = "firefox-pip-no-focus",
-	match = { class = "firefox", title = "Picture-in-Picture" },
-	focus_on_activate = false,
+	opacity = "0.95 override",
 })
 
 hl.window_rule({
 	name = "firefox-pip-opacity",
 	match = { class = "firefox", title = "Picture-in-Picture" },
-	opacity = 1.0,
+	focus_on_activate = false,
+	opacity = "1.0 override",
 })
 
 hl.window_rule({
@@ -80,4 +75,13 @@ hl.window_rule({
 		title = "win[0-9]+",
 	},
 	no_focus = true,
+})
+
+hl.window_rule({
+	name = "kitty-notes",
+	match = { title = "kitty-notes" },
+	size = { "monitor_w * 0.4", "monitor_h * 0.5" },
+	border_size = 0,
+	float = true,
+	opacity = "1.0 override",
 })
