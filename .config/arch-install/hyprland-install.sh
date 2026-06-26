@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-yay -S hyprland
+sudo pacman -S hyprland
 sudo pacman -S qt5-wayland qt6-wayland
 
 # Launcher
@@ -14,7 +14,7 @@ sudo pacman -S copyq
 sudo pacman -S swaync
 
 # Lock Screen
-yay -S hyprlock hypridle
+sudo pacman -S hyprlock hypridle
 
 # Hyprcursor theme
 # For GTK apps update /usr/share/icons/default/index.theme
@@ -39,15 +39,15 @@ yay -S waybar
 )
 
 # Misc
-yay -S hyprpicker xdg-desktop-portal-hyprland hyprpaper hyprpwcenter
+sudo pacman -S hyprpicker xdg-desktop-portal-hyprland hyprpaper hyprpwcenter
 
 # Screenshots
 ## grim -g "$(slurp -d)" - | wl-copy
-yay -S grim slurp wl-clipboard swappy
+sudo pacman -S grim slurp wl-clipboard swappy
 
 
 # Polkit
-yay -S hyprpolkitagent
+sudo pacman -S hyprpolkitagent
 
 
 # Nvidia

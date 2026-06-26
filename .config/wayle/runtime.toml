@@ -61,6 +61,8 @@ label-color = "fg-default"
 
 [modules.brightness]
 label-color = "fg-default"
+scroll-up = "brightnessctl -d intel_backlight -q set 1%+"
+scroll-down = "brightnessctl -d intel_backlight -q set 1%-"
 
 [modules.clock]
 format = "%H:%M, %a, %b %d, %Y"
