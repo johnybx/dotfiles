@@ -46,6 +46,7 @@ local supported_languages = {
     "vue",
     "yaml",
     "helm",
+    "terraform",
 }
 
 return {

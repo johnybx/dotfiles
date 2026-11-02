@@ -60,6 +60,8 @@ return {
 
         -- Helm
         require("plugins.lsp.helm_lsp").setup(on_attach, capabilities)
+        -- Tofu ls
+        require("plugins.lsp.tofu_lsp").setup(on_attach, capabilities)
 
         -- Others
         local servers = {

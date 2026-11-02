@@ -235,6 +235,17 @@ alias notes='nvim -c "Neorg workspace notes"'
 alias wnotes='nvim -c "Neorg workspace work"'
 alias btm='btm --theme gruvbox --memory_legend top-left --network_legend top-left'
 alias opencode='docker run --mount type=bind,source="$HOME/.cache/opencode/home/.cache",destination="$HOME/.cache" --mount type=bind,source="$HOME/.cache/opencode/home/.local/state/opencode",destination="$HOME/.local/state/opencode" --mount type=bind,source="$HOME/.cache/opencode/home/.config",destination="$HOME/.config" --mount type=bind,source="$HOME/.cache/opencode/home/.bun",destination="$HOME/.bun"  -e OPENCODE_EXPERIMENTAL=true -v "$HOME/.local/share/opencode":"$HOME/.local/share/opencode" -v "$(pwd)":"$(pwd)" -w "$(pwd)" --user "$(id -u)":"$(id -g)" --add-host host.docker.internal:host-gateway --env-file .env.test -it --rm --name opencode-${PWD##*/}  local-opencode-image'
+alias claude='docker run \
+  -v "$HOME/.local/state/.claude":"$HOME/.claude" \
+  -v "$HOME/.local/state/.claude.json":"$HOME/.claude.json" \
+  -v "$HOME/.cache/claude/.cache":"$HOME/.cache" \
+  -v "$(pwd)":"$(pwd)" \
+  -w "$(pwd)" \
+  --user "$(id -u)":"$(id -g)" \
+  --add-host host.docker.internal:host-gateway \
+  --env-file .env.test \
+  -it --rm --name claude-code-${PWD##*/} \
+  local-claude-code-image'
 alias dollama='OLLAMA_HOST=172.17.0.1:11434 ollama'
 pvim ()
 {
@@ -272,6 +283,20 @@ gpvim ()
 if [ -f $HOME/.local/share/aliases.sh ]; then
     source $HOME/.local/share/aliases.sh
 fi
+
+if [ -f $HOME/.local/share/google-cloud-sdk/completion.zsh.inc ]; then
+    source $HOME/.local/share/google-cloud-sdk/completion.zsh.inc
+fi
+
+if [ -f $HOME/.local/share/google-cloud-sdk/path.zsh.inc ]; then
+    source $HOME/.local/share/google-cloud-sdk/path.zsh.inc
+fi
+
+alias gcca='gcloud config configurations activate'
+alias gccl='gcloud config configurations list'
+alias gcal='gcloud auth login'
+alias gcaal='gcloud auth application-default login'
+alias gcap='gcloud auth print-access-token'
 
 # editor
 

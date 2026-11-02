@@ -85,3 +85,9 @@ hl.window_rule({
 	float = true,
 	opacity = "1.0 override",
 })
+
+-- hl.on("window.title", function(w)
+-- 	if w ~= nil and string.find(w.title, "Bitwarden Password Manager") ~= nil then
+-- 		hl.dispatch(hl.dsp.window.float({ action = "set", w }))
+-- 	end
+-- end)

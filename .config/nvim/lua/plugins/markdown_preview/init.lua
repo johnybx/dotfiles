@@ -1,24 +1,14 @@
-vim.g.mkdp_echo_preview_url = 0
-vim.g.mkdp_open_ip = "127.0.0.1"
-vim.g.mkdp_port = "9999"
-vim.g.mkdp_browserfunc = "MarkdownPreviewBrowserStart"
-
-vim.api.nvim_exec2(
-    [[
-function! MarkdownPreviewBrowserStart(url)
-    call v:lua.require'plugins.markdown_preview.open'.open_browser(a:url)
-endfunction
-]],
-    { output = false }
-)
-
 return {
-    "iamcco/markdown-preview.nvim",
-    ft = "markdown",
-    build = function()
-        vim.fn["mkdp#util#install"]()
-    end,
+    "selimacerbas/markdown-preview.nvim",
+    dependencies = { "selimacerbas/live-server.nvim" },
     config = function()
-        vim.fn["mkdp#util#install"]()
+        require("markdown_preview").setup({
+            -- all optional; sane defaults shown
+            instance_mode = "takeover", -- "takeover" (one tab) or "multi" (tab per instance)
+            port = 0, -- 0 = auto (8421 for takeover, OS-assigned for multi)
+            open_browser = true,
+            default_theme = "dark", -- "dark" or "light"; initial preview theme
+            debounce_ms = 300,
+        })
     end,
 }

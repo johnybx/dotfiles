@@ -9,14 +9,14 @@ if hl.plugin.hyprcapture then
 	hl.config({
 		plugin = {
 			hyprcapture = {
-				default_mode = "region",
-				fusion_mode = true,
-				confirm_before_capture = false,
-				fullscreen_scope = "per-monitor",
-				window_background = "follow-system",
-				save = true,
-				clipboard = true,
-				show_thumbnail = true,
+				-- default_mode = "region",
+				-- fusion_mode = true,
+				-- confirm_before_capture = false,
+				-- fullscreen_scope = "per-monitor",
+				-- window_background = "follow-system",
+				-- save = true,
+				-- clipboard = true,
+				-- show_thumbnail = true,
 				save_dir = screenshot_folder,
 				record_save_dir = recording_folder,
 			},

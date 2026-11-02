@@ -24,6 +24,10 @@ hl.bind(
 hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("loginctl lock-session"))
 hl.bind("PRINT", hl.dsp.exec_cmd('grim -t png -g "$(slurp -d)" - | wl-copy'))
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd('grim -t png -g "$(slurp -d)" - | swappy -f -'))
+-- Module keybinds
+if hl.plugin.hyprcapture then
+	hl.bind(mainMod .. " + W", hl.plugin.hyprcapture.open)
+end
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))

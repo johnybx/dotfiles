@@ -182,12 +182,6 @@ utils.map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { silent = true })
 -- Gitsigns
 utils.map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>")
 
--- Markdown preview
-utils.map("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>")
-
--- Markdown Glow
-utils.map("n", "<leader>mg", "<cmd>Glow<CR>")
-
 -- Tests / Debug
 -- Neotest
 utils.map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>', { remap = true })

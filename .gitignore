@@ -11,3 +11,6 @@ ty.toml
 pyrefly.toml
 AGENTS.md
 .opencode
+scratchpad
+pyrightconfig.json
+.sql-formatter.json

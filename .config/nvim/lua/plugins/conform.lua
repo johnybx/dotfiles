@@ -20,6 +20,7 @@ return {
         "markdown.mdx",
         "graphql",
         "go",
+        "sql",
     },
     config = function()
         require("conform").setup({
@@ -50,6 +51,7 @@ return {
                 ["markdown.mdx"] = { "prettierd", "prettier", stop_after_first = true },
                 graphql = { "prettierd", "prettier", stop_after_first = true },
                 go = { "goimports", "gofmt" },
+                sql = { "sql_formatter" },
             },
         })
     end,
